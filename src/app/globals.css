@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #b98e71;
+  --secondary-color: #f5f0ea;
+  --accent-color: #9a725f;
+  --text-color: #333333;
+  --light-color: #ffffff;
+  --dark-color: #212121;
+  --background-color: #f9f9f9;
+  --border-color: #e0e0e0;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Mobile responsive font sizes */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Handle mobile overflow */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.section {
+  @apply py-12 md:py-16 lg:py-20;
+}
+
+.section-title {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 md:mb-4;
+}
+
+.section-subtitle {
+  @apply text-base sm:text-lg text-gray-600 text-center max-w-3xl mx-auto mb-6 md:mb-8;
+}
+
+/* Responsive grid layouts */
+.responsive-grid-2 {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8;
+}
+
+.responsive-grid-3 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8;
+}
+
+.responsive-grid-4 {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8;
+}
+
+.btn {
+  @apply px-4 sm:px-6 py-2 rounded-md font-medium transition-all duration-300 text-center whitespace-nowrap;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-accent;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-text hover:bg-secondary/80;
+}
+
+.btn-outline {
+  @apply bg-transparent border border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+/* Mobile button group */
+.btn-group-responsive {
+  @apply flex flex-col sm:flex-row gap-3 sm:gap-4;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Hover Effects */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* AOS custom animation duration */
+[data-aos] {
+  transition-duration: 800ms;
+}
+
+/* Responsive spacings */
+.mb-responsive {
+  @apply mb-8 md:mb-12 lg:mb-16;
+}
+
+.mt-responsive {
+  @apply mt-8 md:mt-12 lg:mt-16;
+}
+
+.py-responsive {
+  @apply py-8 md:py-12 lg:py-16;
+}
+
+.px-responsive {
+  @apply px-4 sm:px-6 md:px-8;
+}
+
+/* Responsive image heights */
+.img-h-responsive-sm {
+  @apply h-[200px] sm:h-[250px] md:h-[300px];
+}
+
+.img-h-responsive-md {
+  @apply h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px];
+}
+
+.img-h-responsive-lg {
+  @apply h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px];
+}
+
+/* Improved mobile text alignment */
+.text-center-mobile {
+  @apply text-center sm:text-left;
+}
+
+/* Responsive paddings for hero sections */
+.hero-padding {
+  @apply pt-20 pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20;
+}
+
+/* Custom tooltip using data-tooltip attribute */
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--dark-color);
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  text-align: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(50%) rotate(45deg);
+  margin-bottom: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--dark-color);
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before,
+[data-tooltip]:focus::after,
+[data-tooltip]:focus::before,
+[data-tooltip]:active::after,
+[data-tooltip]:active::before {
+  opacity: 1;
+  visibility: visible;
+}
