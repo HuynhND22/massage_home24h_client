@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
         serif: ['var(--font-playfair)', 'serif'],
+        garamond: ['EB Garamond', 'serif'],
       },
       colors: {
         primary: 'var(--primary-color)',

@@ -7,6 +7,8 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaMapMarkerAlt, FaPhone, FaRegClock, FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import '@fontsource/eb-garamond';
+import HeroCarousel from '@/components/layout/HeroCarousel';
 
 export default function Home() {
   useEffect(() => {
@@ -17,18 +19,37 @@ export default function Home() {
       mirror: false
     });
   }, []);
+
+const slides = [
+  {
+    image: '/images/home-background.jpeg',
+    title: 'Massage Home24h',
+    description: 'Trải nghiệm dịch vụ massage cao cấp và thư giãn',
+  },
+  {
+    image: '/images/testimage.jpg',
+    title: 'Không gian thư giãn',
+    description: 'Môi trường sang trọng và yên tĩnh để bạn tái tạo năng lượng',
+  },
+  {
+    image: '/images/testimage.jpg',
+    title: 'Không gian thư giãn',
+    description: 'Môi trường sang trọng và yên tĩnh để bạn tái tạo năng lượng',
+  },
+];
+
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] md:h-[90vh] overflow-hidden">
+      {/* <section className="relative min-h-[80vh] md:h-[90vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image 
-            src="/images/testimage.jpg" 
-            alt="Renew Day Spa"
+            src="/images/home-background.jpeg" 
+            alt="Massage Home24h"
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover brightness-75 md:brightness-75 transition-all duration-700 ease-in-out"
           />
           <motion.div 
             initial={{ opacity: 0 }}
@@ -43,9 +64,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-garamond font-bold"
           >
-            <span className="text-primary">Renew</span> Day Spa
+            <span className="text-primary">Massage</span> Home24h
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
@@ -53,14 +74,14 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-xl md:max-w-2xl px-4"
           >
-            Trải nghiệm dịch vụ spa cao cấp và thư giãn tuyệt đối
+            Trải nghiệm dịch vụ massage cao cấp và thư giãn
           </motion.p>
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full max-w-md mx-auto px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full max-w-md mx-auto px-4 sm:px-0 "
           >
             <Link 
               href="/contact" 
@@ -82,15 +103,15 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-8 md:mt-12 lg:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-10 text-xs sm:text-sm"
+            className="mt-8 md:mt-12 lg:mt-16 flex flex-col sm:flex-row items-start justify-center gap-4 sm:gap-6 md:gap-10 text-xs sm:text-sm backdrop-blur-md rounded-lg shadow-lg bg-white/10 backdrop-filter backdrop-blur-md p-4 sm:p-2 lg:p-2 text-light"
           >
             <div className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-primary" />
-              <span>123 Nguyễn Huệ, Q1, TP.HCM</span>
+              <span>12D An Mỹ 2, Tp.Đà Nẵng </span>
             </div>
             <div className="flex items-center gap-2">
               <FaPhone className="text-primary" />
-              <a href="tel:+842122279488" className="hover:text-primary transition-colors">+84 212-227-9488</a>
+              <a href="tel:+842122279488" className="hover:text-primary transition-colors text-white">+84 9999 333 444</a>
             </div>
             <div className="flex items-center gap-2">
               <FaRegClock className="text-primary" />
@@ -98,19 +119,21 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+
+      <HeroCarousel slides={slides} />
       
       {/* Introduction Section */}
       <section className="section bg-background px-responsive">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-full md:w-1/2" data-aos="fade-right">
-              <h2 className="section-title text-center md:text-left mb-6">Chào mừng đến với Renew Day Spa</h2>
+              <h2 className="section-title text-center md:text-left mb-6 font-garamond font-bold">Chào mừng đến với Massage <span className="text-primary">Home24h</span></h2>
               <p className="mb-4 md:mb-6 text-base sm:text-lg">
-                Renew Day Spa là nơi bạn có thể tìm thấy sự thư giãn và trẻ hóa hoàn hảo. Với đội ngũ chuyên gia giàu kinh nghiệm và không gian sang trọng, chúng tôi cam kết mang đến cho bạn những trải nghiệm spa tuyệt vời nhất.
+                Massage Home24h là nơi bạn có thể tìm thấy sự thư giãn và trẻ hóa hoàn hảo. Với đội ngũ chuyên gia giàu kinh nghiệm và không gian sang trọng, chúng tôi cam kết mang đến cho bạn những trải nghiệm spa tuyệt vời nhất.
               </p>
               <p className="mb-6 md:mb-8 text-base">
-                Các dịch vụ của chúng tôi được thiết kế để làm dịu tâm hồn, phục hồi cơ thể và làm trẻ hóa làn da của bạn. Hãy để Renew Day Spa trở thành điểm đến cho sự thư giãn và làm đẹp của bạn.
+                Các dịch vụ của chúng tôi được thiết kế để làm dịu tâm hồn, phục hồi cơ thể và làm tan biến mọi mệt mỏi. Hãy để Massage Home24h trở thành điểm đến cho sự thư giãn và làm đẹp của bạn.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 md:mb-0 max-w-sm">
                 <Link href="/about" className="btn btn-secondary flex items-center justify-center gap-2">
@@ -194,12 +217,12 @@ export default function Home() {
             </div>
             
             {/* Massage Services */}
-            <div className="bg-white shadow-sm overflow-hidden rounded-md border border-primary relative mt-5" data-aos="fade-up">
-              <div className="absolute -top-4 right-0 left-0 flex justify-center">
+            <div className="bg-white shadow-sm overflow-hidden rounded-md border border-primary relative" data-aos="fade-up">
+              {/* <div className="absolute -top-4 right-0 left-0 flex justify-center">
                 <div className="bg-primary text-white text-xs px-4 py-1 rounded-sm">
                   Phổ biến nhất
                 </div>
-              </div>
+              </div> */}
               <div className="bg-primary p-4 text-white pt-6">
                 <h3 className="text-xl font-medium text-center">Massage Trị Liệu</h3>
               </div>
@@ -290,20 +313,6 @@ export default function Home() {
                     Xem thêm dịch vụ
                   </Link>
                 </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex justify-center mt-8 md:mt-12" data-aos="fade-up" data-aos-delay="400">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-primary text-sm">
-              <div className="flex items-center gap-2">
-                <FaMapMarkerAlt />
-                <span>123 Nguyễn Huệ, Q1, TP.HCM</span>
-              </div>
-              <span className="hidden sm:inline mx-2 text-gray-400">|</span>
-              <div className="flex items-center gap-2">
-                <FaPhone />
-                <Link href="tel:+842122279488" className="hover:underline">+84 212-227-9488</Link>
               </div>
             </div>
           </div>
