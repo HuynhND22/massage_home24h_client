@@ -8,7 +8,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaMapMarkerAlt, FaPhone, FaRegClock, FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import '@fontsource/eb-garamond';
-import HeroCarousel from '@/components/layout/HeroCarousel';
+import HeroCarousel from '@/components/HeroCarousel';
+import Carousel from '@/components/Carousel';
+import FloatingActionButton from '@/components/FloatingActionButton';
+import Tabs from '@/components/Tab';
 
 export default function Home() {
   useEffect(() => {
@@ -30,16 +33,63 @@ const slides = [
     image: '/images/testimage.jpg',
     title: 'Không gian thư giãn',
     description: 'Môi trường sang trọng và yên tĩnh để bạn tái tạo năng lượng',
-  },
-  {
-    image: '/images/testimage.jpg',
-    title: 'Không gian thư giãn',
-    description: 'Môi trường sang trọng và yên tĩnh để bạn tái tạo năng lượng',
-  },
+  }
 ];
 
+
+const slider1 = [
+  {
+      title: "Donut 1",
+      description: "Our Donut Collection Offers a Mouthwatering Array of Flavors, Toppings, and Shapes for Every Craving and Occasion.",
+      url: "https://relaxmassagehome24h.vercel.app/_next/image?url=%2Fimages%2Fhome-background.jpeg&w=2048&q=75"
+    },
+    {
+      title: "Donut 2",
+      description: "Our Donut Collection Offers a Mouthwatering Array of Flavors, Toppings, and Shapes for Every Craving and Occasion.",
+      url: "https://relaxmassagehome24h.vercel.app/_next/image?url=%2Fimages%2Ftestimage.jpg&w=2048&q=75"
+    }
+]
+
+const slider2 = [
+  {
+    title: "Donut 3",
+    description: "Our Donut Collection Offers a Mouthwatering Array of Flavors, Toppings, and Shapes for Every Craving and Occasion.",
+    url: "https://relaxmassagehome24h.vercel.app/_next/image?url=%2Fimages%2Fabout-spa-new.jpg&w=2048&q=75"
+  },
+
+  {
+    title: "Donut 4",
+    description: "Our Donut Collection Offers a Mouthwatering Array of Flavors, Toppings, and Shapes for Every Craving and Occasion.",
+    url: "https://relaxmassagehome24h.vercel.app/_next/image?url=%2Fimages%2Fabout-hero.jpg&w=2048&q=75"
+  },
+  {
+    title: "Donut 5",
+    description: "Our Donut Collection Offers a Mouthwatering Array of Flavors, Toppings, and Shapes for Every Craving and Occasion.",
+    url: "https://relaxmassagehome24h.vercel.app/_next/image?url=%2Fimages%2Fabout-mission.jpg&w=2048&q=75"
+  }
+]
+
+const tabs = [
+  {
+    id: 'massage',
+    label: 'Massage',
+    content: (
+      <Carousel slider={slider1}/>
+    )
+  },
+  {
+    id: 'nail',
+    label: 'Nail',
+    content: (
+      <Carousel slider={slider2}/>
+    )
+  },
+];  
+
+
   return (
-    <main>
+    <>
+      <main>
       {/* Hero Section */}
       {/* <section className="relative min-h-[80vh] md:h-[90vh] overflow-hidden">
         <div className="absolute inset-0">
@@ -121,8 +171,8 @@ const slides = [
         </div>
       </section> */}
 
-      <HeroCarousel slides={slides} />
       
+      <HeroCarousel slides={slides} />
       {/* Introduction Section */}
       <section className="section bg-background px-responsive">
         <div className="container">
@@ -163,14 +213,16 @@ const slides = [
       
       {/* Featured Pricing Section */}
       <section className="section bg-light py-responsive px-responsive">
-        <div className="container mx-auto">
+        {/* <div className="container mx-auto"> */}
+
           <div className="text-center mb-6 md:mb-10" data-aos="fade-up">
             <h2 className="section-title">Dịch Vụ Nổi Bật</h2>
             <p className="section-subtitle">Chọn gói dịch vụ phù hợp với nhu cầu của bạn</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 px-4 max-w-7xl mx-auto">
-            {/* Body Combo */}
+          <Tabs tabs={tabs}/>
+          {/* <Carousel/> */}
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 px-4 max-w-7xl mx-auto">
+            
             <div className="bg-white shadow-sm overflow-hidden rounded-md border border-gray-200" data-aos="fade-up">
               <div className="bg-primary/5 p-4">
                 <h3 className="text-xl font-medium text-center">Body Combo</h3>
@@ -216,13 +268,8 @@ const slides = [
               </div>
             </div>
             
-            {/* Massage Services */}
+            
             <div className="bg-white shadow-sm overflow-hidden rounded-md border border-primary relative" data-aos="fade-up">
-              {/* <div className="absolute -top-4 right-0 left-0 flex justify-center">
-                <div className="bg-primary text-white text-xs px-4 py-1 rounded-sm">
-                  Phổ biến nhất
-                </div>
-              </div> */}
               <div className="bg-primary p-4 text-white pt-6">
                 <h3 className="text-xl font-medium text-center">Massage Trị Liệu</h3>
               </div>
@@ -270,7 +317,7 @@ const slides = [
               </div>
             </div>
             
-            {/* Facial Services */}
+            
             <div className="bg-white shadow-sm overflow-hidden rounded-md" data-aos="fade-up">
               <div className="bg-primary/5 p-4">
                 <h3 className="text-xl font-medium text-center">Chăm Sóc Da Mặt</h3>
@@ -315,8 +362,8 @@ const slides = [
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </section>
       
       {/* Services Section */}
@@ -330,30 +377,18 @@ const slides = [
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 mt-12 p-2">
-            {/* Placeholder for service cards that will be fetched from API */}
+            {/* Service Cards */}
             {[1, 2, 3].map((item, index) => (
               <div 
                 key={item} 
-                data-aos="fade-up" 
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                data-aos="fade-up"
                 data-aos-delay={index * 100}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={`/images/service-${item}.jpg`}
-                    alt={`Spa Service ${item}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority
-                    className="object-cover hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="p-7">
-                  <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs rounded-full mb-3 font-medium">Dịch vụ {index + 1}</span>
-                  <h3 className="text-xl font-semibold mb-3 text-dark">Dịch vụ Spa {item}</h3>
-                  <p className="text-gray-600 mb-5 text-sm sm:text-base leading-relaxed">
-                    Mô tả ngắn về dịch vụ spa cao cấp này và lợi ích của nó cho khách hàng.
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-4">Dịch vụ {item}</h3>
+                  <p className="text-gray-600 mb-6">
+                    Mô tả dịch vụ {item} - Dịch vụ chăm sóc sức khỏe và làm đẹp cao cấp.
                   </p>
                   <Link 
                     href={`/services/service-${item}`} 
@@ -502,5 +537,7 @@ const slides = [
         </div>
       </section>
     </main>
+    <FloatingActionButton />
+    </>
   );
 }
