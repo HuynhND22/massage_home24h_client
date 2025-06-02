@@ -18,14 +18,14 @@ const Footer = () => {
               <div className="relative h-16 w-40">
                 <Image 
                   src="/images/logo-light.png"
-                  alt="Renew Day Spa"
+                  alt="Massage Home24h"
                   fill
                   className="object-contain"
                 />
               </div>
             </Link>
             <p className="mb-4">
-              Renew Day Spa cung cấp các dịch vụ spa cao cấp và trải nghiệm thư giãn tuyệt vời, giúp bạn cảm thấy tươi mới và trẻ trung mỗi ngày.
+              Massage Home24h cung cấp các dịch vụ massage cao cấp và trải nghiệm thư giãn tuyệt vời, giúp bạn cảm thấy tươi mới và trẻ trung mỗi ngày.
             </p>
             <div className="flex space-x-4">
               <Link href="https://facebook.com" className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors duration-300">
@@ -93,29 +93,25 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold mb-4 pb-2 border-b border-primary/30">Liên hệ</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start">
-                <span className="mr-2">📍</span>
-                <span>123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">📞</span>
-                <span>(+84) 28 1234 5678</span>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">📧</span>
-                <a href="mailto:info@renewdayspa.com" className="hover:text-primary transition-colors">info@renewdayspa.com</a>
-              </li>
-              <li className="flex items-center">
-                <span className="mr-2">🕒</span>
-                <span>Thứ 2-CN: 9:00 - 21:00</span>
-              </li>
-            </ul>
+            <div className='mb-4 pb-2 w-full h-[300px] md:h-[350px] lg:h-[450px] overflow-hidden rounded-md shadow-md'>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.999388276486!2d108.22805337580003!3d16.06552153953579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421986ccc707c9%3A0x2e05015ced66d049!2sMassage%20Home24h!5e0!3m2!1svi!2s!4v1748856769609!5m2!1svi!2s" className="w-full h-full border-0 rounded-md" loading="lazy" allowFullScreen></iframe>
+            </div>
+            <div className='flex flex-col md:flex-row gap-4'>
+              <div className='flex flex-col gap-2'>
+                <h3 className='text-xl font-semibold'>Địa chỉ</h3>
+                <p>123 Đường phố, Quận Huyện, Thành phố, Tỉnh, Quốc gia</p>
+              </div>
+              <div className='flex flex-col gap-2'>
+                <h3 className='text-xl font-semibold'>Liên hệ</h3>
+                <p>Điện thoại: 0123456789</p>
+                <p>Email: info@massagehome24h.com</p>
+              </div>
+            </div>
           </div>
         </div>
         
         <div className="border-t border-light/20 mt-12 pt-6 text-center text-light/70">
-          <p>© {currentYear} Renew Day Spa. Tất cả quyền được bảo lưu.</p>
+          <p>© {currentYear} Massage Home24h. Tất cả quyền được bảo lưu.</p>
         </div>
       </div>
     </footer>

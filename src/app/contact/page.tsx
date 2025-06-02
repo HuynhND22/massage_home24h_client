@@ -177,18 +177,18 @@ export default function ContactPage() {
       </section>
       
       {/* Map Section */}
-      <section className="py-16 bg-light">
+      {/* <section className="py-16 bg-light">
         <div className="container">
           <h2 className="text-3xl font-semibold mb-8 text-center">Vị Trí Của Chúng Tôi</h2>
           
           <div className="h-[400px] rounded-lg overflow-hidden shadow-md">
-            {/* This would be replaced with an actual Google Maps component in production */}
+            
             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
               <p className="text-lg text-gray-600">Google Maps sẽ được hiển thị ở đây</p>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       {/* Appointment CTA */}
       <section className="bg-primary text-light py-16">

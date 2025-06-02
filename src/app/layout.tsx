@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import '../styles/globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import FloatingActionButton from '@/components/FloatingActionButton';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <FloatingActionButton />
       </body>
     </html>
   );

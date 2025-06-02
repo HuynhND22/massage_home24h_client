@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const FloatingActionButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,13 +27,15 @@ const FloatingActionButton = () => {
   ];
 
   return (
-    <div className="fixed bottom-16 right-8 z-50">
+    <div className="fixed bottom-10 right-4 z-50">
       <motion.button
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-primary rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 w-12 h-12 flex items-center justify-center"
+        className="bg-primary rounded-full p-1 shadow-lg hover:shadow-xl transition-all duration-300 w-12 h-12 flex items-center justify-center"
       >
-        <span className="text-2xl">+</span>
+        {/* <span className="text-2xl"> */}
+          <Image src="/images/message.svg" alt="Message" width={32} height={32} />
+        {/* </span> */}
       </motion.button>
 
       {isOpen && (

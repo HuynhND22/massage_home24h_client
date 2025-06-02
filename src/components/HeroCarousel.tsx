@@ -116,14 +116,14 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full max-w-md mx-auto px-4 sm:px-0"
+          className="flex flex-col sm:flex-row gap-1 sm:gap-8 w-full max-w-md mx-auto sm:px-0"
         >
           {/* Buttons ở đây nếu muốn */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-8 w-full max-w-md mx-auto px-4 sm:px-0 "
+            className="flex flex-col sm:flex-row w-full max-w-md mx-auto sm:px-0 "
           >
             <Link 
               href="/contact" 
@@ -132,14 +132,22 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
               <span className="relative z-10 text-base">Đặt lịch ngay</span>
               <span className="absolute bottom-0 left-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row w-full max-w-md mx-auto  sm:px-0 "
+          >
             <Link 
-              href="/pricing" 
+              href="#services" 
               className="bg-transparent border-2 border-white/80 text-white font-semibold rounded-lg py-3 px-8 shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto text-center hover:bg-white/10 group relative overflow-hidden"
             >
-              <span className="relative z-10 text-base">Xem bảng giá</span>
+              <span className="relative z-10 text-base">Dịch vụ</span>
               <span className="absolute bottom-0 left-0 h-1 w-full bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </Link>
           </motion.div>
+
         </motion.div>
 
         {/* Info */}

@@ -7,9 +7,11 @@ import 'swiper/swiper.min.css'
 
 import './Carousel.css'
 
+type CarouselProps = {
+    slider: any[]
+}
 
-const Carousel = (slider: any) => {
-    const sliders = slider
+const Carousel = ({ slider }: CarouselProps) => {
   return (
     <div className='carousel'>
         <Swiper 
@@ -49,12 +51,12 @@ const Carousel = (slider: any) => {
         
         >
             {
-                sliders.slider.map((data:any) => (
+                slider.map((data:any) => (
                     <SwiperSlide style={{ backgroundImage: `url(${data.url})` }} className="myswiper-slider">
                         <div>
-                            <h2>{data.title}</h2>
+                            <p className='title'>{data.title}</p>
                             <p>{data.description}</p>
-                            <a href={`${data.url}`} target="_blank" className='slider-btn'>explore</a>
+                            <a href={`${data.url}`} target="_blank" className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300  '>explore</a>
                         </div>
                     </SwiperSlide>
                 ))

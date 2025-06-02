@@ -14,37 +14,31 @@ export default function Tabs({ tabs }: TabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
-    <div className="">
+    <div className="w-full">
       {/* Tab Navigation */}
-      <div className="border-b border-primary/20 flex justify-center px-5 bg-background">
-        <div className="flex">
-          {tabs.map((tab) => (
+      <div className="flex justify-center mb-6">
+        <div className="inline-flex p-1 rounded-lg bg-gray-100">
+          {tabs.map((tab, index) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative py-2 px-8 mx-1 text-sm font-medium transition-all duration-300
+              className={`relative py-2 px-6 text-sm font-medium transition-all duration-200 ease-in-out
+                ${index !== tabs.length - 1 ? 'mr-1' : ''}
                 ${
                   activeTab === tab.id
-                    ? "text-primary bg-primary/5 hover:bg-primary/10"
-                    : "text-gray-600 hover:text-primary hover:bg-primary/5"
+                    ? 'text-white bg-primary shadow-sm rounded-md'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary/90 hover:bg-white/50 dark:hover:bg-gray-700/50 rounded-md'
                 }
               `}
             >
               {tab.label}
-
-              {/* underline */}
-              {activeTab === tab.id && (
-                <span
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-t"
-                />
-              )}
             </button>
           ))}
         </div>
       </div>
 
       {/* Tab Content */}
-      <div className="mt-4 p-6 bg-background">
+      <div className="mt-2 p-4 bg-white rounded-lg shadow-sm">
         {tabs.find((tab) => tab.id === activeTab)?.content}
       </div>
     </div>
