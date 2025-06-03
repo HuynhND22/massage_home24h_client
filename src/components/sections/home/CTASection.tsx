@@ -4,8 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaPhone } from 'react-icons/fa';
+import { useTranslation } from '@/i18n/I18nProvider';
 
 const CTASection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="py-16 bg-primary text-light relative overflow-hidden">
       <motion.div 
@@ -22,9 +25,9 @@ const CTASection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Sẵn sàng để thư giãn?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('home.cta.title')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Hãy đặt lịch ngay hôm nay để trải nghiệm dịch vụ spa đẳng cấp của chúng tôi.
+            {t('home.cta.description')}
           </p>
         </motion.div>
         
@@ -42,14 +45,14 @@ const CTASection = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>Tìm hiểu thêm</span>
+            <span>{t('common.buttons.learnMore')}</span>
           </Link>
           <Link 
             href="tel:+842122279488" 
             className="btn bg-transparent border-2 border-light text-light hover:bg-light/20 hover:scale-105 transition-all duration-300 py-4 px-6 font-medium rounded-lg shadow-lg flex items-center justify-center gap-2 group"
           >
             <FaPhone className="text-sm group-hover:rotate-12 transition-transform duration-300" />
-            <span>Gọi ngay</span>
+            <span>{t('common.buttons.callNow')}</span>
           </Link>
         </motion.div>
       </div>

@@ -42,7 +42,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">Địa Chỉ</h3>
-                    <p className="text-gray-600">123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh</p>
+                    <p className="text-gray-600">12D An Mỹ, Sơn Trà, TP.Đà Nẵng</p>
                   </div>
                 </div>
                 
@@ -54,7 +54,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">Điện Thoại</h3>
-                    <p className="text-gray-600">(+84) 28 1234 5678</p>
+                    <p className="text-gray-600">(+84) 796 672 339</p>
                   </div>
                 </div>
                 
@@ -66,7 +66,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">Email</h3>
-                    <p className="text-gray-600">info@renewdayspa.com</p>
+                    <p className="text-gray-600">info@massagehome24h.com</p>
                   </div>
                 </div>
                 

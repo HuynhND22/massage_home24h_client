@@ -1,0 +1,142 @@
+{
+  "common": {
+    "nav": {
+      "home": "首页",
+      "about": "关于我们",
+      "services": "服务",
+      "pricing": "价格",
+      "blog": "博客",
+      "contact": "联系我们"
+    },
+    "buttons": {
+      "bookNow": "立即预约",
+      "services": "查看服务",
+      "readMore": "阅读更多",
+      "submit": "提交",
+      "send": "发送",
+      "learnMore": "了解更多",
+      "callNow": "立即电话",
+      "viewDetails": "查看详情"
+    }
+  },
+  "home": {
+    "hero": {
+      "slide1": {
+        "title": "按摩之家24小时",
+        "description": "体验高级按摩服务和放松"
+      },
+      "slide2": {
+        "title": "按摩之家24小时",
+        "description": "体验高级按摩服务和放松"
+      }
+    },
+    "intro": {
+      "title": "欢迎来到",
+      "description": "按摩之家24小时是您寻找完美放松和恢复活力的地方。凭借我们经验丰富的团队和豪华的环境，我们致力于为您提供最佳的水疗体验。",
+      "paragraph1": "按摩之家24小时是您寻找完美放松和恢复活力的地方。凭借我们经验丰富的团队和豪华的环境，我们致力于为您提供最佳的水疗体验。",
+      "paragraph2": "我们的服务旨在安护您的心灵，振兴您的身体，洗去所有疲惫。让按摩之家24小时成为您放松和美丽的目的地。"
+    },
+    "featured": {
+      "title": "特色服务",
+      "subtitle": "选择适合您需求的服务套餐"
+    },
+    "featuredPricing": {
+      "title": "特色服务",
+      "subtitle": "选择适合您需求的服务套餐"
+    },
+    "services": {
+      "title": "我们的服务",
+      "subtitle": "探索我们的高级按摩服务",
+      "service": "服务",
+      "description": "服务 {number} 描述 - 高级健康和美容护理服务。",
+      "viewAll": "查看所有服务"
+    },
+    "testimonials": {
+      "title": "客户评价",
+      "subtitle": "来自客户的真实评价"
+    },
+    "cta": {
+      "title": "准备体验？",
+      "description": "今天预约并享受我们的高级水疗服务。",
+      "button": "立即预约"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "关于我们",
+      "subtitle": "了解按摩之家24小时的故事和使命"
+    },
+    "story": {
+      "title": "我们的故事",
+      "description": "按摩之家24小时成立于2019年，旨在为客户提供全面的放松和美容空间。"
+    },
+    "mission": {
+      "title": "我们的使命",
+      "description": "在按摩之家24小时，我们相信真正的美丽来自内在的平衡和健康。"
+    },
+    "team": {
+      "title": "我们的专家团队",
+      "subtitle": "认识按摩之家24小时每个精彩体验背后的专业团队。"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "我们很想听到您的声音！",
+    "form": {
+      "name": "您的姓名",
+      "email": "您的电子邮件",
+      "phone": "电话号码",
+      "message": "留言",
+      "submit": "发送消息"
+    },
+    "info": {
+      "address": "地址",
+      "addressValue": "12D An My, Son Tra, Da Nang",
+      "phone": "电话",
+      "phoneValue": "(+84) 796 672 339",
+      "email": "电子邮件",
+      "emailValue": "info@massagehome24h.com"
+    }
+  },
+  "services": {
+    "massage": {
+      "title": "上门按摩疗法",
+      "description": "专业按摩服务送到您家"
+    },
+    "nail": {
+      "title": "上门美甲服务",
+      "description": "在家中舒适地享受专业美甲护理"
+    },
+    "eyelash": {
+      "title": "上门睫毛延长",
+      "description": "便捷地享受专业睫毛服务"
+    }
+  },
+  "footer": {
+    "about": "按摩之家24小时提供高级按摩服务和精彩的放松体验，帮助您每天感到焕然一新。",
+    "quickLinks": {
+      "title": "快速链接"
+    },
+    "services": {
+      "title": "服务",
+      "massage": "按摩疗法",
+      "facial": "面部护理", 
+      "bodyTreatments": "身体疗法",
+      "aromatherapy": "香薄疗法",
+      "hotStone": "热石按摩"
+    },
+    "contact": {
+      "title": "联系我们",
+      "address": {
+        "title": "地址",
+        "value": "12D An My, Son Tra, Da Nang"
+      },
+      "info": {
+        "title": "联系方式",
+        "phone": "电话",
+        "email": "电子邮件"
+      }
+    },
+    "copyright": "所有权利均予保留。"
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "common": {
+    "nav": {
+      "home": "Trang chủ",
+      "about": "Về chúng tôi",
+      "services": "Dịch vụ",
+      "pricing": "Bảng giá",
+      "blog": "Blog",
+      "contact": "Liên hệ"
+    },
+    "buttons": {
+      "bookNow": "Đặt lịch ngay",
+      "services": "Xem dịch vụ",
+      "readMore": "Xem thêm",
+      "submit": "Gửi đi",
+      "send": "Gửi",
+      "learnMore": "Tìm hiểu thêm",
+      "callNow": "Gọi ngay",
+      "viewDetails": "Xem chi tiết"
+    }
+  },
+  "home": {
+    "hero": {
+      "slide1": {
+        "title": "Massage Home24h",
+        "description": "Trải nghiệm dịch vụ massage cao cấp và thư giãn"
+      },
+      "slide2": {
+        "title": "Massage Home24h",
+        "description": "Trải nghiệm dịch vụ massage cao cấp và thư giãn"
+      }
+    },
+    "intro": {
+      "title": "Chào mừng đến với",
+      "paragraph1": "Massage Home24h là nơi bạn có thể tìm thấy sự thư giãn và trẻ hóa hoàn hảo. Với đội ngũ chuyên gia giàu kinh nghiệm và không gian sang trọng, chúng tôi cam kết mang đến cho bạn những trải nghiệm spa tuyệt vời nhất.",
+      "paragraph2": "Các dịch vụ của chúng tôi được thiết kế để làm dịu tâm hồn, phục hồi cơ thể và làm tan biến mọi mệt mỏi. Hãy để Massage Home24h trở thành điểm đến cho sự thư giãn và làm đẹp của bạn."
+    },
+    "featuredPricing": {
+      "title": "Dịch Vụ Nổi Bật",
+      "subtitle": "Chọn gói dịch vụ phù hợp với nhu cầu của bạn"
+    },
+    "services": {
+      "title": "Dịch Vụ Của Chúng Tôi",
+      "subtitle": "Khám phá các liệu pháp spa cao cấp",
+      "service": "Dịch vụ",
+      "description": "Mô tả dịch vụ {number} - Dịch vụ chăm sóc sức khỏe và làm đẹp cao cấp.",
+      "viewAll": "Xem tất cả dịch vụ"
+    },
+    "testimonials": {
+      "title": "Khách hàng nói gì về chúng tôi",
+      "subtitle": "Những đánh giá chân thực từ khách hàng",
+      "items": [
+        {
+          "name": "Nguyễn Thị Anh",
+          "comment": "Dịch vụ tuyệt vời, nhân viên thân thiện và chuyên nghiệp. Tôi cảm thấy thư giãn và tràn đầy năng lượng sau mỗi lần đến Massage Home24h."
+        },
+        {
+          "name": "Trần Văn Minh",
+          "comment": "Đội ngũ nhân viên massage rất chuyên nghiệp và kỹ thuật tuyệt vời. Không gian spa rất thoải mái và sạch sẽ. Chắc chắn tôi sẽ quay lại!"
+        },
+        {
+          "name": "Phạm Thanh Hà",
+          "comment": "Lịch hẹn linh hoạt và dịch vụ đến tận nhà rất thuận tiện. Kỹ thuật viên rất chuyên nghiệp và tôn trọng không gian cá nhân. Rất hài lòng!"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Sẵn sàng để thư giãn?",
+      "description": "Hãy đặt lịch ngay hôm nay để trải nghiệm dịch vụ spa đẳng cấp của chúng tôi.",
+      "button": "Đặt lịch ngay"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Về Chúng Tôi",
+      "subtitle": "Khám phá câu chuyện về Massage Home24h và sứ mệnh của chúng tôi"
+    },
+    "story": {
+      "title": "Câu Chuyện Của Chúng Tôi",
+      "description": "Massage Home24h được thành lập vào năm 2019 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng."
+    },
+    "mission": {
+      "title": "Sứ Mệnh Của Chúng Tôi",
+      "description": "Tại Massage Home24h, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong."
+    },
+    "team": {
+      "title": "Đội Ngũ Chuyên Gia",
+      "subtitle": "Gặp gỡ những chuyên gia tận tâm đứng sau mỗi trải nghiệm tuyệt vời tại Massage Home24h."
+    }
+  },
+  "contact": {
+    "title": "Liên Hệ",
+    "subtitle": "Chúng tôi rất mong được nghe từ bạn!",
+    "form": {
+      "name": "Họ và tên",
+      "email": "Email của bạn",
+      "phone": "Số điện thoại",
+      "message": "Tin nhắn",
+      "submit": "Gửi tin nhắn"
+    },
+    "info": {
+      "address": "Địa chỉ",
+      "addressValue": "12D An Mỹ, Sơn Trà, TP.Đà Nẵng",
+      "phone": "Điện thoại",
+      "phoneValue": "(+84) 796 672 339",
+      "email": "Email",
+      "emailValue": "info@massagehome24h.com"
+    }
+  },
+  "services": {
+    "massage": {
+      "title": "Massage ấn huyệt tại nhà",
+      "description": "Dịch vụ massage chuyên nghiệp được mang đến tận nhà bạn"
+    },
+    "nail": {
+      "title": "Nail tại nhà",
+      "description": "Chăm sóc móng chuyên nghiệp trong sự thoải mái của ngôi nhà bạn"
+    },
+    "eyelash": {
+      "title": "Nối mi tại nhà",
+      "description": "Dịch vụ mi chuyên nghiệp mang đến sự thuận tiện cho bạn"
+    }
+  },
+  "footer": {
+    "about": "Massage Home24h cung cấp các dịch vụ massage cao cấp và trải nghiệm thư giãn tuyệt vời, giúp bạn cảm thấy tươi mới và trẻ trung mỗi ngày.",
+    "quickLinks": {
+      "title": "Liên kết nhanh"
+    },
+    "services": {
+      "title": "Dịch vụ",
+      "massage": "Massage trị liệu",
+      "facial": "Chăm sóc da mặt", 
+      "bodyTreatments": "Trị liệu cơ thể",
+      "aromatherapy": "Liệu pháp hương thơm",
+      "hotStone": "Massage đá nóng"
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "address": {
+        "title": "Địa chỉ",
+        "value": "12D An Mỹ, Sơn Trà, TP.Đà Nẵng"
+      },
+      "info": {
+        "title": "Liên hệ",
+        "phone": "Điện thoại",
+        "email": "Email"
+      }
+    },
+    "copyright": "Tất cả quyền được bảo lưu."
+  }
+}

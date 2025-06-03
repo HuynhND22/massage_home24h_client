@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FaMapMarkerAlt, FaPhone, FaRegClock } from "react-icons/fa";
 import Link from 'next/link';
+import { useTranslation } from '@/i18n/I18nProvider';
 
 type Slide = {
   image: string;
@@ -18,75 +19,57 @@ type HeroCarouselProps = {
 export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const timer = setInterval(() => {
       setPrev(current);
       setCurrent((prev) => (prev + 1) % slides.length);
     }, interval);
-
     return () => clearInterval(timer);
   }, [current, slides.length, interval]);
 
   return (
     <section className="relative h-[100vh] md:h-[100vh] sm:min-h-[max-content] overflow-hidden">
-      <div className="absolute inset-0 z-100">
-        {/* Previous image still fading out */}
-        {prev !== null && prev !== current && (
-          <AnimatePresence mode="wait">
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="sync">
+          {prev !== null && prev !== current && (
             <motion.div
-              key={slides[current].image}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              key={`slide-prev-${prev}`}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
-              className="absolute inset-0 z-0"
+              className="absolute inset-0"
             >
-              {/* Wrapper cho ảnh + overlay */}
-              <div className="relative w-full h-full">
-                {/* Ảnh nền */}
-                <Image
-                  src={slides[current].image}
-                  alt={slides[current].title}
-                  fill
-                  priority
-                  className="object-cover w-full h-full"
-                />
-
-                {/* Lớp phủ tối */}
-                <div className="absolute inset-0 bg-black/60 z-100 pointer-events-none" />
-              </div>
+              <Image
+                src={slides[prev].image}
+                alt={slides[prev].title}
+                fill
+                priority
+                className="object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 bg-black/60" />
             </motion.div>
-          </AnimatePresence>
-        )}
-
-        {/* Current image fading in */}
-        <motion.div
-          key={`slide-in-${current}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 z-10"
-        >
-          <Image
-            src={slides[current].image}
-            alt={`Slide ${current}`}
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover brightness-50"
-          />
-        </motion.div>
-
-        {/* Gradient overlay */}
-        <motion.div
-          key={`bg-${current}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute inset-0 bg-gradient-to-b from-dark/60 to-dark/30"
-        />
+          )}
+          <motion.div
+            key={`slide-current-${current}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slides[current].image}
+              alt={slides[current].title}
+              fill
+              priority
+              className="object-cover w-full h-full"
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Content */}
@@ -111,14 +94,12 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
           {slides[current].description}
         </motion.p>
 
-        {/* CTA Placeholder */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-1 sm:gap-8 w-full max-w-md mx-auto sm:px-0"
         >
-          {/* Buttons ở đây nếu muốn */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -129,7 +110,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
               href="/contact" 
               className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg py-3 px-8 shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto text-center group relative overflow-hidden"
             >
-              <span className="relative z-10 text-base">Đặt lịch ngay</span>
+              <span className="relative z-10 text-base">{t('common.buttons.bookNow')}</span>
               <span className="absolute bottom-0 left-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </Link>
           </motion.div>
@@ -137,20 +118,18 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row w-full max-w-md mx-auto  sm:px-0 "
+            className="flex flex-col sm:flex-row w-full max-w-md mx-auto sm:px-0 "
           >
             <Link 
               href="#services" 
               className="bg-transparent border-2 border-white/80 text-white font-semibold rounded-lg py-3 px-8 shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto text-center hover:bg-white/10 group relative overflow-hidden"
             >
-              <span className="relative z-10 text-base">Dịch vụ</span>
+              <span className="relative z-10 text-base">{t('common.buttons.services')}</span>
               <span className="absolute bottom-0 left-0 h-1 w-full bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </Link>
           </motion.div>
-
         </motion.div>
 
-        {/* Info */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -159,7 +138,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
         >
           <div className="flex items-center gap-2">
             <FaMapMarkerAlt className="text-primary" />
-            <span>12D An Mỹ 2, Tp.Đà Nẵng </span>
+            <span>{t('contact.info.addressValue')}</span>
           </div>
           <div className="flex items-center gap-2">
             <FaPhone className="text-primary" />

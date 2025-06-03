@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import FloatingActionButton from '@/components/FloatingActionButton';
+import { I18nProvider } from '@/i18n/I18nProvider';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -18,8 +19,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Renew Spa - Chăm sóc sức khỏe và sắc đẹp',
-  description: 'Nơi cung cấp các dịch vụ spa chất lượng cao, chăm sóc sức khỏe và sắc đẹp với đội ngũ chuyên nghiệp',
+  title: 'Massage Home24h - Professional Massage & Beauty Services',
+  description: 'Quality massage and beauty services provided by professionals in the comfort of your home',
+  keywords: 'massage, home massage, beauty, nail services, eyelash extensions, spa, wellness',
+  authors: [{ name: 'Massage Home24h', url: 'https://massagehome24h.com' }],
+  viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
@@ -30,10 +37,12 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`${inter.variable} ${playfair.variable}`}>
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-        <FloatingActionButton />
+        <I18nProvider defaultLocale="vi">
+          <Header />
+          {children}
+          <Footer />
+          <FloatingActionButton />
+        </I18nProvider>
       </body>
     </html>
   );

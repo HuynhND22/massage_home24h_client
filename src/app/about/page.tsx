@@ -10,7 +10,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/about-hero.jpg"
-            alt="About Renew Day Spa"
+            alt="About Massage Home24h"
             fill
             priority
             sizes="100vw"
@@ -21,7 +21,7 @@ export default function AboutPage() {
         <div className="container relative z-10 text-center text-light px-4">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Về Chúng Tôi</h1>
           <p className="text-base md:text-lg lg:text-xl max-w-2xl mx-auto">
-            Khám phá câu chuyện về Renew Day Spa và sứ mệnh của chúng tôi
+            Khám phá câu chuyện về Massage Home24h và sứ mệnh của chúng tôi
           </p>
         </div>
       </section>
@@ -33,13 +33,13 @@ export default function AboutPage() {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-semibold mb-6">Câu Chuyện Của Chúng Tôi</h2>
               <p className="mb-4">
-                Renew Day Spa được thành lập vào năm 2015 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng. Từ những ngày đầu, chúng tôi đã xác định sứ mệnh của mình là mang đến sự cân bằng và trẻ hóa cho cả thể chất lẫn tinh thần thông qua các liệu pháp spa cao cấp.
+                Massage Home24h được thành lập vào năm 2019 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng. Từ những ngày đầu, chúng tôi đã xác định sứ mệnh của mình là mang đến sự cân bằng và trẻ hóa cho cả thể chất lẫn tinh thần thông qua các liệu pháp massage cao cấp.
               </p>
               <p className="mb-6">
-                Với hơn 8 năm kinh nghiệm, chúng tôi đã không ngừng nâng cao chất lượng dịch vụ, tìm kiếm và áp dụng các kỹ thuật và nguyên liệu mới nhất, kết hợp giữa y học hiện đại và các phương pháp truyền thống để tạo ra trải nghiệm spa độc đáo và hiệu quả.
+                Với hơn {new Date().getFullYear() - 2019} năm kinh nghiệm, chúng tôi đã không ngừng nâng cao chất lượng dịch vụ, tìm kiếm và áp dụng các kỹ thuật và nguyên liệu mới nhất, kết hợp giữa y học hiện đại và các phương pháp truyền thống để tạo ra trải nghiệm massage độc đáo và hiệu quả.
               </p>
               <p>
-                Đội ngũ chuyên gia của chúng tôi được đào tạo chuyên sâu và luôn cập nhật những xu hướng mới nhất trong ngành làm đẹp và chăm sóc sức khỏe. Mỗi liệu pháp tại Renew Day Spa đều được thiết kế riêng biệt, phù hợp với nhu cầu cụ thể của từng khách hàng, giúp mang lại kết quả tối ưu.
+                Đội ngũ chuyên gia của chúng tôi được đào tạo chuyên sâu và luôn cập nhật những xu hướng mới nhất trong ngành làm đẹp và chăm sóc sức khỏe. Mỗi liệu pháp tại Massage Home24h đều được thiết kế riêng biệt, phù hợp với nhu cầu cụ thể của từng khách hàng, giúp mang lại kết quả tối ưu.
               </p>
             </div>
             <div className="md:w-1/2 w-full relative h-[300px] sm:h-[350px] md:h-[400px] rounded-lg overflow-hidden shadow-lg">
@@ -63,7 +63,7 @@ export default function AboutPage() {
             <div className="md:w-1/2">
               <h2 className="text-3xl font-semibold mb-6">Sứ Mệnh Của Chúng Tôi</h2>
               <p className="mb-4">
-                Tại Renew Day Spa, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong. Sứ mệnh của chúng tôi là tạo ra một không gian nơi khách hàng có thể tạm quên đi những lo toan cuộc sống, tìm lại sự cân bằng và trẻ hóa cả về thể chất lẫn tinh thần.
+                Tại Massage Home24h, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong. Sứ mệnh của chúng tôi là tạo ra một không gian nơi khách hàng có thể tạm quên đi những lo toan cuộc sống, tìm lại sự cân bằng và trẻ hóa cả về thể chất lẫn tinh thần.
               </p>
               <p className="mb-4">
                 Chúng tôi cam kết sử dụng các sản phẩm tự nhiên, thân thiện với môi trường và không thử nghiệm trên động vật. Mỗi liệu pháp đều được chúng tôi nghiên cứu kỹ lưỡng để đảm bảo an toàn và hiệu quả cho khách hàng.
@@ -90,7 +90,7 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-semibold mb-4">Đội Ngũ Chuyên Gia</h2>
             <p className="text-lg">
-              Gặp gỡ những chuyên gia tận tâm đứng sau mỗi trải nghiệm tuyệt vời tại Renew Day Spa. Đội ngũ của chúng tôi được đào tạo chuyên sâu và luôn cập nhật những kiến thức mới nhất trong lĩnh vực spa và làm đẹp.
+              Gặp gỡ những chuyên gia tận tâm đứng sau mỗi trải nghiệm tuyệt vời tại Massage Home24h. Đội ngũ của chúng tôi được đào tạo chuyên sâu và luôn cập nhật những kiến thức mới nhất trong lĩnh vực massage và làm đẹp.
             </p>
           </div>
           
@@ -107,9 +107,9 @@ export default function AboutPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-1">Nguyễn Thị Anh</h3>
-                <p className="text-primary mb-4">Founder & Spa Director</p>
+                <p className="text-primary mb-4">Founder & Massage Director</p>
                 <p className="text-gray-600 mb-4">
-                  Với hơn 15 năm kinh nghiệm trong lĩnh vực spa và làm đẹp, Nguyễn Thị Anh đã xây dựng Renew Day Spa với tâm huyết mang đến trải nghiệm spa đẳng cấp cho mọi khách hàng.
+                  Với hơn 15 năm kinh nghiệm trong lĩnh vực massage và làm đẹp, Nguyễn Thị Anh đã xây dựng Massage Home24h với tâm huyết mang đến trải nghiệm massage đẳng cấp cho mọi khách hàng.
                 </p>
                 <div className="flex justify-center space-x-3">
                   <a href="#" className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-light transition-colors">

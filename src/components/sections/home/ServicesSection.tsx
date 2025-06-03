@@ -2,15 +2,18 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from '@/i18n/I18nProvider';
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <section className="section bg-secondary">
       <div className="container">
         <div data-aos="fade-up">
-          <h2 className="section-title">Dịch vụ của chúng tôi</h2>
+          <h2 className="section-title">{t('home.services.title')}</h2>
           <p className="section-subtitle">
-            Khám phá các liệu pháp spa cao cấp
+            {t('home.services.subtitle')}
           </p>
         </div>
         
@@ -24,15 +27,15 @@ const ServicesSection = () => {
               data-aos-delay={index * 100}
             >
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Dịch vụ {item}</h3>
+                <h3 className="text-xl font-semibold mb-4">{t('home.services.service')} {item}</h3>
                 <p className="text-gray-600 mb-6">
-                  Mô tả dịch vụ {item} - Dịch vụ chăm sóc sức khỏe và làm đẹp cao cấp.
+                  {t('home.services.description', { number: item })}
                 </p>
                 <Link 
                   href={`/services/service-${item}`} 
                   className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-all duration-300 group border-b border-transparent hover:border-primary pb-1"
                 >
-                  <span>Xem chi tiết</span>
+                  <span>{t('common.buttons.viewDetails')}</span>
                   <span className="transform group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
                 </Link>
               </div>
@@ -45,7 +48,7 @@ const ServicesSection = () => {
             href="/services" 
             className="btn btn-primary hover:scale-105 transition-transform duration-300"
           >
-            Xem tất cả dịch vụ
+            {t('home.services.viewAll')}
           </Link>
         </div>
       </div>

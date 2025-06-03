@@ -1,0 +1,151 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "buttons": {
+      "bookNow": "Book Now",
+      "services": "View Services",
+      "readMore": "Read More",
+      "submit": "Submit",
+      "send": "Send",
+      "learnMore": "Learn More",
+      "callNow": "Call Now",
+      "viewDetails": "View Details"
+    }
+  },
+  "home": {
+    "hero": {
+      "slide1": {
+        "title": "Massage Home24h",
+        "description": "Experience premium massage services and relaxation"
+      },
+      "slide2": {
+        "title": "Massage Home24h",
+        "description": "Experience premium massage services and relaxation"
+      }
+    },
+    "intro": {
+      "title": "Welcome to",
+      "paragraph1": "Massage Home24h is where you can find perfect relaxation and rejuvenation. With our experienced team and luxurious environment, we are committed to providing you with the best spa experiences.",
+      "paragraph2": "Our services are designed to soothe your mind, rejuvenate your body, and wash away all fatigue. Let Massage Home24h be your destination for relaxation and beauty."
+    },
+    "featuredPricing": {
+      "title": "Featured Services",
+      "subtitle": "Choose a service package that suits your needs"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Discover our premium spa therapies",
+      "service": "Service",
+      "description": "Service {number} description - Premium health and beauty care service.",
+      "viewAll": "View All Services"
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Authentic reviews from our customers",
+      "items": [
+        {
+          "name": "Jennifer Smith",
+          "comment": "Excellent service, friendly and professional staff. I feel relaxed and energized after each visit to Massage Home24h."
+        },
+        {
+          "name": "Michael Johnson",
+          "comment": "The massage therapists are very professional with excellent techniques. The spa space is very comfortable and clean. I will definitely come back!"
+        },
+        {
+          "name": "Sarah Williams",
+          "comment": "Flexible scheduling and convenient home service. The technician was very professional and respectful of personal space. Very satisfied!"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Relax?",
+      "description": "Book your appointment today to experience our premium spa services.",
+      "button": "Book Now"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "Discover the story of Massage Home24h and our mission"
+    },
+    "story": {
+      "title": "Our Story",
+      "description": "Massage Home24h was established in 2019 with the desire to provide a comprehensive relaxation and beauty space for customers."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "At Massage Home24h, we believe that true beauty comes from balance and health from within."
+    },
+    "team": {
+      "title": "Our Expert Team",
+      "subtitle": "Meet the dedicated experts behind every wonderful experience at Massage Home24h."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "address": "Address",
+      "addressValue": "12D An My, Son Tra, Da Nang",
+      "phone": "Phone",
+      "phoneValue": "(+84) 796 672 339",
+      "email": "Email",
+      "emailValue": "info@massagehome24h.com"
+    }
+  },
+  "services": {
+    "massage": {
+      "title": "In-home Massage Therapy",
+      "description": "Professional massage services delivered to your home"
+    },
+    "nail": {
+      "title": "In-home Nail Services",
+      "description": "Professional nail care in the comfort of your home"
+    },
+    "eyelash": {
+      "title": "In-home Eyelash Extension",
+      "description": "Professional eyelash services at your convenience"
+    }
+  },
+  "footer": {
+    "about": "Massage Home24h provides premium massage services and wonderful relaxing experiences, helping you feel refreshed and youthful every day.",
+    "quickLinks": {
+      "title": "Quick Links"
+    },
+    "services": {
+      "title": "Services",
+      "massage": "Massage Therapy",
+      "facial": "Facial Care", 
+      "bodyTreatments": "Body Treatments",
+      "aromatherapy": "Aromatherapy",
+      "hotStone": "Hot Stone Massage"
+    },
+    "contact": {
+      "title": "Contact",
+      "address": {
+        "title": "Address",
+        "value": "12D An My, Son Tra, Da Nang"
+      },
+      "info": {
+        "title": "Contact",
+        "phone": "Phone",
+        "email": "Email"
+      }
+    },
+    "copyright": "All Rights Reserved."
+  }
+}

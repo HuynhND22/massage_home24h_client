@@ -3,6 +3,7 @@
 import React from 'react';
 import Tabs from '@/components/Tab';
 import Carousel from '@/components/Carousel';
+import { useTranslation } from '@/i18n/I18nProvider';
 
 interface FeaturedPricingSectionProps {
   tabs: {
@@ -13,11 +14,13 @@ interface FeaturedPricingSectionProps {
 }
 
 const FeaturedPricingSection = ({ tabs }: FeaturedPricingSectionProps) => {
+  const { t } = useTranslation();
+  
   return (
     <section id='services' className="section bg-light py-responsive px-responsive">
       <div className="text-center mb-6 md:mb-10" data-aos="fade-up">
-        <h2 className="section-title">Dịch Vụ Nổi Bật</h2>
-        <p className="section-subtitle">Chọn gói dịch vụ phù hợp với nhu cầu của bạn</p>
+        <h2 className="section-title">{t('home.featuredPricing.title')}</h2>
+        <p className="section-subtitle">{t('home.featuredPricing.subtitle')}</p>
       </div>
       <Tabs tabs={tabs} />
     </section>

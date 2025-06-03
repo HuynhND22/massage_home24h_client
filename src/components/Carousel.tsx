@@ -1,6 +1,6 @@
-
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, EffectCoverflow, Autoplay } from 'swiper'
+import { useTranslation } from '@/i18n/I18nProvider'
 
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
@@ -12,6 +12,7 @@ type CarouselProps = {
 }
 
 const Carousel = ({ slider }: CarouselProps) => {
+  const { t } = useTranslation();
   return (
     <div className='carousel'>
         <Swiper 
@@ -56,7 +57,7 @@ const Carousel = ({ slider }: CarouselProps) => {
                         <div>
                             <p className='title'>{data.title}</p>
                             <p>{data.description}</p>
-                            <a href={`${data.url}`} target="_blank" className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300  '>explore</a>
+                            <a href={`${data.url}`} target="_blank" className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>{t('common.buttons.viewDetails')}</a>
                         </div>
                     </SwiperSlide>
                 ))
