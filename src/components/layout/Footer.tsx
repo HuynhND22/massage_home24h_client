@@ -29,7 +29,7 @@ const Footer = () => {
             <p className="mb-4">
               {t('footer.about')}
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Link href="https://facebook.com" className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors duration-300">
                 <FaFacebookF />
               </Link>
@@ -42,7 +42,7 @@ const Footer = () => {
               <Link href="https://youtube.com" className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center hover:bg-primary transition-colors duration-300">
                 <FaYoutube />
               </Link>
-            </div>
+            </div> */}
           </div>
           
           {/* Quick Links */}

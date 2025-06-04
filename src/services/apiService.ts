@@ -21,6 +21,27 @@ export const dynamicTranslationKeys = [
   'home.hero.slide2.description'
 ];
 
+interface CountryResponse {
+  country_code: string;
+}
+
+// Get country code from IP address
+export const getCountryByIP = async (): Promise<string | null> => {
+  try {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const ipData = await response.json();
+    
+    // Get country code from IP
+    const countryResponse = await fetch(`https://ipapi.co/${ipData.ip}/country_code/`);
+    const countryCode = await countryResponse.text();
+    
+    return countryCode;
+  } catch (error) {
+    console.error('Failed to get country from IP:', error);
+    return null;
+  }
+};
+
 // Mock API response - replace with actual API call in production
 const mockTranslations: TranslationResponse[] = [
   {

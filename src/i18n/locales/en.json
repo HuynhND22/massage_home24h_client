@@ -45,6 +45,40 @@
       "service": "Service",
       "description": "Service {number} description - Premium health and beauty care service.",
       "viewAll": "View All Services"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "description": "Our professional services for your relaxation and wellness needs.",
+    "page": {
+      "title": "Our Services",
+      "subtitle": "Discover world-class spa therapies specially designed for you",
+      "experienceTitle": "The Real Spa Experience",
+      "experienceDescription": "At Massage Home24h, we offer a variety of premium spa services designed to relax, rejuvenate, and beautify. Each therapy is performed by highly qualified professionals using natural products and advanced technology.",
+      "filters": {
+        "all": "All",
+        "massage": "Massage", 
+        "facial": "Facial", 
+        "bodyTreatments": "Body Treatments", 
+        "aromatherapy": "Aromatherapy"
+      },
+      "minutes": "minutes",
+      "cta": {
+        "title": "Book Your Appointment Today",
+        "description": "Experience our premium spa services and enjoy moments of relaxation"
+      }
+    },
+    "massage": {
+      "title": "In-home Massage Therapy",
+      "description": "Professional massage services delivered to your home"
+    },
+    "nail": {
+      "title": "In-home Nail Services",
+      "description": "Professional nail care in the comfort of your home"
+    },
+    "eyelash": {
+      "title": "In-home Eyelash Extension",
+      "description": "Professional eyelash services at your convenience"
     },
     "testimonials": {
       "title": "What Our Customers Say",
@@ -77,26 +111,119 @@
     },
     "story": {
       "title": "Our Story",
-      "description": "Massage Home24h was established in 2019 with the desire to provide a comprehensive relaxation and beauty space for customers."
+      "description": "Massage Home24h was founded in 2019 with a vision to create a comprehensive space for relaxation and beauty.",
+      "paragraphs": [
+        "Massage Home24h was founded in 2019 with a vision to create a comprehensive space for relaxation and beauty. From the beginning, we established our mission to bring balance and rejuvenation to both body and mind through premium massage therapies.",
+        "With over {years} years of experience, we have continuously improved our service quality, researching and applying the latest techniques and materials, combining modern medicine with traditional methods to create unique and effective massage experiences.",
+        "Our team of experts is thoroughly trained and always updated with the latest trends in beauty and healthcare. Each therapy at Massage Home24h is tailored specifically to the unique needs of each customer, delivering optimal results."
+      ]
     },
     "mission": {
       "title": "Our Mission",
-      "description": "At Massage Home24h, we believe that true beauty comes from balance and health from within."
+      "description": "At Massage Home24h, we believe that true beauty comes from balance and wellness within.",
+      "paragraphs": [
+        "At Massage Home24h, we believe that true beauty comes from balance and wellness within. Our mission is to create a space where clients can temporarily forget life's worries, finding balance and rejuvenation for both body and spirit.",
+        "We are committed to providing high-quality services while protecting the environment and health. All products used in our spa are carefully selected, prioritizing natural, organic and non-toxic ingredients.",
+        "We understand that each customer has unique needs and preferences. Therefore, we always listen carefully to deliver a personalized experience beyond expectations, helping our customers not only look beautiful but also feel confident and complete."
+      ]
+    },
+    "values": {
+      "title": "Our Core Values",
+      "items": [
+        {
+          "title": "Quality",
+          "description": "We only provide services of the highest quality, using premium techniques and products."
+        },
+        {
+          "title": "Personalization",
+          "description": "We understand that each customer is unique and deserves a personalized experience."
+        },
+        {
+          "title": "Professionalism",
+          "description": "Our team is thoroughly trained and committed to delivering exceptional service."
+        },
+        {
+          "title": "Innovation",
+          "description": "We continuously research and apply the latest techniques in the wellness industry."
+        }
+      ]
     },
     "team": {
       "title": "Our Expert Team",
-      "subtitle": "Meet the dedicated experts behind every wonderful experience at Massage Home24h."
+      "subtitle": "Meet the dedicated experts behind every wonderful experience at Massage Home24h.",
+      "members": [
+        {
+          "name": "Dr. Jennifer Smith",
+          "position": "Medical Director",
+          "bio": "With over 15 years of experience in holistic medicine, Dr. Smith leads our medical team and oversees all therapy protocols."
+        },
+        {
+          "name": "Michael Chen",
+          "position": "Chief Massage Therapist",
+          "bio": "A master of both Eastern and Western massage techniques, Michael has been recognized as one of the top therapists in the region."
+        },
+        {
+          "name": "Sarah Johnson",
+          "position": "Skincare Specialist",
+          "bio": "Sarah is certified in advanced skincare treatments and has helped thousands of clients achieve healthier, more radiant skin."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "description": "The trust and satisfaction of our customers is the biggest motivation that helps us continuously develop and improve.",
+      "items": [
+        {
+          "name": "Jennifer Lee",
+          "comment": "I've experienced massage services at Massage Home24h and felt extremely satisfied. Not only was the massage technique professional, but the ambiance and service were also wonderful. I will definitely return!"
+        },
+        {
+          "name": "Mike Tran",
+          "comment": "The skincare service at Massage Home24h has truly transformed my skin. After a month of treatment, my skin has become much brighter, smoother, and healthier. Thank you to the team of experts here!"
+        },
+        {
+          "name": "Theresa Pham",
+          "comment": "I've tried many different spas but Massage Home24h is truly different. From the ambiance and service to the staff, everything is very professional and dedicated. This is where I trust to care for my health and beauty."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Experience Our Services",
+      "description": "Book an appointment today and discover the difference at Massage Home24h",
+      "button": "Book Now"
     }
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "We'd love to hear from you!",
+    "heroTitle": "Contact Us",
+    "heroDescription": "We'd love to hear from you!",
+    "infoTitle": "Contact Information",
+    "address": "Address",
+    "addressValue": "12D An My, Son Tra, Da Nang",
+    "phone": "Phone",
+    "phoneValue": "(+84) 796 672 339",
+    "email": "Email",
+    "emailValue": "info@massagehome24h.com",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Monday - Friday: 9:00 - 21:00\nSaturday - Sunday: 10:00 - 20:00",
     "form": {
+      "title": "Contact Us",
       "name": "Your Name",
       "email": "Your Email",
       "phone": "Phone Number",
       "message": "Message",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number",
+      "messagePlaceholder": "Enter your message",
+      "success": "Message sent successfully",
+      "error": "Failed to send message"
+    },
+    "appointmentCTA": {
+      "title": "You want to book an appointment?",
+      "description": "Experience our premium massage services by booking an appointment today",
+      "button": "Book Now"
     },
     "info": {
       "address": "Address",
@@ -107,7 +234,7 @@
       "emailValue": "info@massagehome24h.com"
     }
   },
-  "services": {
+  "serviceTypes": {
     "massage": {
       "title": "In-home Massage Therapy",
       "description": "Professional massage services delivered to your home"

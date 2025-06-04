@@ -44,7 +44,25 @@
       "subtitle": "Khám phá các liệu pháp spa cao cấp",
       "service": "Dịch vụ",
       "description": "Mô tả dịch vụ {number} - Dịch vụ chăm sóc sức khỏe và làm đẹp cao cấp.",
-      "viewAll": "Xem tất cả dịch vụ"
+      "viewAll": "Xem tất cả dịch vụ",
+      "page": {
+        "title": "Dịch Vụ Của Chúng Tôi",
+        "subtitle": "Khám phá các liệu pháp spa đẳng cấp thế giới được thiết kế đặc biệt cho bạn",
+        "experienceTitle": "Trải Nghiệm Spa Thực Sự",
+        "experienceDescription": "Tại Massage Home24h, chúng tôi cung cấp nhiều dịch vụ spa cao cấp được thiết kế để thư giãn, trẻ hóa và làm đẹp. Mỗi liệu pháp đều được thực hiện bởi các chuyên gia có trình độ cao, sử dụng các sản phẩm tự nhiên và công nghệ tiên tiến.",
+        "filters": {
+          "all": "Tất cả",
+          "massage": "Massage", 
+          "facial": "Chăm sóc da", 
+          "bodyTreatments": "Trị liệu cơ thể", 
+          "aromatherapy": "Liệu pháp hương thơm"
+        },
+        "minutes": "phút",
+        "cta": {
+          "title": "Đặt Lịch Ngay Hôm Nay",
+          "description": "Trải nghiệm các dịch vụ spa cao cấp của chúng tôi và tận hưởng khoảnh khắc thư giãn"
+        }
+      }
     },
     "testimonials": {
       "title": "Khách hàng nói gì về chúng tôi",
@@ -77,31 +95,126 @@
     },
     "story": {
       "title": "Câu Chuyện Của Chúng Tôi",
-      "description": "Massage Home24h được thành lập vào năm 2019 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng."
+      "description": "Massage Home24h được thành lập vào năm 2019 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng.",
+      "paragraphs": [
+        "Massage Home24h được thành lập vào năm 2019 với mong muốn mang đến một không gian thư giãn và làm đẹp toàn diện cho khách hàng. Từ những ngày đầu, chúng tôi đã xác định sứ mệnh của mình là mang đến sự cân bằng và trẻ hóa cho cả thể chất lẫn tinh thần thông qua các liệu pháp massage cao cấp.",
+        "Với hơn {years} năm kinh nghiệm, chúng tôi đã không ngừng nâng cao chất lượng dịch vụ, tìm kiếm và áp dụng các kỹ thuật và nguyên liệu mới nhất, kết hợp giữa y học hiện đại và các phương pháp truyền thống để tạo ra trải nghiệm massage độc đáo và hiệu quả.",
+        "Đội ngũ chuyên gia của chúng tôi được đào tạo chuyên sâu và luôn cập nhật những xu hướng mới nhất trong ngành làm đẹp và chăm sóc sức khỏe. Mỗi liệu pháp tại Massage Home24h đều được thiết kế riêng biệt, phù hợp với nhu cầu cụ thể của từng khách hàng, giúp mang lại kết quả tối ưu."
+      ]
     },
     "mission": {
       "title": "Sứ Mệnh Của Chúng Tôi",
-      "description": "Tại Massage Home24h, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong."
+      "description": "Tại Massage Home24h, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong.",
+      "paragraphs": [
+        "Tại Massage Home24h, chúng tôi tin rằng vẻ đẹp thực sự xuất phát từ sự cân bằng và khỏe mạnh từ bên trong. Sứ mệnh của chúng tôi là tạo ra một không gian nơi khách hàng có thể tạm quên đi những lo toan cuộc sống, tìm lại sự cân bằng và trẻ hóa cả về thể chất lẫn tinh thần.",
+        "Chúng tôi cam kết cung cấp dịch vụ chất lượng cao đồng thới bảo vệ môi trường và sức khỏe. Tất cả các sản phẩm sử dụng trong spa của chúng tôi đều được lựa chọn cẩn thận, ưu tiên các thành phần tự nhiên, hữ cơ và không độc hại.",
+        "Chúng tôi hiểu rằng mỗi khách hàng có nhu cầu và sở thích riêng biệt. Vì vậy, chúng tôi luôn lắng nghe cẩn thận để mang đến trải nghiệm cá nhân hóa vượt trên mong đợi, giúp khách hàng của chúng tôi không chỉ trông đẹp mà còn cảm thấy tự tin và trọn vẹn."
+      ]
+    },
+    "values": {
+      "title": "Giá Trị Cốt Lõi Của Chúng Tôi",
+      "items": [
+        {
+          "title": "Chất Lượng",
+          "description": "Chúng tôi chỉ cung cấp dịch vụ với chất lượng cao nhất, sử dụng các kỹ thuật và sản phẩm cao cấp."
+        },
+        {
+          "title": "Cá Nhân Hóa",
+          "description": "Chúng tôi hiểu rằng mỗi khách hàng là duy nhất và xứng đáng có trải nghiệm được cá nhân hóa."
+        },
+        {
+          "title": "Chuyên Nghiệp",
+          "description": "Đội ngũ của chúng tôi được đào tạo kỹ lưỡng và cam kết cung cấp dịch vụ xuất sắc."
+        },
+        {
+          "title": "Đổi Mới",
+          "description": "Chúng tôi liên tục nghiện cứu và áp dụng các kỹ thuật mới nhất trong ngành chăm sóc sức khỏe."
+        }
+      ]
     },
     "team": {
       "title": "Đội Ngũ Chuyên Gia",
-      "subtitle": "Gặp gỡ những chuyên gia tận tâm đứng sau mỗi trải nghiệm tuyệt vời tại Massage Home24h."
+      "subtitle": "Gặp gỡ những chuyên gia tận tâm đứng sau mỗi trải nghiệm tuyệt vời tại Massage Home24h.",
+      "members": [
+        {
+          "name": "TS. Nguyễn Thị Hương",
+          "position": "Giám Đốc Y Khoa",
+          "bio": "Với hơn 15 năm kinh nghiệm trong y học toàn diện, TS. Hương dẫn dắt đội ngũ y tế của chúng tôi và giám sát tất cả các quy trình liệu pháp."
+        },
+        {
+          "name": "Trần Minh Tuấn",
+          "position": "Chuyên Gia Massage Chính",
+          "bio": "Là bậc thầy về cả kỹ thuật massage phương Đông và phương Tây, Tuấn đã được công nhận là một trong những nhà trị liệu hàng đầu trong khu vực."
+        },
+        {
+          "name": "Phạm Thanh Hà",
+          "position": "Chuyên Gia Chăm Sóc Da",
+          "bio": "Thanh Hà được chứng nhận về các liệu pháp chăm sóc da nâng cao và đã giúp hàng nghìn khách hàng đạt được làn da khỏe mạnh và rạng rỡ hơn."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Khách Hàng Nói Gì Về Chúng Tôi",
+      "description": "Niềm tin và sự hài lòng của khách hàng là động lực lớn nhất giúp chúng tôi không ngừng phát triển và hoàn thiện.",
+      "items": [
+        {
+          "name": "Nguyễn Thị Lan",
+          "comment": "Tôi đã trải nghiệm dịch vụ massage tại Massage Home24h và cảm thấy vô cùng hài lòng. Không chỉ kỹ thuật massage chuyên nghiệp mà không gian và dịch vụ đều rất tuyệt vời. Chắc chắn tôi sẽ quay lại!"
+        },
+        {
+          "name": "Trần Minh Tuấn",
+          "comment": "Dịch vụ chăm sóc da tại Massage Home24h thực sự đã thay đổi làn da của tôi. Sau một tháng điều trị, làn da của tôi đã trở nên sáng mịn và khỏe mạnh hơn rất nhiều. Cảm ơn đội ngũ chuyên gia tại đây!"
+        },
+        {
+          "name": "Phạm Thanh Hương",
+          "comment": "Tôi đã thử nhiều spa khác nhau nhưng Massage Home24h thực sự khác biệt. Từ không gian, dịch vụ đến đội ngũ nhân viên đều rất chuyên nghiệp và tận tâm. Đây là nơi tôi tin tưởng để chăm sóc sức khỏe và sắc đẹp."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Trải Nghiệm Dịch Vụ Của Chúng Tôi",
+      "description": "Đặt lịch hẹn ngay hôm nay và khám phá sự khác biệt tại Renew Day Spa",
+      "button": "Đặt lịch ngay"
     }
   },
   "contact": {
     "title": "Liên Hệ",
-    "subtitle": "Chúng tôi rất mong được nghe từ bạn!",
+    "heroTitle": "Liên Hệ",
+    "heroDescription": "Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn",
+    "infoTitle": "Thông Tin Liên Hệ",
+    "address": "Địa Chỉ",
+    "addressValue": "12D An Mỹ, Sơn Trà, TP.Đà Nẵng",
+    "phone": "Điện Thoại",
+    "phoneValue": "(+84) 796 672 339",
+    "email": "Email",
+    "emailValue": "info@massagehome24h.com",
+    "workingHours": "Giờ Làm Việc",
+    "workingHoursValue": "Thứ 2 - Thứ 6: 9:00 - 21:00\nThứ 7 - Chủ Nhật: 10:00 - 20:00",
     "form": {
+      "title": "Liên hệ",
       "name": "Họ và tên",
-      "email": "Email của bạn",
+      "email": "Email",
       "phone": "Số điện thoại",
-      "message": "Tin nhắn",
-      "submit": "Gửi tin nhắn"
+      "subject": "Tiêu đề",
+      "message": "Nội dung",
+      "submit": "Gửi tin nhắn",
+      "namePlaceholder": "Nhập họ và tên",
+      "emailPlaceholder": "Nhập email",
+      "phonePlaceholder": "Nhập số điện thoại",
+      "subjectPlaceholder": "Nhập tiêu đề",
+      "messagePlaceholder": "Nhập nội dung",
+      "success": "Đăng ký thành công",
+      "error": "Đăng ký thất bại"
+    },
+    "appointmentCTA": {
+      "title": "Bạn muốn đặt lịch hẹn?",
+      "description": "Trải nghiệm dịch vụ spa cao cấp của chúng tôi bằng cách đặt lịch ngay hôm nay",
+      "button": "Đặt lịch ngay"
     },
     "info": {
       "address": "Địa chỉ",
       "addressValue": "12D An Mỹ, Sơn Trà, TP.Đà Nẵng",
-      "phone": "Điện thoại",
+      "phone": "Điện Thoại",
       "phoneValue": "(+84) 796 672 339",
       "email": "Email",
       "emailValue": "info@massagehome24h.com"

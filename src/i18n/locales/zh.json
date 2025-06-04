@@ -3,7 +3,7 @@
     "nav": {
       "home": "首页",
       "about": "关于我们",
-      "services": "服务",
+      "services": "服务项目",
       "pricing": "价格",
       "blog": "博客",
       "contact": "联系我们"
@@ -11,132 +11,255 @@
     "buttons": {
       "bookNow": "立即预约",
       "services": "查看服务",
-      "readMore": "阅读更多",
+      "readMore": "了解更多",
       "submit": "提交",
       "send": "发送",
-      "learnMore": "了解更多",
-      "callNow": "立即电话",
+      "learnMore": "进一步了解",
+      "callNow": "立即致电",
       "viewDetails": "查看详情"
     }
   },
   "home": {
     "hero": {
       "slide1": {
-        "title": "按摩之家24小时",
-        "description": "体验高级按摩服务和放松"
+        "title": "Massage Home24h",
+        "description": "体验高级舒适的按摩服务"
       },
       "slide2": {
-        "title": "按摩之家24小时",
-        "description": "体验高级按摩服务和放松"
+        "title": "Massage Home24h",
+        "description": "体验高级舒适的按摩服务"
       }
     },
     "intro": {
-      "title": "欢迎来到",
-      "description": "按摩之家24小时是您寻找完美放松和恢复活力的地方。凭借我们经验丰富的团队和豪华的环境，我们致力于为您提供最佳的水疗体验。",
-      "paragraph1": "按摩之家24小时是您寻找完美放松和恢复活力的地方。凭借我们经验丰富的团队和豪华的环境，我们致力于为您提供最佳的水疗体验。",
-      "paragraph2": "我们的服务旨在安护您的心灵，振兴您的身体，洗去所有疲惫。让按摩之家24小时成为您放松和美丽的目的地。"
-    },
-    "featured": {
-      "title": "特色服务",
-      "subtitle": "选择适合您需求的服务套餐"
+      "title": "欢迎光临",
+      "paragraph1": "Massage Home24h 为您提供一个放松身心的理想之地。我们的专业团队和舒适环境将为您带来最优质的SPA体验。",
+      "paragraph2": "我们的服务旨在缓解疲劳，舒缓压力，并为您的身心注入活力。Massage Home24h 是您健康与美丽的专属空间。"
     },
     "featuredPricing": {
       "title": "特色服务",
-      "subtitle": "选择适合您需求的服务套餐"
+      "subtitle": "选择适合您的护理方案"
     },
     "services": {
       "title": "我们的服务",
-      "subtitle": "探索我们的高级按摩服务",
+      "subtitle": "探索我们的高端SPA疗程",
       "service": "服务",
-      "description": "服务 {number} 描述 - 高级健康和美容护理服务。",
-      "viewAll": "查看所有服务"
+      "description": "服务描述 {number} - 为您的健康与美丽量身打造的高端护理服务。",
+      "viewAll": "查看全部服务",
+      "page": {
+        "title": "服务项目",
+        "subtitle": "专为您打造的世界级SPA体验",
+        "experienceTitle": "真正的放松体验",
+        "experienceDescription": "在 Massage Home24h，我们提供多种高级SPA服务，帮助您恢复身心健康。每一项疗程均由经验丰富的技师，结合天然材料与先进技术精心打造。",
+        "filters": {
+          "all": "全部",
+          "massage": "按摩",
+          "facial": "面部护理",
+          "bodyTreatments": "身体护理",
+          "aromatherapy": "芳香疗法"
+        },
+        "minutes": "分钟",
+        "cta": {
+          "title": "现在预约",
+          "description": "体验高端SPA疗程，感受深度放松"
+        }
+      }
     },
     "testimonials": {
       "title": "客户评价",
-      "subtitle": "来自客户的真实评价"
+      "subtitle": "真实顾客的反馈",
+      "items": [
+        {
+          "name": "阮氏英",
+          "comment": "服务非常好，员工既专业又友善。每次来都感觉全身放松，精神焕发。"
+        },
+        {
+          "name": "陈文明",
+          "comment": "按摩技师非常专业，环境也很干净舒适。我一定会再次光临！"
+        },
+        {
+          "name": "范青霞",
+          "comment": "预订灵活，服务上门非常方便。技师彬彬有礼，注重隐私，非常满意！"
+        }
+      ]
     },
     "cta": {
-      "title": "准备体验？",
-      "description": "今天预约并享受我们的高级水疗服务。",
+      "title": "准备好放松了吗？",
+      "description": "立即预约，体验高品质的SPA服务",
       "button": "立即预约"
     }
   },
   "about": {
     "hero": {
       "title": "关于我们",
-      "subtitle": "了解按摩之家24小时的故事和使命"
+      "subtitle": "了解 Massage Home24h 的故事与使命"
     },
     "story": {
       "title": "我们的故事",
-      "description": "按摩之家24小时成立于2019年，旨在为客户提供全面的放松和美容空间。"
+      "description": "Massage Home24h 成立于 2019 年，致力于为客户提供真正的放松与美丽护理服务。",
+      "paragraphs": [
+        "Massage Home24h 成立于 2019 年，致力于为客户提供真正的放松与美丽护理服务。我们以提供高端按摩服务、恢复身心平衡为使命。",
+        "凭借超过 {years} 年的专业经验，我们不断提升服务质量，结合传统理疗与现代科技，打造独一无二的按摩体验。",
+        "我们的技师均接受过专业培训，持续学习最新的美容健康趋势。通过个性化定制服务，为每位客户带来最佳效果。"
+      ]
     },
     "mission": {
       "title": "我们的使命",
-      "description": "在按摩之家24小时，我们相信真正的美丽来自内在的平衡和健康。"
+      "description": "Massage Home24h 相信，真正的美丽源自健康的身体与心灵。",
+      "paragraphs": [
+        "Massage Home24h 相信，真正的美丽源自健康的身体与心灵。我们希望为客户提供一个远离喧嚣、恢复能量的专属空间。",
+        "我们坚持提供高品质服务的同时，注重环保与健康。所有使用产品优先选用天然、有机、无毒材料。",
+        "我们深知每位客户的需求各异，因此始终倾听并提供超出预期的个性化体验，让每位客户充满自信，展现自然美。"
+      ]
+    },
+    "values": {
+      "title": "核心价值观",
+      "items": [
+        {
+          "title": "质量",
+          "description": "只提供高品质的服务，使用高端产品与专业技术。"
+        },
+        {
+          "title": "个性化",
+          "description": "尊重每一位客户的独特需求，量身定制护理体验。"
+        },
+        {
+          "title": "专业",
+          "description": "我们的团队受过严格培训，始终追求卓越。"
+        },
+        {
+          "title": "创新",
+          "description": "持续研究并引入最新的健康护理科技。"
+        }
+      ]
     },
     "team": {
-      "title": "我们的专家团队",
-      "subtitle": "认识按摩之家24小时每个精彩体验背后的专业团队。"
+      "title": "专业团队",
+      "subtitle": "了解为您提供卓越服务的 Massage Home24h 团队成员",
+      "members": [
+        {
+          "name": "阮氏香博士",
+          "position": "医学总监",
+          "bio": "拥有15年以上整合医学经验，香博士负责监督所有疗程流程与安全性。"
+        },
+        {
+          "name": "陈明俊",
+          "position": "首席按摩师",
+          "bio": "融合东方与西方按摩技艺，明俊被誉为本地区最具专业的疗愈师之一。"
+        },
+        {
+          "name": "范青霞",
+          "position": "面部护理专家",
+          "bio": "持有高级美容认证，青霞已为上千客户带来健康有光泽的肌肤。"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "客户评价",
+      "description": "客户的信任和满意是推动我们不断发展的最大动力。",
+      "items": [
+        {
+          "name": "阮氏兰",
+          "comment": "体验了 Massage Home24h 的按摩，非常满意。技师专业，环境优雅，服务周到。下次还会再来！"
+        },
+        {
+          "name": "陈明俊",
+          "comment": "Massage Home24h 的面部护理让我焕然一新。治疗一个月后，我的皮肤更加柔嫩、健康。感谢专业团队！"
+        },
+        {
+          "name": "范清香",
+          "comment": "尝试过很多SPA，但 Massage Home24h 真的与众不同。无论是空间、服务还是技师都体现出专业与用心，是值得信赖的美容养生之地。"
+        }
+      ]
+    },
+    "cta": {
+      "title": "欢迎亲自体验我们的服务",
+      "description": "立即预约，感受 Massage Home24h 的不同之处",
+      "button": "立即预约"
     }
   },
   "contact": {
     "title": "联系我们",
-    "subtitle": "我们很想听到您的声音！",
+    "heroTitle": "联系我们",
+    "heroDescription": "欢迎您的留言与建议！",
+    "infoTitle": "联系我们",
+    "address": "地址",
+    "addressValue": "岘港市山茶郡安美街12D号",
+    "phone": "电话",
+    "phoneValue": "(+84) 796 672 339",
+    "email": "邮箱",
+    "emailValue": "info@massagehome24h.com",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Monday - Friday: 9:00 - 21:00\nSaturday - Sunday: 10:00 - 20:00",
+    "subtitle": "欢迎您的留言与建议！",
     "form": {
-      "name": "您的姓名",
-      "email": "您的电子邮件",
-      "phone": "电话号码",
-      "message": "留言",
-      "submit": "发送消息"
+      "title": "联系我们",
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "联系电话",
+      "subject": "主题",
+      "message": "留言内容",
+      "submit": "发送信息",
+      "namePlaceholder": "请输入姓名",
+      "emailPlaceholder": "请输入邮箱",
+      "phonePlaceholder": "请输入联系电话",
+      "subjectPlaceholder": "请输入主题",
+      "messagePlaceholder": "请输入留言内容",
+      "success": "留言成功",
+      "error": "留言失败"
+    },
+    "appointmentCTA": {
+      "title": "您想要预约吗？",
+      "description": "通过今天预约，体验我们的高端按摩服务",
+      "button": "立即预约"
     },
     "info": {
       "address": "地址",
-      "addressValue": "12D An My, Son Tra, Da Nang",
+      "addressValue": "岘港市山茶郡安美街12D号",
       "phone": "电话",
       "phoneValue": "(+84) 796 672 339",
-      "email": "电子邮件",
+      "email": "邮箱",
       "emailValue": "info@massagehome24h.com"
     }
   },
   "services": {
     "massage": {
-      "title": "上门按摩疗法",
-      "description": "专业按摩服务送到您家"
+      "title": "上门按摩服务",
+      "description": "专业按摩师上门为您服务"
     },
     "nail": {
       "title": "上门美甲服务",
-      "description": "在家中舒适地享受专业美甲护理"
+      "description": "在家享受高端美甲护理"
     },
     "eyelash": {
-      "title": "上门睫毛延长",
-      "description": "便捷地享受专业睫毛服务"
+      "title": "上门睫毛嫁接",
+      "description": "足不出户享受专业睫毛美化"
     }
   },
   "footer": {
-    "about": "按摩之家24小时提供高级按摩服务和精彩的放松体验，帮助您每天感到焕然一新。",
+    "about": "Massage Home24h 提供高品质的按摩与放松服务，让您每天都焕发年轻与活力。",
     "quickLinks": {
       "title": "快速链接"
     },
     "services": {
-      "title": "服务",
-      "massage": "按摩疗法",
-      "facial": "面部护理", 
-      "bodyTreatments": "身体疗法",
-      "aromatherapy": "香薄疗法",
+      "title": "服务项目",
+      "massage": "理疗按摩",
+      "facial": "面部护理",
+      "bodyTreatments": "身体护理",
+      "aromatherapy": "芳香疗法",
       "hotStone": "热石按摩"
     },
     "contact": {
       "title": "联系我们",
       "address": {
         "title": "地址",
-        "value": "12D An My, Son Tra, Da Nang"
+        "value": "岘港市山茶郡安美街12D号"
       },
       "info": {
         "title": "联系方式",
         "phone": "电话",
-        "email": "电子邮件"
+        "email": "邮箱"
       }
     },
-    "copyright": "所有权利均予保留。"
+    "copyright": "版权所有"
   }
 }

@@ -2,97 +2,219 @@
   "common": {
     "nav": {
       "home": "홈",
-      "about": "소개",
+      "about": "회사 소개",
       "services": "서비스",
-      "pricing": "가격",
+      "pricing": "요금 안내",
       "blog": "블로그",
-      "contact": "연락처"
+      "contact": "문의하기"
     },
     "buttons": {
-      "bookNow": "예약하기",
+      "bookNow": "지금 예약하기",
       "services": "서비스 보기",
-      "readMore": "더 보기",
+      "readMore": "자세히 보기",
       "submit": "제출",
       "send": "보내기",
-      "learnMore": "자세히 알아보기",
-      "callNow": "지금 전화하기",
-      "viewDetails": "상세 보기"
+      "learnMore": "더 알아보기",
+      "callNow": "전화하기",
+      "viewDetails": "자세히 보기"
     }
   },
   "home": {
     "hero": {
       "slide1": {
-        "title": "마사지 홈24시",
-        "description": "프리미엄 마사지 서비스와 휴식을 경험하세요"
+        "title": "Massage Home24h",
+        "description": "프리미엄 휴식 마사지를 경험해보세요"
       },
       "slide2": {
-        "title": "마사지 홈24시",
-        "description": "프리미엄 마사지 서비스와 휴식을 경험하세요"
+        "title": "Massage Home24h",
+        "description": "프리미엄 휴식 마사지를 경험해보세요"
       }
     },
     "intro": {
-      "title": "마사지 홈24시에 오신 것을 환영합니다",
-      "description": "마사지 홈24시는 완벽한 휴식과 재생을 찾을 수 있는 곳입니다. 경험이 풍부한 팀과 고급스러운 환경으로, 최고의 스파 경험을 제공해 드립니다.",
-      "paragraph1": "마사지 홈24시는 완벽한 휴식과 재생을 찾을 수 있는 곳입니다. 경험이 풍부한 팀과 고급스러운 환경으로, 최고의 스파 경험을 제공해 드립니다.",
-      "paragraph2": "저희의 서비스는 당신의 마음을 진정시키고, 몸을 회복시키며, 모든 피로를 씻어내도록 설계되었습니다. 마사지 홈24시가 당신의 휴식과 아름다움을 위한 목적지가 되도록 해 보세요."
-    },
-    "featured": {
-      "title": "주요 서비스",
-      "subtitle": "귀하의 필요에 맞는 서비스 패키지를 선택하세요"
+      "title": "환영합니다",
+      "paragraph1": "Massage Home24h는 완벽한 휴식과 재충전을 위한 공간입니다. 숙련된 전문가들과 고급스러운 공간으로 최고의 스파 경험을 선사합니다.",
+      "paragraph2": "우리의 서비스는 몸과 마음을 달래고, 회복시키며, 피로를 날려줍니다. Massage Home24h가 당신의 휴식과 아름다움을 위한 공간이 되어드리겠습니다."
     },
     "featuredPricing": {
-      "title": "주요 서비스",
-      "subtitle": "귀하의 필요에 맞는 서비스 패키지를 선택하세요"
+      "title": "추천 서비스",
+      "subtitle": "당신에게 맞는 서비스를 선택하세요"
     },
     "services": {
-      "title": "우리의 서비스",
-      "subtitle": "프리미엄 마사지 서비스를 발견하세요",
+      "title": "제공 서비스",
+      "subtitle": "프리미엄 스파 테라피를 만나보세요",
       "service": "서비스",
-      "description": "서비스 {number} 설명 - 고급 건강 및 미용 관리 서비스.",
-      "viewAll": "모든 서비스 보기"
+      "description": "서비스 설명 {number} - 건강과 아름다움을 위한 프리미엄 케어 서비스.",
+      "viewAll": "모든 서비스 보기",
+      "page": {
+        "title": "제공 서비스",
+        "subtitle": "당신을 위해 특별히 설계된 세계적 수준의 스파 테라피",
+        "experienceTitle": "진정한 스파 경험",
+        "experienceDescription": "Massage Home24h에서는 몸과 마음을 치유하고 회복시키는 다양한 프리미엄 스파 서비스를 제공합니다. 각 테라피는 숙련된 전문가들이 자연 재료와 첨단 기술로 제공합니다.",
+        "filters": {
+          "all": "전체",
+          "massage": "마사지",
+          "facial": "피부 관리",
+          "bodyTreatments": "바디 트리트먼트",
+          "aromatherapy": "아로마 테라피"
+        },
+        "minutes": "분",
+        "cta": {
+          "title": "오늘 예약하세요",
+          "description": "프리미엄 스파 서비스를 경험하고 힐링하세요"
+        }
+      }
     },
     "testimonials": {
-      "title": "고객의 소리",
-      "subtitle": "고객들의 진솔한 리뷰"
+      "title": "고객 후기",
+      "subtitle": "실제 고객의 생생한 리뷰",
+      "items": [
+        {
+          "name": "응우옌 티 아인",
+          "comment": "서비스가 매우 훌륭하고, 직원들도 친절하며 전문적입니다. 매번 방문 후 몸과 마음이 회복되는 것을 느낍니다."
+        },
+        {
+          "name": "쩐 반 민",
+          "comment": "마사지 기술이 뛰어나고 전문적이며, 스파 공간도 매우 쾌적하고 청결합니다. 꼭 다시 방문할 겁니다!"
+        },
+        {
+          "name": "팜 타인 하",
+          "comment": "유연한 예약과 편리한 방문 서비스가 마음에 듭니다. 마사지사도 매우 정중하고 공간을 존중해 줘서 만족스럽습니다!"
+        }
+      ]
     },
     "cta": {
-      "title": "경험할 준비가 되셨나요?",
-      "description": "오늘 예약하고 프리미엄 서비스를 즐기세요.",
-      "button": "지금 예약"
+      "title": "이제 휴식할 준비 되셨나요?",
+      "description": "지금 예약하시고 프리미엄 스파 서비스를 경험해보세요.",
+      "button": "지금 예약하기"
     }
   },
   "about": {
     "hero": {
       "title": "회사 소개",
-      "subtitle": "마사지 홈24시의 이야기와 사명을 발견하세요"
+      "subtitle": "Massage Home24h의 이야기와 사명을 알아보세요"
     },
     "story": {
       "title": "우리의 이야기",
-      "description": "마사지 홈24시는 2019년에 고객을 위한 종합적인 휴식과 미용 공간을 제공하기 위해 설립되었습니다."
+      "description": "Massage Home24h는 2019년에 설립되어 고객에게 완벽한 휴식과 아름다움을 제공하기 위해 시작되었습니다.",
+      "paragraphs": [
+        "Massage Home24h는 2019년에 설립되어 고객에게 완벽한 휴식과 아름다움을 제공하기 위해 시작되었습니다. 우리는 프리미엄 마사지 테라피를 통해 몸과 마음의 균형을 회복하는 것을 사명으로 삼고 있습니다.",
+        "{years}년 이상의 경험을 바탕으로, 우리는 항상 서비스 품질을 개선하고 최신 기술과 재료를 도입하며, 전통 요법과 현대 의학을 결합한 고유한 마사지 경험을 제공합니다.",
+        "우리의 전문가들은 철저한 교육을 받고 있으며, 뷰티 및 헬스 산업의 최신 트렌드를 지속적으로 학습합니다. 각 고객의 니즈에 맞춘 맞춤형 테라피로 최고의 효과를 제공합니다."
+      ]
     },
     "mission": {
       "title": "우리의 사명",
-      "description": "마사지 홈24시에서는 진정한 아름다움이 내면의 균형과 건강에서 비롯된다고 믿습니다."
+      "description": "Massage Home24h는 진정한 아름다움이 건강한 몸과 마음에서 시작된다고 믿습니다.",
+      "paragraphs": [
+        "Massage Home24h는 진정한 아름다움이 건강한 몸과 마음에서 시작된다고 믿습니다. 우리는 고객이 일상에서 벗어나 균형을 되찾고 재충전할 수 있는 공간을 제공하고자 합니다.",
+        "우리는 품질 높은 서비스를 제공하면서도 환경과 건강을 지키는 것을 중요시합니다. 사용하는 모든 제품은 천연, 유기농, 무독성 성분을 우선으로 선택합니다.",
+        "고객마다 고유한 필요와 취향이 있다는 것을 잘 알고 있기에, 항상 경청하고 기대 이상의 맞춤형 경험을 제공하여 자신감 넘치고 아름다운 삶을 도와드립니다."
+      ]
+    },
+    "values": {
+      "title": "핵심 가치",
+      "items": [
+        {
+          "title": "품질",
+          "description": "최고 품질의 서비스만을 제공하며, 고급 기술과 제품을 사용합니다."
+        },
+        {
+          "title": "맞춤형",
+          "description": "모든 고객이 고유하다는 점을 존중하며, 맞춤형 경험을 제공합니다."
+        },
+        {
+          "title": "전문성",
+          "description": "우리 팀은 전문 교육을 받고, 항상 최고의 서비스를 제공합니다."
+        },
+        {
+          "title": "혁신",
+          "description": "최신 헬스케어 기술을 지속적으로 연구하고 도입합니다."
+        }
+      ]
     },
     "team": {
       "title": "전문가 팀",
-      "subtitle": "마사지 홈24시의 모든 멋진 경험 뒤에 있는 헌신적인 전문가들을 만나보세요."
+      "subtitle": "Massage Home24h의 특별한 경험을 제공하는 전문가들을 만나보세요.",
+      "members": [
+        {
+          "name": "응우옌 티 흐엉 박사",
+          "position": "의료 디렉터",
+          "bio": "15년 이상의 통합의학 경험을 가진 흐엉 박사는 모든 테라피 프로세스를 총괄합니다."
+        },
+        {
+          "name": "쩐 민 뚜언",
+          "position": "수석 마사지 전문가",
+          "bio": "동양과 서양 마사지 기술을 모두 섭렵한 뚜언은 지역 최고의 테라피스트로 인정받고 있습니다."
+        },
+        {
+          "name": "팜 타인 하",
+          "position": "피부 관리 전문가",
+          "bio": "고급 피부 치료 인증을 보유한 하 전문가는 수천 명의 고객에게 건강하고 빛나는 피부를 선사해 왔습니다."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "고객 후기",
+      "description": "고객님의 소중한 의견을 기다립니다!",
+      "items": [
+        {
+          "name": "응우옌 티 란",
+          "comment": "Massage Home24h의 마사지를 경험했는데 정말 만족스러웠습니다. 마사지 기술은 물론 공간과 서비스도 훌륭했습니다. 꼭 다시 방문하겠습니다!"
+        },
+        {
+          "name": "쩐 민 뚜언",
+          "comment": "Massage Home24h의 피부 관리 서비스는 제 피부를 완전히 변화시켰습니다. 한 달 치료 후 피부가 더 부드럽고 건강해졌습니다. 전문가팀 감사합니다!"
+        },
+        {
+          "name": "팜 타인 흐엉",
+          "comment": "여러 스파를 다녀봤지만 Massage Home24h는 정말 다릅니다. 공간, 서비스, 직원까지 모두 전문적이고 정성이 느껴집니다. 건강과 아름다움을 위한 믿을 수 있는 장소입니다."
+        }
+      ]
+    },
+    "cta": {
+      "title": "서비스를 직접 경험해보세요",
+      "description": "지금 예약하시고 Massage Home24h에서 차이를 느껴보세요",
+      "button": "지금 예약하기"
     }
   },
   "contact": {
-    "title": "연락처",
-    "subtitle": "연락을 기다립니다!",
+    "title": "문의하기",
+    "subtitle": "여러분의 소중한 의견을 기다립니다!",
+    "heroTitle": "문의하기",
+    "heroDescription": "여러분의 소중한 의견을 기다립니다!",
+    "infoTitle": "문의하기",
+    "address": "주소",
+    "addressValue": "12D An Mỹ, 손짜, 다낭시",
+    "phone": "전화번호",
+    "phoneValue": "(+84) 796 672 339",
+    "email": "이메일",
+    "emailValue": "info@massagehome24h.com",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Monday - Friday: 9:00 - 21:00\nSaturday - Sunday: 10:00 - 20:00",
     "form": {
+      "title": "문의하기",
       "name": "이름",
       "email": "이메일",
       "phone": "전화번호",
+      "subject": "제목",
       "message": "메시지",
-      "submit": "메시지 보내기"
+      "submit": "메시지 보내기",
+      "namePlaceholder": "이름을 입력해주세요",
+      "emailPlaceholder": "이메일을 입력해주세요",
+      "phonePlaceholder": "전화번호를 입력해주세요",
+      "messagePlaceholder": "메시지를 입력해주세요",
+      "success": "메시지가 성공적으로 전송되었습니다",
+      "error": "메시지 전송에 실패했습니다"
+    },
+    "appointmentCTA": {
+      "title": "예약을 원하시나요?",
+      "description": "오늘 바로 예약하여 프리미엄 마사지 서비스를 경험해보세요",
+      "button": "예약하기"
     },
     "info": {
       "address": "주소",
-      "addressValue": "12D An My, Son Tra, Da Nang",
-      "phone": "전화",
+      "addressValue": "12D An Mỹ, 손짜, 다낭시",
+      "phone": "전화번호",
       "phoneValue": "(+84) 796 672 339",
       "email": "이메일",
       "emailValue": "info@massagehome24h.com"
@@ -100,40 +222,40 @@
   },
   "services": {
     "massage": {
-      "title": "가정 방문 마사지 테라피",
-      "description": "전문적인 마사지 서비스를 집에서 받으세요"
+      "title": "가정 방문 지압 마사지",
+      "description": "전문 마사지사가 집으로 방문해 드립니다"
     },
     "nail": {
       "title": "가정 방문 네일 서비스",
-      "description": "집에서 편안하게 전문 네일 케어를 받으세요"
+      "description": "편안한 집에서 받는 고급 네일 케어"
     },
     "eyelash": {
       "title": "가정 방문 속눈썹 연장",
-      "description": "편리하게 전문 속눈썹 서비스를 받으세요"
+      "description": "전문 속눈썹 서비스를 편리하게 집에서 받으세요"
     }
   },
   "footer": {
-    "about": "마사지 홈24시는 프리미엄 마사지 서비스와 환상적인 휴식 경험을 제공하여 매일 상쾌하고 젊어지는 느낌을 갖게 해 드립니다.",
+    "about": "Massage Home24h는 프리미엄 마사지와 휴식을 제공하여 매일 상쾌하고 젊은 느낌을 선사합니다.",
     "quickLinks": {
       "title": "빠른 링크"
     },
     "services": {
       "title": "서비스",
-      "massage": "마사지 테라피",
-      "facial": "페이셜 케어", 
+      "massage": "치료 마사지",
+      "facial": "페이셜 케어",
       "bodyTreatments": "바디 트리트먼트",
-      "aromatherapy": "아로마테라피",
+      "aromatherapy": "아로마 테라피",
       "hotStone": "핫스톤 마사지"
     },
     "contact": {
-      "title": "연락처",
+      "title": "문의",
       "address": {
         "title": "주소",
-        "value": "12D An My, Son Tra, Da Nang"
+        "value": "12D An Mỹ, 손짜, 다낭시"
       },
       "info": {
         "title": "연락처",
-        "phone": "전화",
+        "phone": "전화번호",
         "email": "이메일"
       }
     },

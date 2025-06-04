@@ -1,8 +1,13 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '../../i18n/I18nProvider';
 
 export default function ContactPage() {
+  const { t } = useTranslation();
+  
+
   return (
     <main>
       {/* Hero Section */}
@@ -10,16 +15,16 @@ export default function ContactPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/contact-hero.jpg"
-            alt="Contact Us"
+            alt={t('contact.heroTitle')}
             fill
             className="object-cover"
           />
           <div className="absolute inset-0 bg-dark/50"></div>
         </div>
         <div className="container relative z-10 text-center text-light">
-          <h1 className="text-5xl font-bold mb-4">Liên Hệ</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('contact.heroTitle')}</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn
+            {t('contact.heroDescription')}
           </p>
         </div>
       </section>
@@ -30,7 +35,7 @@ export default function ContactPage() {
           <div className="flex flex-col md:flex-row gap-8">
             {/* Contact Information */}
             <div className="md:w-1/2 bg-light p-8 rounded-lg shadow-md">
-              <h2 className="text-3xl font-semibold mb-6">Thông Tin Liên Hệ</h2>
+              <h2 className="text-3xl font-semibold mb-6">{t('contact.infoTitle')}</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -41,8 +46,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium mb-1">Địa Chỉ</h3>
-                    <p className="text-gray-600">12D An Mỹ, Sơn Trà, TP.Đà Nẵng</p>
+                    <h3 className="text-lg font-medium mb-1">{t('contact.address')}</h3>
+                    <p className="text-gray-600">{t('contact.addressValue')}</p>
                   </div>
                 </div>
                 
@@ -53,8 +58,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium mb-1">Điện Thoại</h3>
-                    <p className="text-gray-600">(+84) 796 672 339</p>
+                    <h3 className="text-lg font-medium mb-1">{t('contact.phone')}</h3>
+                    <p className="text-gray-600">{t('contact.phoneValue')}</p>
                   </div>
                 </div>
                 
@@ -65,8 +70,8 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium mb-1">Email</h3>
-                    <p className="text-gray-600">info@massagehome24h.com</p>
+                    <h3 className="text-lg font-medium mb-1">{t('contact.email')}</h3>
+                    <p className="text-gray-600">{t('contact.emailValue')}</p>
                   </div>
                 </div>
                 
@@ -77,15 +82,14 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium mb-1">Giờ Làm Việc</h3>
-                    <p className="text-gray-600">Thứ 2 - Thứ 6: 9:00 - 21:00</p>
-                    <p className="text-gray-600">Thứ 7 - Chủ Nhật: 10:00 - 20:00</p>
+                    <h3 className="text-lg font-medium mb-1">{t('contact.workingHours')}</h3>
+                    <p className="text-gray-600">{t('contact.workingHoursValue')}</p>
                   </div>
                 </div>
               </div>
               
-              <div className="mt-8 pt-6 border-t border-border">
-                <h3 className="text-lg font-medium mb-4">Kết Nối Với Chúng Tôi</h3>
+              {/* <div className="mt-8 pt-6 border-t border-border">
+                <h3 className="text-lg font-medium mb-4">{t('contact.connectWithUs')}</h3>
                 <div className="flex space-x-4">
                   <a href="#" className="h-10 w-10 rounded-full bg-[#3b5998] text-white flex items-center justify-center">
                     <span>F</span>
@@ -100,66 +104,66 @@ export default function ContactPage() {
                     <span>L</span>
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
             
             {/* Contact Form */}
             <div className="md:w-1/2 bg-light p-8 rounded-lg shadow-md">
-              <h2 className="text-3xl font-semibold mb-6">Gửi Tin Nhắn Cho Chúng Tôi</h2>
+              <h2 className="text-3xl font-semibold mb-6">{t('contact.form.title')}</h2>
               
               <form>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 mb-2">Họ và tên</label>
+                    <label htmlFor="name" className="block text-gray-700 mb-2">{t('contact.form.name')}</label>
                     <input 
                       type="text"
                       id="name"
                       className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Nhập họ và tên"
+                      placeholder={t('contact.form.namePlaceholder')}
                       required
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-gray-700 mb-2">{t('contact.form.email')}</label>
                     <input 
                       type="email"
                       id="email"
                       className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                      placeholder="Nhập địa chỉ email"
+                      placeholder={t('contact.form.emailPlaceholder')}
                       required
                     />
                   </div>
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="phone" className="block text-gray-700 mb-2">Số điện thoại</label>
+                  <label htmlFor="phone" className="block text-gray-700 mb-2">{t('contact.form.phone')}</label>
                   <input 
                     type="tel"
                     id="phone"
                     className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Nhập số điện thoại"
+                    placeholder={t('contact.form.phonePlaceholder')}
                   />
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="subject" className="block text-gray-700 mb-2">Tiêu đề</label>
+                  <label htmlFor="subject" className="block text-gray-700 mb-2">{t('contact.form.subject')}</label>
                   <input 
                     type="text"
                     id="subject"
                     className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Nhập tiêu đề"
+                    placeholder={t('contact.form.subjectPlaceholder')}
                     required
                   />
                 </div>
                 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 mb-2">Nội dung</label>
+                  <label htmlFor="message" className="block text-gray-700 mb-2">{t('contact.form.message')}</label>
                   <textarea 
                     id="message"
                     rows={5}
                     className="w-full px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    placeholder="Nhập nội dung tin nhắn"
+                    placeholder={t('contact.form.messagePlaceholder')}
                     required
                   ></textarea>
                 </div>
@@ -168,7 +172,7 @@ export default function ContactPage() {
                   type="submit"
                   className="w-full bg-primary text-white py-3 px-4 rounded-md font-medium hover:bg-accent transition-colors duration-300"
                 >
-                  Gửi tin nhắn
+                  {t('contact.form.submit')}
                 </button>
               </form>
             </div>
@@ -176,29 +180,15 @@ export default function ContactPage() {
         </div>
       </section>
       
-      {/* Map Section */}
-      {/* <section className="py-16 bg-light">
-        <div className="container">
-          <h2 className="text-3xl font-semibold mb-8 text-center">Vị Trí Của Chúng Tôi</h2>
-          
-          <div className="h-[400px] rounded-lg overflow-hidden shadow-md">
-            
-            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <p className="text-lg text-gray-600">Google Maps sẽ được hiển thị ở đây</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      
       {/* Appointment CTA */}
       <section className="bg-primary text-light py-16">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">Bạn muốn đặt lịch hẹn?</h2>
+          <h2 className="text-3xl font-bold mb-6">{t('contact.appointmentCTA.title')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Trải nghiệm dịch vụ spa cao cấp của chúng tôi bằng cách đặt lịch ngay hôm nay
+            {t('contact.appointmentCTA.description')}
           </p>
           <Link href="/contact#booking" className="btn bg-light text-primary hover:bg-dark hover:text-light">
-            Đặt lịch ngay
+            {t('contact.appointmentCTA.button')}
           </Link>
         </div>
       </section>

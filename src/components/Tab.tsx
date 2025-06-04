@@ -16,14 +16,14 @@ export default function Tabs({ tabs }: TabsProps) {
   return (
     <div className="w-full">
       {/* Tab Navigation */}
-      <div className="flex justify-center mb-6">
-        <div className="inline-flex p-1 rounded-lg bg-gray-100">
+      <div className="flex justify-center mb-6 px-2">
+        <div className="flex flex-wrap justify-center sm:inline-flex p-1 rounded-lg bg-gray-100 w-full max-w-[100%] overflow-x-auto sm:overflow-visible">
           {tabs.map((tab, index) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`relative py-2 px-6 text-sm font-medium transition-all duration-200 ease-in-out
-                ${index !== tabs.length - 1 ? 'mr-1' : ''}
+              className={`relative py-1.5 sm:py-2 px-3 sm:px-4 md:px-6 text-xs sm:text-sm font-medium transition-all duration-200 ease-in-out whitespace-nowrap
+                ${index !== tabs.length - 1 ? 'mr-1 mb-1 sm:mb-0' : ''}
                 ${
                   activeTab === tab.id
                     ? 'text-white bg-primary shadow-sm rounded-md'
