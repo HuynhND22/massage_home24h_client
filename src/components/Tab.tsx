@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 type Tab = {
   id: string;
-  label: string;
+  name: string;
   content: React.ReactNode;
 };
 
@@ -12,7 +12,7 @@ interface TabsProps {
 
 export default function Tabs({ tabs }: TabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-
+  console.log("tabs",tabs)
   return (
     <div className="w-full">
       {/* Tab Navigation */}
@@ -31,7 +31,7 @@ export default function Tabs({ tabs }: TabsProps) {
                 }
               `}
             >
-              {tab.label}
+              {tab.name}
             </button>
           ))}
         </div>

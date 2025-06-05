@@ -66,7 +66,7 @@ const socialMenuItems: MenuItem[] = [
     icon: <Image src="/images/messenger.svg" alt="Messenger" width={32} height={32} />,
     label: 'Messenger',
     deepLink: 'fb-messenger://user-thread/104982128438784',
-    webLink: 'https://m.me/104982128438784'
+    webLink: 'https://www.facebook.com/messages/t/104982128438784'
   },
   {
     icon: <Image src="/images/phone.svg" alt="Phone" width={32} height={32} />,

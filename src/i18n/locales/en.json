@@ -45,6 +45,32 @@
       "service": "Service",
       "description": "Service {number} description - Premium health and beauty care service.",
       "viewAll": "View All Services"
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Authentic reviews from our customers",
+      "items": [
+        {
+          "name": "Jennifer Smith",
+          "comment": "Excellent service, friendly and professional staff. I feel relaxed and energized after each visit to Massage Home24h.",
+          "image": "images/custome_en1.jpg"
+        },
+        {
+          "name": "Michael Johnson",
+          "comment": "The massage therapists are very professional with excellent techniques. The spa space is very comfortable and clean. I will definitely come back!",
+          "image": "images/custome_en2.jpg"
+        },
+        {
+          "name": "Sarah Williams",
+          "comment": "Flexible scheduling and convenient home service. The technician was very professional and respectful of personal space. Very satisfied!",
+          "image": "images/custome_en3.jpg"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Relax?",
+      "description": "Book your appointment today to experience our premium spa services.",
+      "button": "Book Now"
     }
   },
   "services": {

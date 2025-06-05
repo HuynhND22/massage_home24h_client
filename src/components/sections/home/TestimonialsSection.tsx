@@ -28,21 +28,21 @@ const useTranslatedTestimonials = (): Testimonial[] => {
     {
       id: 1,
       name: t('home.testimonials.items.0.name'),
-      image: "/images/testimonial-1.jpg",
+      image: t('home.testimonials.items.0.image'),
       rating: 5,
       comment: t('home.testimonials.items.0.comment')
     },
     {
       id: 2,
       name: t('home.testimonials.items.1.name'),
-      image: "/images/testimonial-2.jpg",
+      image: t('home.testimonials.items.1.image'),
       rating: 5,
       comment: t('home.testimonials.items.1.comment')
     },
     {
       id: 3,
       name: t('home.testimonials.items.2.name'),
-      image: "/images/testimonial-3.jpg",
+      image: t('home.testimonials.items.2.image'),
       rating: 5,
       comment: t('home.testimonials.items.2.comment')
     }
@@ -80,7 +80,7 @@ const TestimonialsSection = ({
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src={testimonial.image}
+                    src={`/${testimonial.image}`}
                     alt={`${testimonial.name}`}
                     fill
                     className="object-cover"

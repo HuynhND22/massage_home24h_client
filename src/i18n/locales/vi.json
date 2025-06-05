@@ -69,16 +69,19 @@
       "subtitle": "Những đánh giá chân thực từ khách hàng",
       "items": [
         {
-          "name": "Nguyễn Thị Anh",
-          "comment": "Dịch vụ tuyệt vời, nhân viên thân thiện và chuyên nghiệp. Tôi cảm thấy thư giãn và tràn đầy năng lượng sau mỗi lần đến Massage Home24h."
+          "name": "Thu Phương",
+          "comment": "Dịch vụ tuyệt vời, nhân viên thân thiện và chuyên nghiệp. Tôi cảm thấy thư giãn và tràn đầy năng lượng sau mỗi lần đến Massage Home24h.",
+          "image": "images/custome_vi1.jpg"
         },
         {
-          "name": "Trần Văn Minh",
-          "comment": "Đội ngũ nhân viên massage rất chuyên nghiệp và kỹ thuật tuyệt vời. Không gian spa rất thoải mái và sạch sẽ. Chắc chắn tôi sẽ quay lại!"
+          "name": "Đức Huynh",
+          "comment": "Đội ngũ nhân viên massage rất chuyên nghiệp và kỹ thuật tuyệt vời. Không gian spa rất thoải mái và sạch sẽ. Chắc chắn tôi sẽ quay lại!",
+          "image": "images/custome_vi2.jpg"
         },
         {
-          "name": "Phạm Thanh Hà",
-          "comment": "Lịch hẹn linh hoạt và dịch vụ đến tận nhà rất thuận tiện. Kỹ thuật viên rất chuyên nghiệp và tôn trọng không gian cá nhân. Rất hài lòng!"
+          "name": "Tình Nguyễn",
+          "comment": "Lịch hẹn linh hoạt và dịch vụ đến tận nhà rất thuận tiện. Kỹ thuật viên rất chuyên nghiệp và tôn trọng không gian cá nhân. Rất hài lòng!",
+          "image": "images/custome_vi3.jpg"
         }
       ]
     },

@@ -70,15 +70,18 @@
       "items": [
         {
           "name": "阮氏英",
-          "comment": "服务非常好，员工既专业又友善。每次来都感觉全身放松，精神焕发。"
+          "comment": "服务非常好，员工既专业又友善。每次来都感觉全身放松，精神焕发。",
+          "image": "images/custome_zh1.jpg"
         },
         {
           "name": "陈文明",
-          "comment": "按摩技师非常专业，环境也很干净舒适。我一定会再次光临！"
+          "comment": "按摩技师非常专业，环境也很干净舒适。我一定会再次光临！",
+          "image": "images/custome_zh2.jpg"
         },
         {
           "name": "范青霞",
-          "comment": "预订灵活，服务上门非常方便。技师彬彬有礼，注重隐私，非常满意！"
+          "comment": "预订灵活，服务上门非常方便。技师彬彬有礼，注重隐私，非常满意！",
+          "image": "images/custome_zh3.jpg"
         }
       ]
     },
@@ -159,15 +162,18 @@
       "items": [
         {
           "name": "阮氏兰",
-          "comment": "体验了 Massage Home24h 的按摩，非常满意。技师专业，环境优雅，服务周到。下次还会再来！"
+          "comment": "体验了 Massage Home24h 的按摩，非常满意。技师专业，环境优雅，服务周到。下次还会再来！",
+          "image": "images/custome_zh1.jpg"
         },
         {
           "name": "陈明俊",
-          "comment": "Massage Home24h 的面部护理让我焕然一新。治疗一个月后，我的皮肤更加柔嫩、健康。感谢专业团队！"
+          "comment": "Massage Home24h 的面部护理让我焕然一新。治疗一个月后，我的皮肤更加柔嫩、健康。感谢专业团队！",
+          "image": "images/custome_zh2.jpg"
         },
         {
           "name": "范清香",
-          "comment": "尝试过很多SPA，但 Massage Home24h 真的与众不同。无论是空间、服务还是技师都体现出专业与用心，是值得信赖的美容养生之地。"
+          "comment": "尝试过很多SPA，但 Massage Home24h 真的与众不同。无论是空间、服务还是技师都体现出专业与用心，是值得信赖的美容养生之地。",
+          "image": "images/custome_zh3.jpg"
         }
       ]
     },

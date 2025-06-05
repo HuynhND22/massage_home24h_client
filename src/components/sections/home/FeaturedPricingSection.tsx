@@ -8,14 +8,13 @@ import { useTranslation } from '@/i18n/I18nProvider';
 interface FeaturedPricingSectionProps {
   tabs: {
     id: string;
-    label: string;
+    name: string;
     content: React.ReactNode;
   }[];
 }
 
 const FeaturedPricingSection = ({ tabs }: FeaturedPricingSectionProps) => {
   const { t } = useTranslation();
-  
   return (
     <section id='services' className="section bg-light py-responsive px-responsive">
       <div className="text-center mb-6 md:mb-10" data-aos="fade-up">

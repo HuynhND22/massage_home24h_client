@@ -7,41 +7,22 @@ import '@fontsource/eb-garamond';
 import HeroCarousel from '@/components/HeroCarousel';
 import Carousel from '@/components/Carousel';
 import FullScreenSpinner from '@/components/FullScreenSpinner';
-import { 
-  IntroSection, 
-  FeaturedPricingSection, 
-  ServicesSection, 
-  TestimonialsSection, 
-  CTASection 
+import {
+  IntroSection,
+  FeaturedPricingSection,
+  ServicesSection,
+  TestimonialsSection,
+  CTASection,
 } from '@/components/sections/home';
 import { useTranslation } from '@/i18n/I18nProvider';
 import api from '@/services/api';
 
 export default function Home() {
   const { t } = useTranslation();
+
   const [services, setServices] = useState([]);
-  const [slides, setSlides] = useState([
-    {
-      image: '/images/home-background.jpeg',
-      title: t('home.hero.slide1.title'),
-      description: t('home.hero.slide1.description'),
-    },
-    {
-      image: '/images/testimage.jpg',
-      title: t('home.hero.slide2.title'),
-      description: t('home.hero.slide2.description'),
-    },
-    {
-      image: '/images/home-background.jpeg',
-      title: t('home.hero.slide1.title'),
-      description: t('home.hero.slide1.description'),
-    },
-    {
-      image: '/images/testimage.jpg',
-      title: t('home.hero.slide2.title'),
-      description: t('home.hero.slide2.description'),
-    },
-  ]);
+  const [categories, setCategories] = useState([]);
+  const [slides, setSlides] = useState([]);
   const [webSettings, setWebSettings] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -50,54 +31,39 @@ export default function Home() {
       duration: 800,
       easing: 'ease-in-out',
       once: true,
-      mirror: false
+      mirror: false,
     });
 
-    //promissAlls
-    Promise.allSettled([
-      api.get('/services'),
-      api.get('/slides'),
-      api.get('/web-settings'),
-    ]).then((results:any) => {
-      console.log(results[1].value.items);
-      setServices(results[0].value);
-      setSlides(results[1].value.items);
-      setWebSettings(results[2].value);
-    });
+    const fetchData = async () => {
+      try {
+        const [servicesRes, slidesRes, categoriesRes, settingsRes] = await Promise.all([
+          api.get('/services') as any,
+          api.get('/slides') as any,
+          api.get('/categories', { params: { type: 'service' } }) as any,
+          api.get('/web-settings') as any,
+        ]);
 
-    const timer = setTimeout(() => setLoading(false), 700);
-    return () => clearTimeout(timer);
+        console.log('settingsRes', settingsRes);
+        setServices(servicesRes.items);
+        setSlides(slidesRes.items);
+        setCategories(categoriesRes.items);
+        setWebSettings(settingsRes.data);
+      } catch (err) {
+        console.error("Failed to fetch data:", err);
+      } finally {
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
+      }
+    };
+
+    fetchData();
   }, []);
 
   if (loading) return <FullScreenSpinner />;
 
-  // Hero carousel slides data
-//   const slides = [
-//   {
-//     image: '/images/home-background.jpeg',
-//     title: t('home.hero.slide1.title'),
-//     description: t('home.hero.slide1.description'),
-//   },
-//   {
-//     image: '/images/testimage.jpg',
-//     title: t('home.hero.slide2.title'),
-//     description: t('home.hero.slide2.description'),
-//   },
-//   {
-//     image: '/images/home-background.jpeg',
-//     title: t('home.hero.slide1.title'),
-//     description: t('home.hero.slide1.description'),
-//   },
-//   {
-//     image: '/images/testimage.jpg',
-//     title: t('home.hero.slide2.title'),
-//     description: t('home.hero.slide2.description'),
-//   },
-// ];
-
-
-const miSlide = [
-  {
+  const miSlide = [
+    {
       title: t('home.services.eyelash.service1.title'),
       description: t('home.services.eyelash.service1.description'),
       url: "/images/miVolume.jpg"
@@ -112,9 +78,10 @@ const miSlide = [
       description: t('home.services.eyelash.service2.description'),
       url: "/images/miLongTho.jpg"
     }
-]
-const nailSlide = [
-  {
+  ];
+
+  const nailSlide = [
+    {
       title: t('home.services.nail.service1.title'),
       description: t('home.services.nail.service1.description'),
       url: "/images/veNail.jpg"
@@ -139,77 +106,84 @@ const nailSlide = [
       description: t('home.services.nail.service5.description'),
       url: "/images/sonMong.png"
     },
-]
+  ];
 
-const massageSlide = [
-  {
-    title: t('home.services.massage.service1.title'),
-    description: t('home.services.massage.service1.description'),
-    url: "/images/home-background.jpeg"
-  },
-  {
-    title: t('home.services.massage.service2.title'),
-    description: t('home.services.massage.service2.description'),
-    url: "/images/testimage.jpg"
-  },
-  {
-    title: t('home.services.massage.service3.title'),
-    description: t('home.services.massage.service3.description'),
-    url: "/images/about-spa-new.jpg"
-  },
-  {
-    title: t('home.services.massage.service4.title'),
-    description: t('home.services.massage.service4.description'),
-    url: "/images/about-hero.jpg"
-  },
-  {
-    title: t('home.services.massage.service5.title'),
-    description: t('home.services.massage.service5.description'),
-    url: "/images/about-mission.jpg"
-  },
-  {
-    title: t('home.services.massage.service6.title'),
-    description: t('home.services.massage.service6.description'),
-    url: "/images/about-spa-new.jpg"
-  }
-]
+  const massageSlide = [
+    {
+      title: t('home.services.massage.service1.title'),
+      description: t('home.services.massage.service1.description'),
+      url: "/images/home-background.jpeg"
+    },
+    {
+      title: t('home.services.massage.service2.title'),
+      description: t('home.services.massage.service2.description'),
+      url: "/images/testimage.jpg"
+    },
+    {
+      title: t('home.services.massage.service3.title'),
+      description: t('home.services.massage.service3.description'),
+      url: "/images/about-spa-new.jpg"
+    },
+    {
+      title: t('home.services.massage.service4.title'),
+      description: t('home.services.massage.service4.description'),
+      url: "/images/about-hero.jpg"
+    },
+    {
+      title: t('home.services.massage.service5.title'),
+      description: t('home.services.massage.service5.description'),
+      url: "/images/about-mission.jpg"
+    },
+    {
+      title: t('home.services.massage.service6.title'),
+      description: t('home.services.massage.service6.description'),
+      url: "/images/about-spa-new.jpg"
+    }
+  ];
 
-const tabs = [
-  {
-    id: 'nail',
-    label: t('home.tabs.nail'),
-    content: (
-      <Carousel slider={nailSlide}/>
-    )
-  },
-  {
-    id: 'massage',
-    label: t('home.tabs.massage'),
-    content: (
-      <Carousel slider={massageSlide}/>
-    )
-  },
-  {
-    id: 'mi',
-    label: t('home.tabs.eyelash'),
-    content: (
-      <Carousel slider={miSlide}/>
-    )
-  },
-];  
+  // const tabs = [
+  //   {
+  //     id: 'nail',
+  //     name: t('home.tabs.nail'),
+  //     content: <Carousel slider={nailSlide} />
+  //   },
+  //   {
+  //     id: 'massage',
+  //     name: t('home.tabs.massage'),
+  //     content: <Carousel slider={massageSlide} />
+  //   },
+  //   {
+  //     id: 'mi',
+  //     name: t('home.tabs.eyelash'),
+  //     content: <Carousel slider={miSlide} />
+  //   },
+  // ];
 
+  const tabs = categories.map((category:any) => {
+    const categoryServices = services.filter((service:any) => service.categoryId === category.id);
+  
+    const slides = categoryServices.map((service:any) => ({
+      title: service.name,
+      description: service.description || '',
+      url: service.coverImage || category.coverImage || '/default-image.jpg'
+    }));
+  
+    return {
+      id: category.id,
+      name: category.name,
+      content: <Carousel slider={slides} />
+    };
+  });
 
   return (
-    <>
-      <main>
-      {/* Hero Section */}      
+    <main>
       <HeroCarousel slides={slides} />
       <IntroSection />
-      <FeaturedPricingSection tabs={tabs} />
-      <ServicesSection />
+      {/* Kiểm tra categories tồn tại trước khi truyền vào */}
+      {categories.length > 0 && <FeaturedPricingSection tabs={tabs} />}
+      <ServicesSection services={categories} />
       <TestimonialsSection />
       <CTASection />
     </main>
-    </>
   );
 }
