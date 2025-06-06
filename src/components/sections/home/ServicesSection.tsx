@@ -18,7 +18,7 @@ const ServiceCard = ({ name, description, index }: { name: string; description: 
           {description}
         </p>
         <Link 
-          href={`/services/service-${index + 1}`} 
+          href={`/services`} 
           className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-all duration-300 group border-b border-transparent hover:border-primary pb-1"
         >
           <span>{t('common.buttons.viewDetails')}</span>
