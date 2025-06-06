@@ -75,7 +75,7 @@
   },
   "services": {
     "title": "Services",
-    "description": "Our professional services for your relaxation and wellness needs.",
+    "subtitle": "Our professional services for your relaxation and wellness needs.",
     "page": {
       "title": "Our Services",
       "subtitle": "Discover world-class massage therapies specially designed for you",

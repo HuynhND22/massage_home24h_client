@@ -211,7 +211,7 @@
   },
   "services": {
     "title": "服务项目",
-    "description": "探索我们的高端SPA疗程",
+    "subtitle": "探索我们的高端SPA疗程",
     "page": {
       "title": "服务项目",
       "subtitle": "专为您打造的世界级SPA体验",
