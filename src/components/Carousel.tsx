@@ -13,6 +13,7 @@ type CarouselProps = {
 
 const Carousel = ({ slider }: CarouselProps) => {
   const { t } = useTranslation();
+  console.log('slider', slider);
   return (
     <div className='carousel'>
         <Swiper 
@@ -52,15 +53,20 @@ const Carousel = ({ slider }: CarouselProps) => {
         
         >
             {
-                slider.map((data:any) => (
+                slider.map((data:any) => {
+                    const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
+                    const translation = data.translations.find((t:any) => t.language === currentLang) || data.translations[0];
+                    console.log('data', data);
+                    return (
                     <SwiperSlide style={{ backgroundImage: `url(${data.url})` }} className="myswiper-slider">
                         <div>
-                            <p className='title'>{data.title}</p>
-                            <p>{data.description}</p>
+                            <p className='title'>{translation?.name}</p>
+                            <p>{translation?.description}</p>
                             <a href={`${data.url}`} target="_blank" className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>{t('common.buttons.viewDetails')}</a>
                         </div>
                     </SwiperSlide>
-                ))
+                )
+            })
             }
         </Swiper>
 

@@ -41,28 +41,10 @@
     },
     "services": {
       "title": "Dịch Vụ Của Chúng Tôi",
-      "subtitle": "Khám phá các liệu pháp spa cao cấp",
+      "subtitle": "Khám phá các liệu pháp massage cao cấp",
       "service": "Dịch vụ",
       "description": "Mô tả dịch vụ {number} - Dịch vụ chăm sóc sức khỏe và làm đẹp cao cấp.",
-      "viewAll": "Xem tất cả dịch vụ",
-      "page": {
-        "title": "Dịch Vụ Của Chúng Tôi",
-        "subtitle": "Khám phá các liệu pháp spa đẳng cấp thế giới được thiết kế đặc biệt cho bạn",
-        "experienceTitle": "Trải Nghiệm Spa Thực Sự",
-        "experienceDescription": "Tại Massage Home24h, chúng tôi cung cấp nhiều dịch vụ spa cao cấp được thiết kế để thư giãn, trẻ hóa và làm đẹp. Mỗi liệu pháp đều được thực hiện bởi các chuyên gia có trình độ cao, sử dụng các sản phẩm tự nhiên và công nghệ tiên tiến.",
-        "filters": {
-          "all": "Tất cả",
-          "massage": "Massage", 
-          "facial": "Chăm sóc da", 
-          "bodyTreatments": "Trị liệu cơ thể", 
-          "aromatherapy": "Liệu pháp hương thơm"
-        },
-        "minutes": "phút",
-        "cta": {
-          "title": "Đặt Lịch Ngay Hôm Nay",
-          "description": "Trải nghiệm các dịch vụ spa cao cấp của chúng tôi và tận hưởng khoảnh khắc thư giãn"
-        }
-      }
+      "viewAll": "Xem tất cả dịch vụ"
     },
     "testimonials": {
       "title": "Khách hàng nói gì về chúng tôi",
@@ -87,7 +69,7 @@
     },
     "cta": {
       "title": "Sẵn sàng để thư giãn?",
-      "description": "Hãy đặt lịch ngay hôm nay để trải nghiệm dịch vụ spa đẳng cấp của chúng tôi.",
+      "description": "Hãy đặt lịch ngay hôm nay để trải nghiệm dịch vụ massage đẳng cấp của chúng tôi.",
       "button": "Đặt lịch ngay"
     }
   },
@@ -161,16 +143,19 @@
       "description": "Niềm tin và sự hài lòng của khách hàng là động lực lớn nhất giúp chúng tôi không ngừng phát triển và hoàn thiện.",
       "items": [
         {
-          "name": "Nguyễn Thị Lan",
-          "comment": "Tôi đã trải nghiệm dịch vụ massage tại Massage Home24h và cảm thấy vô cùng hài lòng. Không chỉ kỹ thuật massage chuyên nghiệp mà không gian và dịch vụ đều rất tuyệt vời. Chắc chắn tôi sẽ quay lại!"
+          "name": "Thu Phương",
+          "comment": "Tôi đã trải nghiệm dịch vụ massage tại Massage Home24h và cảm thấy vô cùng hài lòng. Không chỉ kỹ thuật massage chuyên nghiệp mà không gian và dịch vụ đều rất tuyệt vời. Chắc chắn tôi sẽ quay lại!",
+          "image": "images/custome_vi1.jpg"
         },
         {
-          "name": "Trần Minh Tuấn",
-          "comment": "Dịch vụ chăm sóc da tại Massage Home24h thực sự đã thay đổi làn da của tôi. Sau một tháng điều trị, làn da của tôi đã trở nên sáng mịn và khỏe mạnh hơn rất nhiều. Cảm ơn đội ngũ chuyên gia tại đây!"
+          "name": "Đức Huynh",
+          "comment": "Dịch vụ chăm sóc da tại Massage Home24h thực sự đã thay đổi làn da của tôi. Sau một tháng điều trị, làn da của tôi đã trở nên sáng mịn và khỏe mạnh hơn rất nhiều. Cảm ơn đội ngũ chuyên gia tại đây!",
+          "image": "images/custome_vi2.jpg"
         },
         {
-          "name": "Phạm Thanh Hương",
-          "comment": "Tôi đã thử nhiều spa khác nhau nhưng Massage Home24h thực sự khác biệt. Từ không gian, dịch vụ đến đội ngũ nhân viên đều rất chuyên nghiệp và tận tâm. Đây là nơi tôi tin tưởng để chăm sóc sức khỏe và sắc đẹp."
+          "name": "Tình Nguyễn",
+          "comment": "Tôi đã thử nhiều spa khác nhau nhưng Massage Home24h thực sự khác biệt. Từ không gian, dịch vụ đến đội ngũ nhân viên đều rất chuyên nghiệp và tận tâm. Đây là nơi tôi tin tưởng để chăm sóc sức khỏe và sắc đẹp.",
+          "image": "images/custome_vi3.jpg"
         }
       ]
     },
@@ -224,6 +209,60 @@
     }
   },
   "services": {
+    "title": "Dịch Vụ Của Chúng Tôi",
+    "description": "Khám phá các liệu pháp massage cao cấp",
+    "page": {
+      "title": "Dịch Vụ Của Chúng Tôi",
+      "subtitle": "Khám phá các liệu pháp massage cao cấp",
+      "experienceTitle": "Trải Nghiệm Massage Thực Sự",
+      "experienceDescription": "Tại Massage Home24h, chúng tôi cung cấp nhiều dịch vụ massage cao cấp được thiết kế để thư giãn, trẻ hóa và làm đẹp. Mỗi liệu pháp đều được thực hiện bởi các chuyên gia có trình độ cao, sử dụng các sản phẩm tự nhiên và công nghệ tiên tiến.",
+      "filters": {
+        "all": "Tất cả",
+        "massage": "Massage", 
+        "facial": "Chăm sóc da", 
+        "bodyTreatments": "Trị liệu cơ thể", 
+        "aromatherapy": "Liệu pháp hương thơm"
+      },
+      "minutes": "phút",
+      "cta": {
+        "title": "Đặt Lịch Ngay Hôm Nay",
+        "description": "Trải nghiệm các dịch vụ massage cao cấp của chúng tôi và tận hưởng khoảnh khắc thư giãn"
+      },
+      "giftCard": {
+        "title": "Thẻ quà tặng",
+        "description": "Thẻ quà tặng là món quà hoàn hảo cho người thân, bạn bè hoặc đồng nghiệp. Tặng họ trải nghiệm thư giãn và làm đẹp tuyệt vời tại spa của chúng tôi.",
+        "details": "Thẻ quà tặng có giá trị từ 500.000đ đến 5.000.000đ và có thể sử dụng cho bất kỳ dịch vụ nào tại Massage Home24h trong vòng 12 tháng kể từ ngày mua.",
+        "buyButton": "Mua ngay",
+        "learnMoreButton": "Tìm hiểu thêm"
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "description": "Tìm câu trả lời cho các câu hỏi thường gặp về dịch vụ của chúng tôi",
+        "questions": 
+          {
+            "booking": {
+              "question": "Tôi có thể đặt lịch trực tuyến không?",
+              "answer": "Có, chúng tôi khuyến khích khách hàng đặt lịch trước để đảm bảo có thời gian và chuyên gia phù hợp. Bạn có thể đặt lịch qua điện thoại, email hoặc trực tiếp tại Massage Home24h."
+            },
+            "cancellation": {
+              "question": "Chính sách hủy lịch như thế nào?",
+              "answer":"Để hủy hoặc thay đổi lịch hẹn, vui lòng thông báo cho chúng tôi ít nhất 24 giờ trước giờ hẹn. Hủy lịch muộn hơn có thể phải chịu phí 50% giá trị dịch vụ."
+            },
+            "pricing": {
+              "question": "Giá có bao gồm thuế và phí dịch vụ không?",
+              "answer": "Tất cả giá đã bao gồm thuế. Phí dịch vụ (tip) không bắt buộc nhưng luôn được đánh giá cao nếu bạn hài lòng với dịch vụ."
+            },
+            "loyalty": {
+              "question": "Có ưu đãi nào cho khách hàng thường xuyên không?",
+              "answer": "Có, chúng tôi có các gói thành viên với nhiều ưu đãi hấp dẫn. Ngoài ra, khách hàng thường xuyên sẽ nhận được thông báo về các chương trình khuyến mãi đặc biệt."
+            },
+            "arrival": {
+              "question": "Tôi nên đến trước giờ hẹn bao lâu?",
+              "answer": "Chúng tôi khuyến khích bạn đến trước giờ hẹn khoảng 15-20 phút để hoàn tất thủ tục đăng ký và thư giãn trước khi bắt đầu dịch vụ."
+            }
+          }
+      }
+    },
     "massage": {
       "title": "Massage ấn huyệt tại nhà",
       "description": "Dịch vụ massage chuyên nghiệp được mang đến tận nhà bạn"

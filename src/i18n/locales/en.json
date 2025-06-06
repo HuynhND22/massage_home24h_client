@@ -32,7 +32,7 @@
     },
     "intro": {
       "title": "Welcome to",
-      "paragraph1": "Massage Home24h is where you can find perfect relaxation and rejuvenation. With our experienced team and luxurious environment, we are committed to providing you with the best spa experiences.",
+      "paragraph1": "Massage Home24h is where you can find perfect relaxation and rejuvenation. With our experienced team and luxurious environment, we are committed to providing you with the best massage experiences.",
       "paragraph2": "Our services are designed to soothe your mind, rejuvenate your body, and wash away all fatigue. Let Massage Home24h be your destination for relaxation and beauty."
     },
     "featuredPricing": {
@@ -41,7 +41,7 @@
     },
     "services": {
       "title": "Our Services",
-      "subtitle": "Discover our premium spa therapies",
+      "subtitle": "Discover our premium massage therapies",
       "service": "Service",
       "description": "Service {number} description - Premium health and beauty care service.",
       "viewAll": "View All Services"
@@ -69,7 +69,7 @@
     },
     "cta": {
       "title": "Ready to Relax?",
-      "description": "Book your appointment today to experience our premium spa services.",
+      "description": "Book your appointment today to experience our premium massage services.",
       "button": "Book Now"
     }
   },
@@ -78,9 +78,9 @@
     "description": "Our professional services for your relaxation and wellness needs.",
     "page": {
       "title": "Our Services",
-      "subtitle": "Discover world-class spa therapies specially designed for you",
-      "experienceTitle": "The Real Spa Experience",
-      "experienceDescription": "At Massage Home24h, we offer a variety of premium spa services designed to relax, rejuvenate, and beautify. Each therapy is performed by highly qualified professionals using natural products and advanced technology.",
+      "subtitle": "Discover world-class massage therapies specially designed for you",
+      "experienceTitle": "The Real Massage Experience",
+      "experienceDescription": "At Massage Home24h, we offer a variety of premium massage services designed to relax, rejuvenate, and beautify. Each therapy is performed by highly qualified professionals using natural products and advanced technology.",
       "filters": {
         "all": "All",
         "massage": "Massage", 
@@ -91,7 +91,40 @@
       "minutes": "minutes",
       "cta": {
         "title": "Book Your Appointment Today",
-        "description": "Experience our premium spa services and enjoy moments of relaxation"
+        "description": "Experience our premium massage services and enjoy moments of relaxation"
+      },
+      "giftCard": {
+        "title": "Gift Card",
+        "description": "Gift card is a perfect gift for your loved ones, friends or colleagues. Give them the perfect relaxation and beauty experience at our spa.",
+        "details": "Gift card is available in values from 500,000đ to 5,000,000đ and can be used for any service at Massage Home24h within 12 months from the date of purchase.",
+        "buyButton": "Buy Now",
+        "learnMoreButton": "Learn More"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "description": "Find answers to frequently asked questions about our services",
+        "questions": {
+          "booking": {
+            "question": "Can I book an appointment online?",
+            "answer": "Yes, we encourage customers to book appointments in advance to ensure availability and the right therapist."
+          },
+          "cancellation": {
+            "question": "What is the cancellation policy?",
+            "answer": "To cancel or reschedule your appointment, please notify us at least 24 hours before your scheduled time. Late cancellations may incur a 50% service fee."
+          },
+          "pricing": {
+            "question": "Are taxes and service fees included in the price?",
+            "answer": "All prices include taxes. Service fees (tips) are not mandatory but always appreciated if you are satisfied with the service."
+          },
+          "loyalty": {
+            "question": "Are there any benefits for regular customers?",
+            "answer": "Yes, we offer membership packages with attractive benefits. Additionally, regular customers will receive notifications about special promotions."
+          },
+          "arrival": {
+            "question": "How early should I arrive for my appointment?",
+            "answer": "We recommend arriving 15-20 minutes before your appointment to complete registration procedures and relax before your service begins."
+          }
+        }
       }
     },
     "massage": {
@@ -126,7 +159,7 @@
     },
     "cta": {
       "title": "Ready to Relax?",
-      "description": "Book your appointment today to experience our premium spa services.",
+      "description": "Book your appointment today to experience our premium massage services.",
       "button": "Book Now"
     }
   },
@@ -201,15 +234,18 @@
       "items": [
         {
           "name": "Jennifer Lee",
-          "comment": "I've experienced massage services at Massage Home24h and felt extremely satisfied. Not only was the massage technique professional, but the ambiance and service were also wonderful. I will definitely return!"
+          "comment": "I've experienced massage services at Massage Home24h and felt extremely satisfied. Not only was the massage technique professional, but the ambiance and service were also wonderful. I will definitely return!",
+          "image": "images/custome_en1.jpg"
         },
         {
           "name": "Mike Tran",
-          "comment": "The skincare service at Massage Home24h has truly transformed my skin. After a month of treatment, my skin has become much brighter, smoother, and healthier. Thank you to the team of experts here!"
+          "comment": "The skincare service at Massage Home24h has truly transformed my skin. After a month of treatment, my skin has become much brighter, smoother, and healthier. Thank you to the team of experts here!",
+          "image": "images/custome_en2.jpg"
         },
         {
           "name": "Theresa Pham",
-          "comment": "I've tried many different spas but Massage Home24h is truly different. From the ambiance and service to the staff, everything is very professional and dedicated. This is where I trust to care for my health and beauty."
+          "comment": "I've tried many different spas but Massage Home24h is truly different. From the ambiance and service to the staff, everything is very professional and dedicated. This is where I trust to care for my health and beauty.",
+          "image": "images/custome_en3.jpg"
         }
       ]
     },
@@ -237,11 +273,13 @@
       "name": "Your Name",
       "email": "Your Email",
       "phone": "Phone Number",
+      "subject": "Subject",
       "message": "Message",
       "submit": "Send Message",
       "namePlaceholder": "Enter your name",
       "emailPlaceholder": "Enter your email",
       "phonePlaceholder": "Enter your phone number",
+      "subjectPlaceholder": "Enter your subject",
       "messagePlaceholder": "Enter your message",
       "success": "Message sent successfully",
       "error": "Failed to send message"

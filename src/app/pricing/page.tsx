@@ -176,7 +176,7 @@ export default function PricingPage() {
       </section>
       
       {/* Membership Section */}
-      <section className="py-16 bg-light">
+      {/* <section className="py-16 bg-light">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-semibold mb-4">Gói Thành Viên</h2>
@@ -186,7 +186,6 @@ export default function PricingPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Basic Membership */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden border border-border hover:shadow-xl transition-shadow duration-300">
               <div className="bg-secondary p-6">
                 <h3 className="text-2xl font-semibold text-center">Gói Cơ Bản</h3>
@@ -230,7 +229,6 @@ export default function PricingPage() {
               </div>
             </div>
             
-            {/* Premium Membership */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-primary transform scale-105 z-10">
               <div className="bg-primary p-6 text-white">
                 <div className="text-center text-sm font-semibold uppercase tracking-wider mb-2">Phổ biến nhất</div>
@@ -281,7 +279,6 @@ export default function PricingPage() {
               </div>
             </div>
             
-            {/* VIP Membership */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden border border-border hover:shadow-xl transition-shadow duration-300">
               <div className="bg-secondary p-6">
                 <h3 className="text-2xl font-semibold text-center">Gói VIP</h3>
@@ -332,7 +329,7 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       {/* Gift Cards Section */}
       <section className="py-16 bg-background">

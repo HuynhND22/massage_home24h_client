@@ -2,13 +2,18 @@
 
 import React from 'react';
 import Tabs from '@/components/Tab';
-import Carousel from '@/components/Carousel';
 import { useTranslation } from '@/i18n/I18nProvider';
 
 interface FeaturedPricingSectionProps {
   tabs: {
     id: string;
-    name: string;
+    translations: [
+    {
+      id: string;
+      language: string;
+      name: string;
+    }
+    ];
     content: React.ReactNode;
   }[];
 }

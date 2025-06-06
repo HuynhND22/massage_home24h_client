@@ -20,13 +20,18 @@ import api from '@/services/api';
 export default function Home() {
   const { t } = useTranslation();
 
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState<any>();
   const [categories, setCategories] = useState([]);
-  const [slides, setSlides] = useState([]);
+  const [slides, setSlides] = useState([{translations: [{language: 'vi', name: 'test', description: 'test'}]}]);
   const [webSettings, setWebSettings] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isFirstVisit, setIsFirstVisit] = useState(true);
 
   useEffect(() => {
+    // Kiểm tra xem đã từng truy cập chưa
+    const hasVisited = localStorage.getItem('home_visited');
+    setIsFirstVisit(!hasVisited);
+
     AOS.init({
       duration: 800,
       easing: 'ease-in-out',
@@ -43,17 +48,27 @@ export default function Home() {
           api.get('/web-settings') as any,
         ]);
 
-        console.log('settingsRes', settingsRes);
         setServices(servicesRes.items);
         setSlides(slidesRes.items);
         setCategories(categoriesRes.items);
         setWebSettings(settingsRes.data);
+
+        // Nếu là lần đầu truy cập, lưu vào localStorage
+        if (!hasVisited) {
+          localStorage.setItem('home_visited', 'true');
+        }
       } catch (err) {
         console.error("Failed to fetch data:", err);
       } finally {
-        setTimeout(() => {
+        // Nếu là lần đầu truy cập, hiển thị loading lâu hơn
+        if (!hasVisited) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+        } else {
+          // Nếu không phải lần đầu, tắt loading ngay khi có data
           setLoading(false);
-        }, 1000);
+        }
       }
     };
 
@@ -61,6 +76,7 @@ export default function Home() {
   }, []);
 
   if (loading) return <FullScreenSpinner />;
+
 
   const miSlide = [
     {
@@ -141,39 +157,36 @@ export default function Home() {
     }
   ];
 
-  // const tabs = [
-  //   {
-  //     id: 'nail',
-  //     name: t('home.tabs.nail'),
-  //     content: <Carousel slider={nailSlide} />
-  //   },
-  //   {
-  //     id: 'massage',
-  //     name: t('home.tabs.massage'),
-  //     content: <Carousel slider={massageSlide} />
-  //   },
-  //   {
-  //     id: 'mi',
-  //     name: t('home.tabs.eyelash'),
-  //     content: <Carousel slider={miSlide} />
-  //   },
-  // ];
+  const tab = [
+    {
+      id: 'nail',
+      name: t('home.tabs.nail'),
+      content: <Carousel slider={nailSlide} />
+    },
+    {
+      id: 'massage',
+      name: t('home.tabs.massage'),
+      content: <Carousel slider={massageSlide} />
+    },
+    {
+      id: 'mi',
+      name: t('home.tabs.eyelash'),
+      content: <Carousel slider={miSlide} />
+    },
+  ];
 
   const tabs = categories.map((category:any) => {
     const categoryServices = services.filter((service:any) => service.categoryId === category.id);
-  
     const slides = categoryServices.map((service:any) => ({
-      title: service.name,
-      description: service.description || '',
+      translations: service.translations || category.translations,
       url: service.coverImage || category.coverImage || '/default-image.jpg'
     }));
-  
     return {
       id: category.id,
-      name: category.name,
+      translations: category.translations,
       content: <Carousel slider={slides} />
-    };
-  });
+    }
+  }) || tab;
 
   return (
     <main>

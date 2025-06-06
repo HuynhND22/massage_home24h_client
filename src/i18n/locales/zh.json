@@ -44,25 +44,7 @@
       "subtitle": "探索我们的高端SPA疗程",
       "service": "服务",
       "description": "服务描述 {number} - 为您的健康与美丽量身打造的高端护理服务。",
-      "viewAll": "查看全部服务",
-      "page": {
-        "title": "服务项目",
-        "subtitle": "专为您打造的世界级SPA体验",
-        "experienceTitle": "真正的放松体验",
-        "experienceDescription": "在 Massage Home24h，我们提供多种高级SPA服务，帮助您恢复身心健康。每一项疗程均由经验丰富的技师，结合天然材料与先进技术精心打造。",
-        "filters": {
-          "all": "全部",
-          "massage": "按摩",
-          "facial": "面部护理",
-          "bodyTreatments": "身体护理",
-          "aromatherapy": "芳香疗法"
-        },
-        "minutes": "分钟",
-        "cta": {
-          "title": "现在预约",
-          "description": "体验高端SPA疗程，感受深度放松"
-        }
-      }
+      "viewAll": "查看全部服务"
     },
     "testimonials": {
       "title": "客户评价",
@@ -228,6 +210,59 @@
     }
   },
   "services": {
+    "title": "服务项目",
+    "description": "探索我们的高端SPA疗程",
+    "page": {
+      "title": "服务项目",
+      "subtitle": "专为您打造的世界级SPA体验",
+      "experienceTitle": "真正的放松体验",
+      "experienceDescription": "在 Massage Home24h，我们提供多种高级SPA服务，帮助您恢复身心健康。每一项疗程均由经验丰富的技师，结合天然材料与先进技术精心打造。",
+      "filters": {
+        "all": "全部",
+        "massage": "按摩",
+        "facial": "面部护理",
+        "bodyTreatments": "身体护理",
+        "aromatherapy": "芳香疗法"
+      },
+      "minutes": "分钟",
+      "cta": {
+        "title": "现在预约",
+        "description": "体验高端SPA疗程，感受深度放松"
+      },
+      "giftCard": {
+        "title": "礼品卡",
+        "description": "礼品卡是送给亲朋好友的完美礼物。在Massage Home24h享受放松和美丽的体验。",
+        "details": "礼品卡价值从500,000đ到5,000,000đ不等，可以在Massage Home24h使用12个月。",
+        "buyButton": "立即购买",
+        "learnMoreButton": "了解更多"
+      },
+      "faq": {
+        "title": "常见问题",
+        "description": "了解我们的服务",
+        "questions": {
+          "booking": {
+            "question": "如何预约？",
+            "answer": "通过我们的网站或电话预约。"
+          },
+          "cancellation": {
+            "question": "取消政策是什么？",
+            "answer": "请至少提前24小时通知我们取消或更改预约。迟到可能会导致50%的服务费。"
+          },
+          "pricing": {
+            "question": "价格是否包含税费和服务费？",
+            "answer": "所有价格均包含税费。服务费（小费）不是必须的，但非常欢迎您满意我们的服务。"
+          },
+          "loyalty": {
+            "question": "是否有针对常客的优惠？",
+            "answer": "是的，我们提供有吸引力的会员计划。此外，常客将收到有关特别促销的通知。"
+          },
+          "arrival": {
+            "question": "我应该提前多久到达预约？",
+            "answer": "我们建议您提前15-20分钟到达预约，以便完成注册程序并放松身心。"
+          }
+        }
+      }
+    },
     "massage": {
       "title": "上门按摩服务",
       "description": "专业按摩师上门为您服务"

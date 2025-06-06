@@ -5,14 +5,10 @@ import { FaMapMarkerAlt, FaPhone, FaRegClock } from "react-icons/fa";
 import Link from 'next/link';
 import { useTranslation } from '@/i18n/I18nProvider';
 
-type Slide = {
-  image: string;
-  title: string;
-  description: string;
-};
+
 
 type HeroCarouselProps = {
-  slides: Slide[];
+  slides: any;
   interval?: number;
 };
 
@@ -29,6 +25,11 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
     return () => clearInterval(timer);
   }, [current, slides.length, interval]);
 
+  //check if current is which language in localstorage is active, select language i18n 
+  const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
+  const currentSlide = slides[current];
+  const translation = currentSlide.translations.find((t: any) => t.language === currentLang) || currentSlide.translations[0];
+  
   return (
     <section className="relative h-[100vh] md:h-[100vh] sm:min-h-[max-content] overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -81,7 +82,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-garamond font-bold mb-4 md:mb-6"
         >
-          {slides[current].title}
+          {translation.title}
         </motion.h2>
 
         <motion.p
@@ -91,7 +92,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-xl md:max-w-2xl px-4"
         >
-          {slides[current].description}
+          {translation.description}
         </motion.p>
 
         <motion.div
@@ -154,7 +155,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
 
         {/* Pagination */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
-          {slides.map((_, index) => (
+          {slides.map((_:any, index:any) => (
             <button
               key={index}
               onClick={() => {

@@ -31,6 +31,8 @@ const ServiceCard = ({ name, description, index }: { name: string; description: 
 
 const ServicesSection = ({ services }: { services: any[] }) => {
   const { t } = useTranslation();
+  console.log('services', services);
+  
   // const services = [
   //   { name: t('home.services.service') + ' 1', description: t('home.services.description', { number: 1 }) },
   //   { name: t('home.services.service') + ' 2', description: t('home.services.description', { number: 2 }) },
@@ -48,9 +50,13 @@ const ServicesSection = ({ services }: { services: any[] }) => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10 mt-12 p-2">
-          {services.map((service, index) => (
-            <ServiceCard key={index} name={service.name} description={service.description} index={index} />
-          ))}
+          {services.map((service, index) => {
+            const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
+            const translation = service.translations.find((t:any) => t.language === currentLang) || service.translations[0];
+            return(
+            <ServiceCard key={index} name={translation?.name} description={translation?.description} index={index} />
+          )}
+          )}
         </div>
         
         <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="300">

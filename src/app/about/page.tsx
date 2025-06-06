@@ -90,7 +90,7 @@ export default function AboutPage() {
       </section>
       
       {/* Our Team */}
-      <section className="py-16 bg-background">
+      {/* <section className="py-16 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-semibold mb-4">{t('about.team.title')}</h2>
@@ -100,7 +100,7 @@ export default function AboutPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Team Member 1 */}
+         
             <div className="bg-light rounded-lg overflow-hidden shadow-md text-center">
               <div className="relative h-80 overflow-hidden">
                 <Image 
@@ -130,7 +130,7 @@ export default function AboutPage() {
               </div>
             </div>
             
-            {/* Team Member 2 */}
+            
             <div className="bg-light rounded-lg overflow-hidden shadow-md text-center">
               <div className="relative h-80 overflow-hidden">
                 <Image 
@@ -160,7 +160,7 @@ export default function AboutPage() {
               </div>
             </div>
             
-            {/* Team Member 3 */}
+            
             <div className="bg-light rounded-lg overflow-hidden shadow-md text-center">
               <div className="relative h-80 overflow-hidden">
                 <Image 
@@ -191,7 +191,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       
       {/* Testimonials */}
       <section className="py-16 bg-primary/10">
@@ -209,7 +209,7 @@ export default function AboutPage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src="/images/testimonial-1.jpg"
+                    src={`/${t('about.testimonials.items.0.image')}`}
                     alt={t('about.testimonials.items.0.name')}
                     fill
                     className="object-cover"
@@ -234,7 +234,7 @@ export default function AboutPage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src="/images/testimonial-2.jpg"
+                    src={`/${t('about.testimonials.items.1.image')}`}
                     alt={t('about.testimonials.items.1.name')}
                     fill
                     className="object-cover"
@@ -259,7 +259,7 @@ export default function AboutPage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden">
                   <Image
-                    src="/images/testimonial-3.jpg"
+                    src={`/${t('about.testimonials.items.2.image')}`}
                     alt={t('about.testimonials.items.2.name')}
                     fill
                     className="object-cover"

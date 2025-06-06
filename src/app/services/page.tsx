@@ -1,14 +1,21 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service } from '../../services/services.service';
 import { useTranslation } from '@/i18n/I18nProvider';
+import api from '@/services/api';
+import FullScreenSpinner from '@/components/FullScreenSpinner';
 
 async function getServices() {
-  // Trong môi trường production, bạn sẽ gọi API thực sự
-  // Ở đây để đơn giản, tôi đang dùng dữ liệu giả đa ngôn ngữ
+
+  const services= await api.get('/services');
+  console.log('services', services);
+  const categories = await api.get('/categories', { params: { type: 'service' } });
+  console.log('categories', categories);
+  // return reponse.data as Service[]; 
+
   return [
     {
       id: 1,
@@ -126,20 +133,150 @@ async function getServices() {
 
 // Đổi thành client component để sử dụng hooks
 export default function ServicesPage() {
-  // Sử dụng hook useTranslation để lấy hàm t() và dịch nội dung
   const { t } = useTranslation();
-  const [services, setServices] = React.useState<Service[]>([]);
+  const [services, setServices] = React.useState<any[]>([]);
+  const [categories, setCategories] = React.useState<any[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [isFirstVisit, setIsFirstVisit] = React.useState(true);
 
-  // Sử dụng useEffect để gọi API thay vì async/await 
-  React.useEffect(() => {
-    const loadServices = async () => {
-      const servicesData = await getServices();
-      setServices(servicesData);
+  useEffect(() => {
+    const hasVisited = localStorage.getItem('services_visited');
+    setIsFirstVisit(!hasVisited);
+
+    const loadData = async () => {
+      try {
+        const [servicesRes, categoriesRes]:any = await Promise.all([
+          api.get('/services'),
+          api.get('/categories', { params: { type: 'service' } })
+        ]);
+        
+        setServices(servicesRes.items);
+        setCategories(categoriesRes.items);
+        
+        if (!hasVisited) {
+          localStorage.setItem('services_visited', 'true');
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+      } finally {
+        if (!hasVisited) {
+          setTimeout(() => {
+            setLoading(false);
+          }, 1000);
+        } else {
+          setLoading(false);
+        }
+      }
     };
-    
-    loadServices();
+
+    loadData();
   }, []);
-  
+
+  if (loading) return <FullScreenSpinner />;
+
+  interface PriceCategory {
+    title: string;
+    description: string;
+    services: {
+      name: string;
+      price: number;
+      duration: number;
+      description: string;
+    }[];
+  }
+  const priceCategories: PriceCategory[] = [
+    {
+      title: 'Massage Trị Liệu',
+      description: 'Các liệu pháp massage cao cấp giúp giảm căng thẳng và thư giãn toàn thân.',
+      services: [
+        {
+          name: 'Massage Thụy Điển',
+          price: 750000,
+          duration: 60,
+          description: 'Liệu pháp massage nhẹ nhàng, thư giãn với các động tác vuốt dài và nhịp nhàng.'
+        },
+        {
+          name: 'Massage Thái',
+          price: 850000,
+          duration: 90,
+          description: 'Kỹ thuật kéo giãn cơ thể kết hợp với động tác ấn huyệt để giải phóng năng lượng và cải thiện độ linh hoạt.'
+        },
+        {
+          name: 'Massage Đá Nóng',
+          price: 950000,
+          duration: 90,
+          description: 'Sử dụng đá bazan nóng để thư giãn cơ bắp và tăng tuần hoàn máu.'
+        },
+        {
+          name: 'Massage Sâu Mô',
+          price: 950000,
+          duration: 60,
+          description: 'Áp lực mạnh để tiếp cận các lớp mô sâu hơn, lý tưởng cho những người có đau mãn tính.'
+        }
+      ]
+    },
+    {
+      title: 'Chăm Sóc Da Mặt',
+      description: 'Các liệu pháp chăm sóc da mặt chuyên sâu giúp làn da khỏe mạnh và trẻ trung.',
+      services: [
+        {
+          name: 'Chăm Sóc Da Cơ Bản',
+          price: 650000,
+          duration: 60,
+          description: 'Làm sạch, tẩy tế bào chết, đắp mặt nạ và dưỡng ẩm cho da.'
+        },
+        {
+          name: 'Trẻ Hóa Da',
+          price: 1250000,
+          duration: 90,
+          description: 'Liệu pháp chống lão hóa cao cấp giúp làm mờ nếp nhăn và cải thiện kết cấu da.'
+        },
+        {
+          name: 'Chăm Sóc Da Chuyên Sâu',
+          price: 1450000,
+          duration: 120,
+          description: 'Điều trị toàn diện với tinh chất và mặt nạ cao cấp, massage mặt và cổ.'
+        },
+        {
+          name: 'Chăm Sóc Da Nhạy Cảm',
+          price: 850000,
+          duration: 75,
+          description: 'Sử dụng các sản phẩm dịu nhẹ và không gây kích ứng cho làn da nhạy cảm.'
+        }
+      ]
+    },
+    {
+      title: 'Trị Liệu Cơ Thể',
+      description: 'Các liệu pháp làm đẹp và trẻ hóa toàn thân.',
+      services: [
+        {
+          name: 'Tẩy Tế Bào Chết Toàn Thân',
+          price: 850000,
+          duration: 60,
+          description: 'Làm sạch sâu và loại bỏ tế bào chết trên toàn cơ thể, giúp da mềm mại và tươi sáng.'
+        },
+        {
+          name: 'Ủ Dưỡng Toàn Thân',
+          price: 1050000,
+          duration: 90,
+          description: 'Sử dụng mặt nạ dưỡng thể cao cấp giàu dưỡng chất, giúp làn da mịn màng và săn chắc.'
+        },
+        {
+          name: 'Liệu Pháp Detox',
+          price: 1250000,
+          duration: 120,
+          description: 'Giúp cơ thể thải độc và tăng cường sức khỏe thông qua các kỹ thuật massage và ủ dưỡng đặc biệt.'
+        },
+        {
+          name: 'Trị Liệu Thư Giãn Toàn Diện',
+          price: 1550000,
+          duration: 150,
+          description: 'Kết hợp nhiều liệu pháp để mang lại trải nghiệm thư giãn và làm đẹp hoàn hảo.'
+        }
+      ]
+    }
+  ];
+
   return (
     <main>
       {/* Hero Section */}
@@ -154,9 +291,9 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-dark/50"></div>
         </div>
         <div className="container relative z-10 text-center text-light">
-          <h1 className="text-5xl font-bold mb-4">{t('home.services.title')}</h1>
+          <h1 className="text-5xl font-bold mb-4">{t('services.title')}</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            {t('home.services.subtitle')}
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -165,69 +302,168 @@ export default function ServicesPage() {
       <section className="py-16 bg-background">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-semibold mb-4">{t('home.services.page.experienceTitle')}</h2>
+            <h2 className="text-3xl font-semibold mb-4">{t('services.page.experienceTitle')}</h2>
             <p className="text-lg">
-              {t('home.services.page.experienceDescription')}
+              {t('services.page.experienceDescription')}
             </p>
           </div>
-          
-          {/* Service Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button className="px-5 py-2 bg-primary text-white rounded-full">{t('services.page.filters.all')}</button>
-            <button className="px-5 py-2 bg-light text-text hover:bg-primary hover:text-white transition-colors duration-300 rounded-full">{t('services.page.filters.massage')}</button>
-            <button className="px-5 py-2 bg-light text-text hover:bg-primary hover:text-white transition-colors duration-300 rounded-full">{t('services.page.filters.facial')}</button>
-            <button className="px-5 py-2 bg-light text-text hover:bg-primary hover:text-white transition-colors duration-300 rounded-full">{t('services.page.filters.bodyTreatments')}</button>
-            <button className="px-5 py-2 bg-light text-text hover:bg-primary hover:text-white transition-colors duration-300 rounded-full">{t('services.page.filters.aromatherapy')}</button>
-          </div>
-          
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => {
-              // Tìm translation phù hợp với ngôn ngữ hiện tại
-              const currentLang = localStorage.getItem('preferredLanguage') || 'vi';
-              const translation = service.translations.find(t => t.language === currentLang) || service.translations[0];
-              
-              return (
-                <div key={service.id} className="bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={service.featuredImage}
-                      alt={translation.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-semibold">{translation.title}</h3>
-                      <div className="bg-primary text-white text-sm py-1 px-3 rounded-full">
-                        {service.price.toLocaleString(currentLang === 'vi' ? 'vi-VN' : 'en-US')} {currentLang === 'vi' ? 'đ' : '$'}
-                      </div>
-                    </div>
-                    <p className="text-gray-600 mb-2">{service.duration} {t('services.page.minutes')}</p>
-                    <p className="mb-4">{translation.excerpt}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm bg-secondary py-1 px-3 rounded-full">
-                        {service.category?.name}
-                      </span>
-                      <Link href={`/services/${service.slug}`} className="text-primary font-medium hover:text-accent transition-colors">
-                        {t('common.buttons.viewDetails')}
-                      </Link>
-                    </div>
+                   
+          {categories.map((category) => {
+            const currentLang = localStorage.getItem('preferredLanguage') || 'vi';
+            const translation = category.translations?.find((t: { language: string }) => t.language === currentLang) || category.translations?.[0];
+            
+            if (!translation) return null;
+
+            const categoryServices = services.filter(service => service.categoryId === category.id);
+
+            return (
+              <div key={category.id}>
+                <div className="flex items-center my-6">
+                  <div className="h-12 w-1 bg-primary mr-4"></div>
+                  <div>
+                    <h3 className="text-2xl font-semibold">{translation.name}</h3>
+                    <p className="text-gray-600 mt-1">{translation.description}</p>
                   </div>
                 </div>
-              );
-            })}
+                {/* Services Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {categoryServices.map((service) => {
+                    const serviceTranslation = service.translations?.find((t: { language: string }) => t.language === currentLang) || service.translations?.[0];
+                    
+                    if (!serviceTranslation) return null;
+
+                    return (
+                      <div key={service.id} className="bg-light rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+                        <div className="relative h-64 overflow-hidden">
+                          <Image
+                            src={service.coverImage || '/default-service.jpg'}
+                            alt={serviceTranslation.name}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-xl font-semibold">{serviceTranslation.name}</h3>
+                            {parseFloat(service.price) > 0 && (
+                              <div className="bg-primary text-white text-sm py-1 px-3 rounded-full">
+                                {parseFloat(service.price).toLocaleString(currentLang === 'vi' ? 'vi-VN' : 'en-US')} {currentLang === 'vi' ? 'đ' : '$'}
+                              </div>
+                            )}
+                          </div>
+                          {service.duration > 0 && (
+                            <p className="text-gray-600 mb-2">{service.duration} {t('services.page.minutes')}</p>
+                          )}
+                          <p className="mb-4">{serviceTranslation.description || ''}</p>
+                          <div className="flex justify-between items-center">
+                            <span className="text-sm bg-secondary py-1 px-3 rounded-full">
+                              {translation.name}
+                            </span>
+                            <Link href={`/services/${service.id}`} className="text-primary font-medium hover:text-accent transition-colors">
+                              {t('common.buttons.viewDetails')}
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      
+      {/* Gift Cards Section */}
+      <section className="py-16 bg-background">
+        <div className="container">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-semibold mb-6">{t('services.page.giftCard.title')}</h2>
+              <p className="mb-4">
+                {t('services.page.giftCard.description')}
+              </p>
+              <p className="mb-6">
+                {t('services.page.giftCard.details')}
+              </p>
+              <div className="flex space-x-4">
+                <Link href="/contact" className="btn btn-primary">
+                  {t('services.page.giftCard.buyButton')}
+                </Link>
+                <Link href="/contact" className="btn btn-secondary">
+                  {t('services.page.giftCard.learnMoreButton')}
+                </Link>
+              </div>
+            </div>
+            <div className="md:w-1/2 relative h-[400px] rounded-lg overflow-hidden">
+              <Image 
+                src="/images/pricing-banner.jpg" 
+                alt={t('services.page.giftCard.title')} 
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
       
+      {/* FAQ Section */}
+      <section className="py-16 bg-light">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-semibold mb-4">{t('services.page.faq.title')}</h2>
+            <p className="text-lg">
+              {t('services.page.faq.description')}
+            </p>
+          </div>
+          
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-6">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">{t('services.page.faq.questions.booking.question')}</h3>
+                <p className="text-gray-600">
+                  {t('services.page.faq.questions.booking.answer')}
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">{t('services.page.faq.questions.cancellation.question')}</h3>
+                <p className="text-gray-600">
+                  {t('services.page.faq.questions.cancellation.answer')}
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">{t('services.page.faq.questions.pricing.question')}</h3>
+                <p className="text-gray-600">
+                  {t('services.page.faq.questions.pricing.answer')}
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">{t('services.page.faq.questions.loyalty.question')}</h3>
+                <p className="text-gray-600">
+                  {t('services.page.faq.questions.loyalty.answer')}
+                </p>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold mb-2">{t('services.page.faq.questions.arrival.question')}</h3>
+                <p className="text-gray-600">
+                  {t('services.page.faq.questions.arrival.answer')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-primary text-light py-16">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">{t('home.services.page.cta.title')}</h2>
+          <h2 className="text-3xl font-bold mb-6">{t('services.page.cta.title')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            {t('home.services.page.cta.description')}
+            {t('services.page.cta.description')}
           </p>
           <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
             {t('common.buttons.bookNow')}
