@@ -41,17 +41,17 @@ export default function Home() {
 
     const fetchData = async () => {
       try {
-        const [servicesRes, slidesRes, categoriesRes, settingsRes] = await Promise.all([
+        const [servicesRes, slidesRes, categoriesRes, settingsRes]:any = await Promise.allSettled([
           api.get('/services') as any,
           api.get('/slides') as any,
           api.get('/categories', { params: { type: 'service' } }) as any,
           api.get('/web-settings') as any,
         ]);
 
-        setServices(servicesRes.items);
-        setSlides(slidesRes.items);
-        setCategories(categoriesRes.items);
-        setWebSettings(settingsRes.data);
+        setServices(servicesRes.value.data);
+        setSlides(slidesRes.value.data);
+        setCategories(categoriesRes.value.data);
+        setWebSettings(settingsRes.value.data);
 
         // Nếu là lần đầu truy cập, lưu vào localStorage
         if (!hasVisited) {
@@ -190,11 +190,11 @@ export default function Home() {
 
   return (
     <main>
-      <HeroCarousel slides={slides} />
+      {slides && <HeroCarousel slides={slides} />}
       <IntroSection />
       {/* Kiểm tra categories tồn tại trước khi truyền vào */}
       {categories.length > 0 && <FeaturedPricingSection tabs={tabs} />}
-      <ServicesSection services={categories} />
+      {categories && <ServicesSection services={categories} />}
       <TestimonialsSection />
       <CTASection />
     </main>

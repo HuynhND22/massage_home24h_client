@@ -13,7 +13,6 @@ type CarouselProps = {
 
 const Carousel = ({ slider }: CarouselProps) => {
   const { t } = useTranslation();
-  console.log('slider', slider);
   return (
     <div className='carousel'>
         <Swiper 
@@ -53,12 +52,11 @@ const Carousel = ({ slider }: CarouselProps) => {
         
         >
             {
-                slider.map((data:any) => {
+                slider.map((data:any, index:number) => {
                     const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
                     const translation = data.translations.find((t:any) => t.language === currentLang) || data.translations[0];
-                    console.log('data', data);
                     return (
-                    <SwiperSlide style={{ backgroundImage: `url(${data.url})` }} className="myswiper-slider">
+                    <SwiperSlide key={index} style={{ backgroundImage: `url(${data.url})` }} className="myswiper-slider">
                         <div>
                             <p className='title'>{translation?.name}</p>
                             <p>{translation?.description}</p>

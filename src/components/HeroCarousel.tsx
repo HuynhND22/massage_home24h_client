@@ -45,7 +45,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
             >
               <Image
                 src={slides[prev].image}
-                alt={slides[prev].title}
+                alt={slides[prev].image}
                 fill
                 priority
                 className="object-cover w-full h-full"
@@ -63,7 +63,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
           >
             <Image
               src={slides[current].image}
-              alt={slides[current].title}
+              alt={slides[current].image}
               fill
               priority
               className="object-cover w-full h-full"

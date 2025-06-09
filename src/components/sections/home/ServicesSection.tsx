@@ -31,7 +31,6 @@ const ServiceCard = ({ name, description, index }: { name: string; description: 
 
 const ServicesSection = ({ services }: { services: any[] }) => {
   const { t } = useTranslation();
-  console.log('services', services);
   
   // const services = [
   //   { name: t('home.services.service') + ' 1', description: t('home.services.description', { number: 1 }) },
