@@ -145,13 +145,13 @@ export default function ServicesPage() {
 
     const loadData = async () => {
       try {
-        const [servicesRes, categoriesRes]:any = await Promise.all([
+        const [servicesRes, categoriesRes]:any = await Promise.allSettled([
           api.get('/services'),
           api.get('/categories', { params: { type: 'service' } })
         ]);
         
-        setServices(servicesRes.items);
-        setCategories(categoriesRes.items);
+        setServices(servicesRes.value.data);
+        setCategories(categoriesRes.value.data);
         
         if (!hasVisited) {
           localStorage.setItem('services_visited', 'true');
