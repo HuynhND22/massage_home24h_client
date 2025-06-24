@@ -1,15 +1,35 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { useTranslation } from '@/i18n/I18nProvider';
+import api from '@/services/api';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
-  
+  const [webInformation, setWebInformation] = useState<any>();
+  const [categories, setCategories] = useState<any>();
+
+  useEffect(() => {
+    const fetchWebInformation = async () => {
+      const response = await api.get('/web-settings')
+      setWebInformation(response)
+    }
+    fetchWebInformation()
+  }, [])
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const response = await api.get('/categories?type=service')
+      console.log(response)
+      setCategories(response)
+    }
+    fetchCategories()
+  }, [])
+
   return (
     <footer className="bg-dark text-light pt-16 pb-8">
       <div className="container">
@@ -58,9 +78,9 @@ const Footer = () => {
               <li>
                 <Link href="/services" className="hover:text-primary transition-colors">{t('common.nav.services')}</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/pricing" className="hover:text-primary transition-colors">{t('common.nav.pricing')}</Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/blog" className="hover:text-primary transition-colors">{t('common.nav.blog')}</Link>
               </li>
@@ -86,9 +106,9 @@ const Footer = () => {
               <li>
                 <Link href="/services/aromatherapy" className="hover:text-primary transition-colors">{t('footer.services.aromatherapy')}</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/services/hot-stone" className="hover:text-primary transition-colors">{t('footer.services.hotStone')}</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
           
@@ -96,17 +116,17 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4 pb-2 border-b border-primary/30">{t('footer.contact.title')}</h3>
             <div className='mb-4 pb-2 w-full h-[300px] md:h-[350px] lg:h-[450px] overflow-hidden rounded-md shadow-md'>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.999388276486!2d108.22805337580003!3d16.06552153953579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421986ccc707c9%3A0x2e05015ced66d049!2sMassage%20Home24h!5e0!3m2!1svi!2s!4v1748856769609!5m2!1svi!2s" className="w-full h-full border-0 rounded-md" loading="lazy" allowFullScreen></iframe>
+              <iframe src={webInformation?.googleMap} className="w-full h-full border-0 rounded-md" loading="lazy" allowFullScreen></iframe>
             </div>
             <div className='flex flex-col md:flex-col gap-4'>
               <div className='flex flex-col gap-2'>
                 <h3 className='text-xl font-semibold'>{t('footer.contact.address.title')}</h3>
-                <p>{t('footer.contact.address.value')}</p>
+                <p>{webInformation?.address}</p>
               </div>
               <div className='flex flex-col gap-2'>
                 <h3 className='text-xl font-semibold'>{t('footer.contact.info.title')}</h3>
-                <p>{t('footer.contact.info.phone')}: <a href="tel:0796672339">+84796 672 339</a></p>
-                <p>{t('footer.contact.info.email')}: <a href="mailto:info@massagehome24h.com">info@massagehome24h.com</a></p>
+                <p>{t('footer.contact.info.phone')}: <a href={'tel:' + webInformation?.phone}>+84 {webInformation?.phone}</a></p>
+                <p>{t('footer.contact.info.email')}: <a href={'mailto:' + webInformation?.email}>{webInformation?.email}</a></p>
               </div>
             </div>
           </div>

@@ -31,51 +31,6 @@ export const metadata: Metadata = {
 };
 
 // Define the menu items for the FloatingActionButton
-const socialMenuItems: MenuItem[] = [
-  {
-    icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
-    label: 'KakaoTalk',
-    deepLink: 'kakaoplus://plusfriend/home/_abcde',
-    webLink: 'https://pf.kakao.com/_abcde/chat'
-  },
-  {
-    icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
-    label: 'Line',
-    deepLink: 'line://ti/p/@massagehome24h',
-    webLink: 'https://line.me/R/ti/p/@massagehome24h'
-  },
-  {
-    icon: <Image src="/images/telegram.svg" alt="Telegram" width={32} height={32} />,
-    label: 'Telegram',
-    deepLink: 'tg://resolve?domain=star21368',
-    webLink: 'https://t.me/star21368'
-  },
-  {
-    icon: <Image src="/images/wechat.svg" alt="WeChat" width={32} height={32} />,
-    label: 'WeChat',
-    deepLink: 'weixin://dl/chat?username=massagehome24h',
-    webLink: 'https://wechat.com/massagehome24h'
-  },
-  {
-    icon: <Image src="/images/zalo.svg" alt="Zalo" width={32} height={32} />,
-    label: 'Zalo',
-    deepLink: 'zalo://chat?tel=0905922869',
-    webLink: 'https://zalo.me/0905922869'
-  },
-  {
-    icon: <Image src="/images/messenger.svg" alt="Messenger" width={32} height={32} />,
-    label: 'Messenger',
-    deepLink: 'fb-messenger://user-thread/104982128438784',
-    webLink: 'https://www.facebook.com/messages/t/104982128438784'
-  },
-  {
-    icon: <Image src="/images/phone.svg" alt="Phone" width={32} height={32} />,
-    label: 'Phone',
-    deepLink: 'tel:+0905922869',
-    webLink: 'tel:+0905922869'
-  }
-];
-
 
 export default function RootLayout({
   children,
@@ -90,9 +45,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <FloatingActionButton 
-            menuItems={socialMenuItems}
-            buttonIcon="/images/message.svg"
-            buttonAlt="Message"
+            // menuItems={socialMenuItems}
           />
         </body>
       </html>

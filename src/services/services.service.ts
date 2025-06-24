@@ -41,7 +41,8 @@ const serviceService = {
 
   // Lấy chi tiết dịch vụ theo slug
   getServiceBySlug: async (slug: string, language?: string) => {
-    return api.get(`/services/slug/${slug}`, { params: { language } }) as Promise<Service>;
+    console.log('API baseURL:', api.defaults.baseURL);
+    return api.get(`/services/details/${slug}`, { params: { language } }) as Promise<Service>;
   },
 
   // Lấy các dịch vụ nổi bật

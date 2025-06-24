@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import api from '@/services/api';
 
 export interface MenuItem {
   icon: ReactNode;
@@ -11,18 +12,66 @@ export interface MenuItem {
   webLink: string;
 }
 
-interface FloatingActionButtonProps {
-  menuItems: MenuItem[];
-  buttonIcon?: string;
-  buttonAlt?: string;
-}
 
-const FloatingActionButton = ({
-  menuItems,
-  buttonIcon = "/images/message.svg",
-  buttonAlt = "Message"
-}: FloatingActionButtonProps) => {
+
+const FloatingActionButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [webInformation, setWebInformation] = useState<any>();
+
+
+  useEffect(() => {
+    const fetchMenus = async () => {
+      const response = await api.get('/web-settings')
+      setWebInformation(response);
+    }
+    fetchMenus()
+  }, []);
+
+  const socialMenuItems: MenuItem[] = [
+    {
+      icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
+      label: 'KakaoTalk',
+      deepLink: 'kakaoplus://plusfriend/home/'+webInformation?.kakaotalk,
+      webLink: 'https://open.kakao.com/o/'+webInformation?.kakaotalk
+    },
+    {
+      icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
+      label: 'Line',
+      deepLink: 'line://ti/p/'+webInformation?.line,
+      webLink: 'https://line.me/R/ti/p/'+webInformation?.line
+    },
+    {
+      icon: <Image src="/images/telegram.svg" alt="Telegram" width={32} height={32} />,
+      label: 'Telegram',
+      deepLink: 'tg://resolve?domain='+webInformation?.telegram,
+      webLink: 'https://t.me/'+webInformation?.telegram
+    },
+    {
+      icon: <Image src="/images/wechat.svg" alt="WeChat" width={32} height={32} />,
+      label: 'WeChat',
+      deepLink: 'weixin://dl/chat?username='+webInformation?.wechat,
+      webLink: 'https://wechat.com/'+webInformation?.wechat
+    },
+    {
+      icon: <Image src="/images/zalo.svg" alt="Zalo" width={32} height={32} />,
+      label: 'Zalo',
+      deepLink: 'zalo://chat?tel='+webInformation?.zalo,
+      webLink: 'https://zalo.me/'+webInformation?.zalo
+    },
+    {
+      icon: <Image src="/images/messenger.svg" alt="Messenger" width={32} height={32} />,
+      label: 'Messenger',
+      deepLink: 'fb-messenger://user-thread/'+webInformation?.messenger,
+      webLink: 'https://www.facebook.com/messages/t/'+webInformation?.messenger
+    },
+    {
+      icon: <Image src="/images/phone.svg" alt="Phone" width={32} height={32} />,
+      label: 'Phone',
+      deepLink: 'tel:+84'+webInformation?.phone,
+      webLink: 'tel:+84'+webInformation?.phone
+    }
+  ];
+  
 
   const isMobile = (): boolean =>
     /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -68,15 +117,13 @@ const FloatingActionButton = ({
       // Xử lý đặc biệt cho từng ứng dụng
       switch (item.label) {
         case 'Zalo': {
-          // Lấy số điện thoại từ deepLink
-          const phoneNumber = item.deepLink.split('=').pop() || '';
-          
+
           // Thử nhiều định dạng khác nhau cho Zalo deeplink
           const zaloDeepLinks = [
-            `zalo://chat?tel=${phoneNumber}`,
-            `zalo://chat?phone=${phoneNumber}`,
-            `zalo://conversation?receiver=${phoneNumber}`,
-            `zalo://profile/${phoneNumber}`
+            `zalo://chat?tel=${webInformation?.phone}`,
+            `zalo://chat?phone=${webInformation?.phone}`,
+            `zalo://conversation?receiver=${webInformation?.phone}`,
+            `zalo://profile/${webInformation?.phone}`
           ];
           
           tryDeepLinks(zaloDeepLinks);
@@ -85,13 +132,13 @@ const FloatingActionButton = ({
         
         case 'KakaoTalk': {
           // Lấy ID từ deepLink
-          const kakaoId = item.deepLink.split('/').pop() || '';
           
           // Thử nhiều định dạng khác nhau cho KakaoTalk deeplink
           const kakaoDeepLinks = [
             item.deepLink,
-            `kakaoplus://plusfriend/talk/${kakaoId}`,
-            `kakaoplus://plusfriend/home/${kakaoId}`
+            `kakaoplus://plusfriend/talk/${webInformation?.kakaotalk}`,
+            `kakaoplus://plusfriend/home/${webInformation?.kakaotalk}`,
+            `kakao://talk?chat_id=${webInformation?.kakaotalk}`
           ];
           
           tryDeepLinks(kakaoDeepLinks);
@@ -100,13 +147,12 @@ const FloatingActionButton = ({
         
         case 'Line': {
           // Lấy ID từ deepLink
-          const lineId = item.deepLink.split('@').pop() || '';
           
           // Thử nhiều định dạng khác nhau cho Line deeplink
           const lineDeepLinks = [
             item.deepLink,
-            `line://ti/p/@${lineId}`,
-            `line://nv/profilePopup/mid/${lineId}`
+            `line://ti/p/@${webInformation?.line}`,
+            `line://nv/profilePopup/mid/${webInformation?.line}`
           ];
           
           tryDeepLinks(lineDeepLinks);
@@ -115,13 +161,12 @@ const FloatingActionButton = ({
         
         case 'Telegram': {
           // Lấy username từ deepLink
-          const username = item.deepLink.split('domain=').pop() || '';
           
           // Thử nhiều định dạng khác nhau cho Telegram deeplink
           const telegramDeepLinks = [
             item.deepLink,
-            `tg://resolve?domain=${username}`,
-            `telegram://resolve?domain=${username}`
+            `tg://resolve?domain=${webInformation?.telegram}`,
+            `telegram://resolve?domain=${webInformation?.telegram}`
           ];
           
           tryDeepLinks(telegramDeepLinks);
@@ -130,13 +175,12 @@ const FloatingActionButton = ({
         
         case 'WeChat': {
           // Lấy username từ deepLink
-          const username = item.deepLink.split('username=').pop() || '';
           
           // Thử nhiều định dạng khác nhau cho WeChat deeplink
           const wechatDeepLinks = [
             item.deepLink,
-            `weixin://dl/chat?${username}`,
-            `wechat://dl/chat?${username}`
+            `weixin://dl/chat?${webInformation?.wechat}`,
+            `wechat://dl/chat?${webInformation?.wechat}`
           ];
           
           tryDeepLinks(wechatDeepLinks);
@@ -145,13 +189,12 @@ const FloatingActionButton = ({
         
         case 'Messenger': {
           // Lấy threadId từ deepLink
-          const threadId = item.deepLink.split('thread/').pop() || '';
           
           // Thử nhiều định dạng khác nhau cho Messenger deeplink
           const messengerDeepLinks = [
             item.deepLink,
-            `fb-messenger://user-thread/${threadId}`,
-            `fb-messenger://user/${threadId}`
+            `fb-messenger://user-thread/${webInformation?.messenger}`,
+            `fb-messenger://user/${webInformation?.messenger}`
           ];
           
           tryDeepLinks(messengerDeepLinks);
@@ -188,7 +231,7 @@ const FloatingActionButton = ({
           ${!isOpen ? 'animate-bounce' : ''}
         `}
       >
-        <Image src={buttonIcon} alt={buttonAlt} width={32} height={32} />
+        <Image src='/images/message.svg' alt='Message' width={32} height={32} />
       </motion.button>
 
       <AnimatePresence>
@@ -200,7 +243,7 @@ const FloatingActionButton = ({
             transition={{ duration: 0.3 }}
             className="absolute bottom-16 right-0 flex flex-col gap-3 mb-4 max-w-full"
           >
-            {menuItems.map((item, index) => (
+            {webInformation && socialMenuItems.map((item: any, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

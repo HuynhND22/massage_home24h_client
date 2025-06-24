@@ -261,6 +261,13 @@
               "answer": "Chúng tôi khuyến khích bạn đến trước giờ hẹn khoảng 15-20 phút để hoàn tất thủ tục đăng ký và thư giãn trước khi bắt đầu dịch vụ."
             }
           }
+      },
+      "detail": {
+        "title": "Thông tin dịch vụ",
+        "description": "Chi tiết dịch vụ {name}",
+        "price": "Giá",
+        "duration": "Thời gian",
+        "description": "Mô tả dịch vụ {name}"
       }
     },
     "massage": {

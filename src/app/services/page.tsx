@@ -359,7 +359,7 @@ export default function ServicesPage() {
                             <span className="text-sm bg-secondary py-1 px-3 rounded-full">
                               {translation.name}
                             </span>
-                            <Link href={`/services/${service.id}`} className="text-primary font-medium hover:text-accent transition-colors">
+                            <Link href={`/services/${service.slug}`} className="text-primary font-medium hover:text-accent transition-colors">
                               {t('common.buttons.viewDetails')}
                             </Link>
                           </div>

@@ -1,12 +1,21 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from '../../i18n/I18nProvider';
+import api from '@/services/api';
 
 export default function ContactPage() {
   const { t } = useTranslation();
-  
+  const [webInformation, setWebInformation] = useState<any>();
+
+  useEffect(() => {
+    const fetchWebInformation = async () => {
+      const response = await api.get('/web-settings')
+      setWebInformation(response)
+    }
+    fetchWebInformation()
+  }, [])
 
   return (
     <main>
@@ -47,7 +56,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">{t('contact.address')}</h3>
-                    <p className="text-gray-600">{t('contact.addressValue')}</p>
+                    <p className="text-gray-600">{webInformation?.address}</p>
                   </div>
                 </div>
                 
@@ -59,7 +68,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">{t('contact.phone')}</h3>
-                    <p className="text-gray-600">{t('contact.phoneValue')}</p>
+                    <p className="text-gray-600">+84 {webInformation?.phone}</p>
                   </div>
                 </div>
                 
@@ -71,7 +80,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">{t('contact.email')}</h3>
-                    <p className="text-gray-600">{t('contact.emailValue')}</p>
+                    <p className="text-gray-600">{webInformation?.email}</p>
                   </div>
                 </div>
                 
@@ -83,7 +92,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium mb-1">{t('contact.workingHours')}</h3>
-                    <p className="text-gray-600">{t('contact.workingHoursValue')}</p>
+                    <p className="text-gray-600">{webInformation?.workingHours}</p>
                   </div>
                 </div>
               </div>

@@ -125,6 +125,11 @@
             "answer": "We recommend arriving 15-20 minutes before your appointment to complete registration procedures and relax before your service begins."
           }
         }
+      },
+      "detail": {
+        "title": "Service Information",
+        "price": "Price",
+        "duration": "Duration"
       }
     },
     "massage": {
