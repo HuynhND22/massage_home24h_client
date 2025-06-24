@@ -265,7 +265,9 @@
       "detail": {
         "title": "服务信息",
         "price": "价格",
-        "duration": "时长"
+        "duration": "时长",
+        "ready_to_experience": "准备好体验了吗？",
+        "book_today_description": "现在预约，体验我们的高端SPA服务"
       }
     },
     "massage": {

@@ -161,12 +161,12 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
       {/* CTA Section */}
       <section className="bg-primary text-light py-16">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold mb-6">{t('service.ready_to_experience')}</h2>
+          <h2 className="text-3xl font-bold mb-6">{t('services.page.detail.ready_to_experience')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            {t('service.book_today_description')}
+            {t('services.page.detail.book_today_description')}
           </p>
           <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
-            {t('service.book_now')}
+            {t('common.buttons.bookNow')}
           </Link>
         </div>
       </section>

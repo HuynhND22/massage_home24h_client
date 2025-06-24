@@ -129,7 +129,9 @@
       "detail": {
         "title": "Service Information",
         "price": "Price",
-        "duration": "Duration"
+        "duration": "Duration",
+        "ready_to_experience": "Ready to Experience?",
+        "book_today_description": "Book now to experience our premium spa services"
       }
     },
     "massage": {

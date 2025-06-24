@@ -23,9 +23,8 @@ const Footer = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const response = await api.get('/categories?type=service')
-      console.log(response)
-      setCategories(response)
+      const response = await api.get('categories?type=service')
+      setCategories(response.data)
     }
     fetchCategories()
   }, [])
@@ -93,22 +92,19 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="text-xl font-semibold mb-4 pb-2 border-b border-primary/30">{t('footer.services.title')}</h3>
+            
+            
             <ul className="space-y-3">
-              <li>
-                <Link href="/services/massage" className="hover:text-primary transition-colors">{t('footer.services.massage')}</Link>
-              </li>
-              <li>
-                <Link href="/services/facial" className="hover:text-primary transition-colors">{t('footer.services.facial')}</Link>
-              </li>
-              <li>
-                <Link href="/services/body-treatments" className="hover:text-primary transition-colors">{t('footer.services.bodyTreatments')}</Link>
-              </li>
-              <li>
-                <Link href="/services/aromatherapy" className="hover:text-primary transition-colors">{t('footer.services.aromatherapy')}</Link>
-              </li>
-              {/* <li>
-                <Link href="/services/hot-stone" className="hover:text-primary transition-colors">{t('footer.services.hotStone')}</Link>
-              </li> */}
+
+              { categories && categories?.map((category: any) => {
+                const currentLang = localStorage.getItem('preferredLanguage') || 'vi';
+                const translation = category.translations?.find((t: { language: string }) => t.language === currentLang) || category.translations?.[0];
+                return (
+                  <li key={category.id}>
+                    <Link href={`/services?category=${category.id}`} className="hover:text-primary transition-colors">{translation.name}</Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           

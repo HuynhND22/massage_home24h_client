@@ -179,10 +179,12 @@ export default function Home() {
     const categoryServices = services.filter((service:any) => service.categoryId === category.id);
     const slides = categoryServices.map((service:any) => ({
       translations: service.translations || category.translations,
+      slug: service.slug,
       url: service.coverImage || category.coverImage || '/default-image.jpg'
     }));
     return {
       id: category.id,
+      slug: category.slug,
       translations: category.translations,
       content: <Carousel slider={slides} />
     }

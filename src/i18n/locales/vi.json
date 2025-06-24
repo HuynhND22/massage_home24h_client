@@ -267,7 +267,8 @@
         "description": "Chi tiết dịch vụ {name}",
         "price": "Giá",
         "duration": "Thời gian",
-        "description": "Mô tả dịch vụ {name}"
+        "ready_to_experience": "Sẵn sàng trả nghiệm?",
+        "book_today_description": "Đặt lịch ngay hôm nay để trải nghiệm dịch vụ spa cao cấp của chúng tôi"
       }
     },
     "massage": {

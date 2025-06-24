@@ -60,7 +60,7 @@ const Carousel = ({ slider }: CarouselProps) => {
                         <div>
                             <p className='title'>{translation?.name}</p>
                             <p>{translation?.description}</p>
-                            <a href={`${data.url}`} target="_blank" className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>{t('common.buttons.viewDetails')}</a>
+                            <a href={`/services/${data.slug}`}  className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>{t('common.buttons.viewDetails')}</a>
                         </div>
                     </SwiperSlide>
                 )
