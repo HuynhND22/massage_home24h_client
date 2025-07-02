@@ -28,43 +28,43 @@ const FloatingActionButton = () => {
   }, []);
 
   const socialMenuItems: MenuItem[] = [
-    {
+    webInformation?.kakaotalk && {
       icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
       label: 'KakaoTalk',
       deepLink: 'kakaoplus://plusfriend/home/'+webInformation?.kakaotalk,
       webLink: 'https://open.kakao.com/o/'+webInformation?.kakaotalk
     },
-    {
+    webInformation?.line && {
       icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
       label: 'Line',
       deepLink: 'line://ti/p/'+webInformation?.line,
       webLink: 'https://line.me/R/ti/p/'+webInformation?.line
     },
-    {
+    webInformation?.telegram && {
       icon: <Image src="/images/telegram.svg" alt="Telegram" width={32} height={32} />,
       label: 'Telegram',
       deepLink: 'tg://resolve?domain='+webInformation?.telegram,
       webLink: 'https://t.me/'+webInformation?.telegram
     },
-    {
+    webInformation?.wechat && {
       icon: <Image src="/images/wechat.svg" alt="WeChat" width={32} height={32} />,
       label: 'WeChat',
       deepLink: 'weixin://dl/chat?username='+webInformation?.wechat,
       webLink: 'https://wechat.com/'+webInformation?.wechat
     },
-    {
+    webInformation?.zalo && {
       icon: <Image src="/images/zalo.svg" alt="Zalo" width={32} height={32} />,
       label: 'Zalo',
       deepLink: 'zalo://chat?tel='+webInformation?.zalo,
       webLink: 'https://zalo.me/'+webInformation?.zalo
     },
-    {
+    webInformation?.messenger && {
       icon: <Image src="/images/messenger.svg" alt="Messenger" width={32} height={32} />,
       label: 'Messenger',
       deepLink: 'fb-messenger://user-thread/'+webInformation?.messenger,
       webLink: 'https://www.facebook.com/messages/t/'+webInformation?.messenger
     },
-    {
+    webInformation?.phone && {
       icon: <Image src="/images/phone.svg" alt="Phone" width={32} height={32} />,
       label: 'Phone',
       deepLink: 'tel:+84'+webInformation?.phone,

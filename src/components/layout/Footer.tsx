@@ -119,11 +119,13 @@ const Footer = () => {
                 <h3 className='text-xl font-semibold'>{t('footer.contact.address.title')}</h3>
                 <p>{webInformation?.address}</p>
               </div>
+              { webInformation?.phone &&
               <div className='flex flex-col gap-2'>
                 <h3 className='text-xl font-semibold'>{t('footer.contact.info.title')}</h3>
                 <p>{t('footer.contact.info.phone')}: <a href={'tel:' + webInformation?.phone}>+84 {webInformation?.phone}</a></p>
                 <p>{t('footer.contact.info.email')}: <a href={'mailto:' + webInformation?.email}>{webInformation?.email}</a></p>
               </div>
+              }
             </div>
           </div>
         </div>
