@@ -27,50 +27,63 @@ const FloatingActionButton = () => {
     fetchMenus()
   }, []);
 
-  const socialMenuItems: MenuItem[] = [
-    webInformation?.kakaotalk && {
+  const socialMenuItems: MenuItem[] = [];
+  if (webInformation?.kakaotalk) {
+    socialMenuItems.push({
       icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
       label: 'KakaoTalk',
-      deepLink: 'kakaoplus://plusfriend/home/'+webInformation?.kakaotalk,
-      webLink: 'https://open.kakao.com/o/'+webInformation?.kakaotalk
-    },
-    webInformation?.line && {
+      deepLink: 'kakaoplus://plusfriend/home/' + webInformation.kakaotalk,
+      webLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk
+    });
+  }
+  if (webInformation?.line) {
+    socialMenuItems.push({
       icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
       label: 'Line',
-      deepLink: 'line://ti/p/'+webInformation?.line,
-      webLink: 'https://line.me/R/ti/p/'+webInformation?.line
-    },
-    webInformation?.telegram && {
+      deepLink: 'line://ti/p/' + webInformation.line,
+      webLink: 'https://line.me/R/ti/p/' + webInformation.line
+    });
+  }
+  if (webInformation?.telegram) {
+    socialMenuItems.push({
       icon: <Image src="/images/telegram.svg" alt="Telegram" width={32} height={32} />,
       label: 'Telegram',
-      deepLink: 'tg://resolve?domain='+webInformation?.telegram,
-      webLink: 'https://t.me/'+webInformation?.telegram
-    },
-    webInformation?.wechat && {
+      deepLink: 'tg://resolve?domain=' + webInformation.telegram,
+      webLink: 'https://t.me/' + webInformation.telegram
+    });
+  }
+  if (webInformation?.wechat) {
+    socialMenuItems.push({
       icon: <Image src="/images/wechat.svg" alt="WeChat" width={32} height={32} />,
       label: 'WeChat',
-      deepLink: 'weixin://dl/chat?username='+webInformation?.wechat,
-      webLink: 'https://wechat.com/'+webInformation?.wechat
-    },
-    webInformation?.zalo && {
+      deepLink: 'weixin://dl/chat?username=' + webInformation.wechat,
+      webLink: 'https://wechat.com/' + webInformation.wechat
+    });
+  }
+  if (webInformation?.zalo) {
+    socialMenuItems.push({
       icon: <Image src="/images/zalo.svg" alt="Zalo" width={32} height={32} />,
       label: 'Zalo',
-      deepLink: 'zalo://chat?tel='+webInformation?.zalo,
-      webLink: 'https://zalo.me/'+webInformation?.zalo
-    },
-    webInformation?.messenger && {
+      deepLink: 'zalo://chat?tel=' + webInformation.zalo,
+      webLink: 'https://zalo.me/' + webInformation.zalo
+    });
+  }
+  if (webInformation?.messenger) {
+    socialMenuItems.push({
       icon: <Image src="/images/messenger.svg" alt="Messenger" width={32} height={32} />,
       label: 'Messenger',
-      deepLink: 'fb-messenger://user-thread/'+webInformation?.messenger,
-      webLink: 'https://www.facebook.com/messages/t/'+webInformation?.messenger
-    },
-    webInformation?.phone && {
+      deepLink: 'fb-messenger://user-thread/' + webInformation.messenger,
+      webLink: 'https://www.facebook.com/messages/t/' + webInformation.messenger
+    });
+  }
+  if (webInformation?.phone) {
+    socialMenuItems.push({
       icon: <Image src="/images/phone.svg" alt="Phone" width={32} height={32} />,
       label: 'Phone',
-      deepLink: 'tel:+84'+webInformation?.phone,
-      webLink: 'tel:+84'+webInformation?.phone
-    }
-  ];
+      deepLink: 'tel:+84' + webInformation.phone,
+      webLink: 'tel:+84' + webInformation.phone
+    });
+  }
   
 
   const isMobile = (): boolean =>
