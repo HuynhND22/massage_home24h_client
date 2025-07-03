@@ -15,7 +15,7 @@ export interface MenuItem {
 
 
 const FloatingActionButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [webInformation, setWebInformation] = useState<any>();
 
 
@@ -82,6 +82,22 @@ const FloatingActionButton = () => {
       label: 'Phone',
       deepLink: 'tel:+84' + webInformation.phone,
       webLink: 'tel:+84' + webInformation.phone
+    });
+  }
+  if (webInformation?.whatsapp) {
+    socialMenuItems.push({
+      icon: <Image src="/images/whatsapp.svg" alt="WhatsApp" width={32} height={32} />,
+      label: 'WhatsApp',
+      deepLink: 'whatsapp://send?phone=' + webInformation.whatsapp,
+      webLink: 'https://wa.me/' + webInformation.whatsapp
+    });
+  }
+  if (webInformation?.instagram) {
+    socialMenuItems.push({
+      icon: <Image src="/images/instagram.svg" alt="Instagram" width={32} height={32} />,
+      label: 'Instagram',
+      deepLink: 'instagram://user?username=' + webInformation.instagram,
+      webLink: 'https://instagram.com/' + webInformation.instagram
     });
   }
   
