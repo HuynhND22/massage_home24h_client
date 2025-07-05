@@ -32,7 +32,7 @@ const FloatingActionButton = () => {
     socialMenuItems.push({
       icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
       label: 'KakaoTalk',
-      deepLink: 'kakaoplus://plusfriend/home/' + webInformation.kakaotalk,
+      deepLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk,
       webLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk
     });
   }
