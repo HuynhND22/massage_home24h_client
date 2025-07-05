@@ -32,7 +32,7 @@ const FloatingActionButton = () => {
     socialMenuItems.push({
       icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
       label: 'KakaoTalk',
-      deepLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk,
+      deepLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk,
       webLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk
     });
   }
@@ -56,8 +56,8 @@ const FloatingActionButton = () => {
     socialMenuItems.push({
       icon: <Image src="/images/wechat.svg" alt="WeChat" width={32} height={32} />,
       label: 'WeChat',
-      deepLink: 'weixin://dl/chat?username=' + webInformation.wechat,
-      webLink: 'https://wechat.com/' + webInformation.wechat
+      deepLink: 'https://u.wechat.com/' + webInformation.wechat,
+      webLink: 'https://u.wechat.com/' + webInformation.wechat
     });
   }
   if (webInformation?.zalo) {
