@@ -32,8 +32,8 @@ const FloatingActionButton = () => {
     socialMenuItems.push({
       icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
       label: 'KakaoTalk',
-      deepLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk,
-      webLink: 'https://open.kakao.com/o/' + webInformation.kakaotalk
+      deepLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk,
+      webLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk
     });
   }
   if (webInformation?.line) {
@@ -89,7 +89,7 @@ const FloatingActionButton = () => {
       icon: <Image src="/images/whatsapp.svg" alt="WhatsApp" width={32} height={32} />,
       label: 'WhatsApp',
       deepLink: 'whatsapp://send?phone=' + webInformation.whatsapp,
-      webLink: 'https://wa.me/' + webInformation.whatsapp
+      webLink: 'https://web.whatsapp.com/send?phone=' + webInformation.whatsapp
     });
   }
   if (webInformation?.instagram) {
