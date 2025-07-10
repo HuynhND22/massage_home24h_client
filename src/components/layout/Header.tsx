@@ -89,17 +89,7 @@ const Header = () => {
           </nav>
 
           {/* CTA Button and Language Switcher */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link 
-              href="/contact" 
-              className={`btn ${
-                isScrolled 
-                  ? 'btn-primary' 
-                  : 'bg-transparent border border-light text-light hover:bg-light/20'
-              }`}
-            >
-              {t('common.buttons.bookNow')}
-            </Link>
+          <div className="hidden md:flex items-center">
             <LanguageSwitcher />
           </div>
 
@@ -173,15 +163,6 @@ const Header = () => {
                     </ul>
 
                     {/* CTA button */}
-                    <Link 
-                      href="/contact" 
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="bg-white text-primary py-3 px-4 sm:px-6 rounded text-center font-semibold mt-8 w-full max-w-xs mx-auto block shadow-lg hover:bg-white/90 transition-all duration-300"
-                    >
-                      {t('common.buttons.bookNow')}
-                    </Link>
-
-                    {/* Contact info */}
                     <div className="mt-8 text-white/90 text-center">
                       <Link 
                         href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}

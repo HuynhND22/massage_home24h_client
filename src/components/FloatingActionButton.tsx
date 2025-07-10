@@ -37,12 +37,15 @@ const FloatingActionButton = () => {
     });
   }
   if (webInformation?.line) {
-    socialMenuItems.push({
-      icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
-      label: 'Line',
-      deepLink: 'line://ti/p/' + webInformation.line,
-      webLink: 'https://line.me/R/ti/p/' + webInformation.line
-    });
+    // Validate Line ID format
+    if (webInformation?.line) {
+      socialMenuItems.push({
+        icon: <Image src="/images/line.svg" alt="Line" width={32} height={32} />,
+        label: 'Line',
+        deepLink: 'line://ti/p/' + webInformation.line,
+        webLink: 'https://line.me/R/ti/p/' + webInformation.line
+      });
+    }
   }
   if (webInformation?.telegram) {
     socialMenuItems.push({
@@ -175,15 +178,18 @@ const FloatingActionButton = () => {
         }
         
         case 'Line': {
-          // Lấy ID từ deepLink
-          
           // Thử nhiều định dạng khác nhau cho Line deeplink
           const lineDeepLinks = [
             item.deepLink,
             `line://ti/p/@${webInformation?.line}`,
-            `line://nv/profilePopup/mid/${webInformation?.line}`
+            `line://nv/profilePopup/mid/${webInformation?.line}`,
+            `line://ch/${webInformation?.line}`,
+            `https://line.me/ti/p/@${webInformation?.line}`,
+            `https://line.me/R/ti/p/${webInformation?.line}`
           ];
           
+          // Thêm timeout dài hơn cho Line vì có thể mất thời gian để mở app
+          setTimeout(openWebLink, 3500);
           tryDeepLinks(lineDeepLinks);
           break;
         }
