@@ -28,14 +28,6 @@ const FloatingActionButton = () => {
   }, []);
 
   const socialMenuItems: MenuItem[] = [];
-  if (webInformation?.kakaotalk) {
-    socialMenuItems.push({
-      icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
-      label: 'KakaoTalk',
-      deepLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk,
-      webLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk
-    });
-  }
   if (webInformation?.line) {
     // Validate Line ID format
     if (webInformation?.line) {
@@ -61,6 +53,14 @@ const FloatingActionButton = () => {
       label: 'WeChat',
       deepLink: 'https://u.wechat.com/' + webInformation.wechat,
       webLink: 'https://u.wechat.com/' + webInformation.wechat
+    });
+  }
+  if (webInformation?.kakaotalk) {
+    socialMenuItems.push({
+      icon: <Image src="/images/kakaotalk.svg" alt="KakaoTalk" width={32} height={32} />,
+      label: 'KakaoTalk',
+      deepLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk,
+      webLink: 'https://qr.kakao.com/talk/' + webInformation.kakaotalk
     });
   }
   if (webInformation?.zalo) {
