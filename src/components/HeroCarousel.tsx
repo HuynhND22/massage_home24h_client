@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaMapMarkerAlt, FaPhone, FaRegClock } from "react-icons/fa";
 import Link from 'next/link';
 import { useTranslation } from '@/i18n/I18nProvider';
-
+import api from '@/services/api';
 
 
 type HeroCarouselProps = {
@@ -16,6 +16,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
   const { t } = useTranslation();
+  const [webInformation, setWebInformation] = useState<any>();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -24,6 +25,18 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
     }, interval);
     return () => clearInterval(timer);
   }, [current, slides.length, interval]);
+
+  useEffect(() => {
+    const fetchWebInformation = async () => {
+      try {
+        const response = await api.get('/web-settings');
+        setWebInformation(response);
+      } catch (error) {
+        // Có thể xử lý lỗi ở đây nếu muốn
+      }
+    };
+    fetchWebInformation();
+  }, []);
 
   //check if current is which language in localstorage is active, select language i18n 
   const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
@@ -139,17 +152,20 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
         >
           <div className="flex items-center gap-2">
             <FaMapMarkerAlt className="text-primary" />
-            <span>{t('contact.info.addressValue')}</span>
+            <span>{webInformation?.address || t('contact.info.addressValue')}</span>
           </div>
           <div className="flex items-center gap-2">
             <FaPhone className="text-primary" />
-            <a href="tel:+849999333444" className="hover:text-primary transition-colors text-white">
-              +84 9999 333 444
+            <a
+              href={webInformation?.phone ? `tel:+84${webInformation.phone}` : 'tel:+849999333444'}
+              className="hover:text-primary transition-colors text-white"
+            >
+              {webInformation?.phone ? `+84 ${webInformation.phone}` : '+84 9999 333 444'}
             </a>
           </div>
           <div className="flex items-center gap-2">
             <FaRegClock className="text-primary" />
-            <span>10:00 AM - 12:00 AM</span>
+            <span>{webInformation?.workingHours || '10:00 AM - 12:00 AM'}</span>
           </div>
         </motion.div>
 
