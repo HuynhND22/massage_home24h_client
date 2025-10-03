@@ -32,6 +32,7 @@ const I18nContext = createContext<I18nContextType>({
 interface I18nProviderProps {
   children: ReactNode;
   defaultLocale?: LanguageCode;
+  initialLocale?: LanguageCode; // locale from URL params
 }
 
 // Hàm lấy locale khởi tạo từ localStorage nếu có
@@ -47,9 +48,15 @@ const getInitialLocale = (defaultLocale: LanguageCode): LanguageCode => {
 
 export const I18nProvider = ({ 
   children, 
-  defaultLocale = 'vi' 
+  defaultLocale = 'vi',
+  initialLocale,
 }: I18nProviderProps) => {
-  const [locale, setLocale] = useState<LanguageCode>(() => getInitialLocale(defaultLocale));
+  const [locale, setLocale] = useState<LanguageCode>(() => {
+    if (initialLocale && Object.keys(languages).includes(initialLocale)) {
+      return initialLocale as LanguageCode;
+    }
+    return getInitialLocale(defaultLocale);
+  });
   const [translations, setTranslations] = useState<Record<string, any>>({});
   const [dynamicTranslations, setDynamicTranslations] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState(true);

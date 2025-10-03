@@ -1,10 +1,13 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslation } from '@/i18n/I18nProvider';
 import { BlogPost } from '../../services/blog.service';
 
 // Hàm này sẽ được thay thế bằng API call thực tế trong môi trường production
-async function getBlogPosts() {
+function getBlogPosts() {
   // Dữ liệu mẫu
   return [
     {
@@ -91,7 +94,7 @@ async function getBlogPosts() {
 }
 
 // Hàm này sẽ được thay thế bằng API call thực tế để lấy danh mục blog
-async function getBlogCategories() {
+function getBlogCategories() {
   return [
     { id: 1, name: 'Wellness' },
     { id: 2, name: 'Skincare' },
@@ -101,10 +104,12 @@ async function getBlogCategories() {
   ];
 }
 
-export default async function BlogPage() {
-  const posts = await getBlogPosts();
-  const categories = await getBlogCategories();
-  
+export default function BlogPage() {
+  const posts = getBlogPosts();
+  const categories = getBlogCategories();
+  const { locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+
   return (
     <main>
       {/* Hero Section */}
@@ -156,14 +161,14 @@ export default async function BlogPage() {
                         })}</span>
                       </div>
                       <h3 className="text-xl font-semibold mb-3">
-                        <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
+                        <Link href={withLocale(`/blog/${post.slug}`)} className="hover:text-primary transition-colors">
                           {post.translations[0].title}
                         </Link>
                       </h3>
                       <p className="text-gray-600 mb-4 flex-grow">
                         {post.translations[0].excerpt}
                       </p>
-                      <Link href={`/blog/${post.slug}`} className="text-primary font-medium hover:text-accent transition-colors inline-flex items-center">
+                      <Link href={withLocale(`/blog/${post.slug}`)} className="text-primary font-medium hover:text-accent transition-colors inline-flex items-center">
                         Đọc thêm
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -219,7 +224,7 @@ export default async function BlogPage() {
                 <ul className="space-y-2">
                   {categories.map((category) => (
                     <li key={category.id}>
-                      <Link href={`/blog?category=${category.id}`} className="flex items-center justify-between hover:text-primary transition-colors">
+                      <Link href={withLocale(`/blog?category=${category.id}`)} className="flex items-center justify-between hover:text-primary transition-colors">
                         <span>{category.name}</span>
                         <span className="bg-secondary text-sm py-1 px-2 rounded-full">4</span>
                       </Link>
@@ -244,7 +249,7 @@ export default async function BlogPage() {
                       </div>
                       <div>
                         <h4 className="font-medium hover:text-primary transition-colors">
-                          <Link href={`/blog/${post.slug}`}>
+                          <Link href={withLocale(`/blog/${post.slug}`)}>
                             {post.translations[0].title}
                           </Link>
                         </h4>
@@ -265,25 +270,25 @@ export default async function BlogPage() {
               <div className="bg-light p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-semibold mb-4">Tags</h3>
                 <div className="flex flex-wrap gap-2">
-                  <Link href="/blog?tag=wellness" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=wellness')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Wellness
                   </Link>
-                  <Link href="/blog?tag=skincare" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=skincare')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Skincare
                   </Link>
-                  <Link href="/blog?tag=massage" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=massage')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Massage
                   </Link>
-                  <Link href="/blog?tag=aromatherapy" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=aromatherapy')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Aromatherapy
                   </Link>
-                  <Link href="/blog?tag=health" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=health')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Health
                   </Link>
-                  <Link href="/blog?tag=beauty" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=beauty')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Beauty
                   </Link>
-                  <Link href="/blog?tag=lifestyle" className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
+                  <Link href={withLocale('/blog?tag=lifestyle')} className="px-3 py-1 bg-secondary rounded-full text-sm hover:bg-primary hover:text-white transition-colors">
                     Lifestyle
                   </Link>
                 </div>

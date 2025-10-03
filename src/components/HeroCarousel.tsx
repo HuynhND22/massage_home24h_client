@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FaMapMarkerAlt, FaPhone, FaRegClock } from "react-icons/fa";
@@ -8,23 +8,27 @@ import api from '@/services/api';
 
 
 type HeroCarouselProps = {
-  slides: any;
+  slides: any[];
   interval?: number;
 };
 
 export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [webInformation, setWebInformation] = useState<any>();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+
+  const safeSlides = useMemo(() => (Array.isArray(slides) ? slides.filter(Boolean) : []), [slides]);
 
   useEffect(() => {
+    if (safeSlides.length <= 1) return;
     const timer = setInterval(() => {
-      setPrev(current);
-      setCurrent((prev) => (prev + 1) % slides.length);
+      setPrev((p) => (p === null ? 0 : (p + 1) % safeSlides.length));
+      setCurrent((prevIndex) => (prevIndex + 1) % safeSlides.length);
     }, interval);
     return () => clearInterval(timer);
-  }, [current, slides.length, interval]);
+  }, [safeSlides.length, interval]);
 
   useEffect(() => {
     const fetchWebInformation = async () => {
@@ -38,10 +42,16 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
     fetchWebInformation();
   }, []);
 
-  //check if current is which language in localstorage is active, select language i18n 
-  const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
-  const currentSlide = slides[current];
-  const translation = currentSlide.translations.find((t: any) => t.language === currentLang) || currentSlide.translations[0];
+  // Determine language preference using URL-driven locale (better for SEO)
+  const currentLang = locale || 'vi';
+  if (!safeSlides.length) {
+    return null; // nothing to render safely
+  }
+  const currentIndex = Math.min(Math.max(current, 0), safeSlides.length - 1);
+  const currentSlide = safeSlides[currentIndex] || {} as any;
+  const translation = currentSlide?.translations?.find((t: any) => t.language === currentLang)
+    || currentSlide?.translations?.[0]
+    || { title: currentSlide?.title || '', description: currentSlide?.description || '' };
   
   return (
     <section className="relative h-[100vh] md:h-[100vh] sm:min-h-[max-content] overflow-hidden">
@@ -57,8 +67,8 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
               className="absolute inset-0"
             >
               <Image
-                src={slides[prev].image}
-                alt={slides[prev].image}
+                src={safeSlides[prev].image || safeSlides[prev].url || '/images/about-hero.jpg'}
+                alt={(safeSlides[prev].image || safeSlides[prev].url || 'slide') as string}
                 fill
                 priority
                 className="object-cover w-full h-full"
@@ -75,8 +85,8 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
             className="absolute inset-0"
           >
             <Image
-              src={slides[current].image}
-              alt={slides[current].image}
+              src={safeSlides[currentIndex].image || safeSlides[currentIndex].url || '/images/about-hero.jpg'}
+              alt={(safeSlides[currentIndex].image || safeSlides[currentIndex].url || 'slide') as string}
               fill
               priority
               className="object-cover w-full h-full"
@@ -121,7 +131,7 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
             className="flex flex-col sm:flex-row w-full max-w-md mx-auto sm:px-0 "
           >
             <Link 
-              href="/contact" 
+              href={withLocale('/contact')} 
               className="bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg py-3 px-8 shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto text-center group relative overflow-hidden"
             >
               <span className="relative z-10 text-base">{t('common.buttons.bookNow')}</span>
@@ -171,12 +181,12 @@ export default function HeroCarousel({ slides, interval = 5000 }: HeroCarouselPr
 
         {/* Pagination */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
-          {slides.map((_:any, index:any) => (
+          {safeSlides.map((_:any, index:number) => (
             <button
               key={index}
               onClick={() => {
                 if (index !== current) {
-                  setPrev(current);
+                  setPrev(currentIndex);
                   setCurrent(index);
                 }
               }}

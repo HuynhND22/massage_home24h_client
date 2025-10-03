@@ -12,7 +12,10 @@ type CarouselProps = {
 }
 
 const Carousel = ({ slider }: CarouselProps) => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+  const items = Array.isArray(slider) ? slider.filter(Boolean) : [];
+  if (!items.length) return null;
   return (
     <div className='carousel'>
         <Swiper 
@@ -52,19 +55,24 @@ const Carousel = ({ slider }: CarouselProps) => {
         
         >
             {
-                slider.map((data:any, index:number) => {
-                    const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
-                    const translation = data.translations.find((t:any) => t.language === currentLang) || data.translations[0];
-                    return (
-                    <SwiperSlide key={index} style={{ backgroundImage: `url(${data.url})` }} className="myswiper-slider">
-                        <div>
-                            <p className='title'>{translation?.name}</p>
-                            <p>{translation?.description}</p>
-                            <a href={`/services/${data.slug}`}  className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>{t('common.buttons.viewDetails')}</a>
-                        </div>
-                    </SwiperSlide>
+              items.map((data:any, index:number) => {
+                const translation = data?.translations?.find((t:any) => t.language === locale) || data?.translations?.[0] || null;
+                const title = translation?.name || data?.title || '';
+                const description = translation?.description || data?.description || '';
+                const bgUrl = data?.url || data?.image || data?.coverImage || '/images/about-hero.jpg';
+                const href = data?.slug ? withLocale(`/services/${data.slug}`) : '#services';
+                return (
+                  <SwiperSlide key={index} style={{ backgroundImage: `url(${bgUrl})` }} className="myswiper-slider">
+                    <div>
+                      <p className='title'>{title}</p>
+                      <p>{description}</p>
+                      <a href={href} className='slider-btn text-light bg-primary hover:bg-primary/80 transition-colors duration-300'>
+                        {t('common.buttons.viewDetails')}
+                      </a>
+                    </div>
+                  </SwiperSlide>
                 )
-            })
+              })
             }
         </Swiper>
 

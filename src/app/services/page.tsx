@@ -133,7 +133,8 @@ async function getServices() {
 
 // Đổi thành client component để sử dụng hooks
 export default function ServicesPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
   const [services, setServices] = React.useState<any[]>([]);
   const [categories, setCategories] = React.useState<any[]>([]);
   const [loading, setLoading] = React.useState(true);
@@ -359,7 +360,7 @@ export default function ServicesPage() {
                             <span className="text-sm bg-secondary py-1 px-3 rounded-full">
                               {translation.name}
                             </span>
-                            <Link href={`/services/${service.slug}`} className="text-primary font-medium hover:text-accent transition-colors">
+                            <Link href={withLocale(`/services/${service.slug}`)} className="text-primary font-medium hover:text-accent transition-colors">
                               {t('common.buttons.viewDetails')}
                             </Link>
                           </div>
@@ -387,10 +388,10 @@ export default function ServicesPage() {
                 {t('services.page.giftCard.details')}
               </p>
               <div className="flex space-x-4">
-                <Link href="/contact" className="btn btn-primary">
+                <Link href={withLocale('/contact')} className="btn btn-primary">
                   {t('services.page.giftCard.buyButton')}
                 </Link>
-                <Link href="/contact" className="btn btn-secondary">
+                <Link href={withLocale('/contact')} className="btn btn-secondary">
                   {t('services.page.giftCard.learnMoreButton')}
                 </Link>
               </div>
@@ -465,7 +466,7 @@ export default function ServicesPage() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             {t('services.page.cta.description')}
           </p>
-          <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
+          <Link href={withLocale('/contact')} className="btn bg-light text-primary hover:bg-dark hover:text-light">
             {t('common.buttons.bookNow')}
           </Link>
         </div>

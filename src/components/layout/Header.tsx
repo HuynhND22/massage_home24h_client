@@ -4,18 +4,25 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { FaFacebookF, FaInstagram, FaPhone } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from '@/i18n/I18nProvider';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
-const Header = () => {
+type HeaderProps = {
+  navHome?: string;
+  navAbout?: string;
+  navServices?: string;
+  navContact?: string;
+};
+
+const Header = ({ navHome, navAbout, navServices, navContact }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   
-  const { t } = useTranslation();
-  
+  const { t, locale } = useTranslation();
+
   // Contact info
   const contactInfo = {
     phone: "+84 796 672 339",
@@ -38,11 +45,12 @@ const Header = () => {
     };
   }, []);
 
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
   const navLinks = [
-    { name: t('common.nav.home'), href: '/' },
-    { name: t('common.nav.about'), href: '/about' },
-    { name: t('common.nav.services'), href: '/services' },
-    { name: t('common.nav.contact'), href: '/contact' },
+    { name: navHome ?? t('common.nav.home'), href: withLocale('/') },
+    { name: navAbout ?? t('common.nav.about'), href: withLocale('/about') },
+    { name: navServices ?? t('common.nav.services'), href: withLocale('/services') },
+    { name: navContact ?? t('common.nav.contact'), href: withLocale('/contact') },
   ];
 
   return (
@@ -57,7 +65,7 @@ const Header = () => {
       >
         <div className="container mx-auto flex items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="relative z-10 flex items-center text-xl font-bold font-garamond text-primary transition-colors duration-300 hover:text-primary">
+          <Link href={withLocale('/')} className="relative z-10 flex items-center text-xl font-bold font-garamond text-primary transition-colors duration-300 hover:text-primary">
             <div className="relative h-12 w-32 sm:h-14 sm:w-36 md:h-16 md:w-40 transition-all duration-300">
               <Image 
                 src={isScrolled ? "/images/logo-dark.png" : "/images/logo-light.png"}

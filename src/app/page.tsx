@@ -1,204 +1,61 @@
-"use client";
+import RootLocaleRedirect from '@/components/RootLocaleRedirect';
 
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import '@fontsource/eb-garamond';
-import HeroCarousel from '@/components/HeroCarousel';
-import Carousel from '@/components/Carousel';
-import FullScreenSpinner from '@/components/FullScreenSpinner';
-import {
-  IntroSection,
-  FeaturedPricingSection,
-  ServicesSection,
-  TestimonialsSection,
-  CTASection,
-} from '@/components/sections/home';
-import { useTranslation } from '@/i18n/I18nProvider';
-import api from '@/services/api';
-
-export default function Home() {
-  const { t } = useTranslation();
-
-  const [services, setServices] = useState<any>();
-  const [categories, setCategories] = useState([]);
-  const [slides, setSlides] = useState([{translations: [{language: 'vi', name: 'test', description: 'test'}]}]);
-  const [webSettings, setWebSettings] = useState({});
-  const [loading, setLoading] = useState(true);
-  const [isFirstVisit, setIsFirstVisit] = useState(true);
-
-  useEffect(() => {
-    // Kiểm tra xem đã từng truy cập chưa
-    const hasVisited = localStorage.getItem('home_visited');
-    setIsFirstVisit(!hasVisited);
-
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false,
-    });
-
-    const fetchData = async () => {
-      try {
-        const [servicesRes, slidesRes, categoriesRes, settingsRes]:any = await Promise.allSettled([
-          api.get('/services') as any,
-          api.get('/slides') as any,
-          api.get('/categories', { params: { type: 'service' } }) as any,
-          api.get('/web-settings') as any,
-        ]);
-
-        setServices(servicesRes.value.data);
-        setSlides(slidesRes.value.data);
-        setCategories(categoriesRes.value.data);
-        setWebSettings(settingsRes.value.data);
-
-        // Nếu là lần đầu truy cập, lưu vào localStorage
-        if (!hasVisited) {
-          localStorage.setItem('home_visited', 'true');
-        }
-      } catch (err) {
-        console.error("Failed to fetch data:", err);
-      } finally {
-        // Nếu là lần đầu truy cập, hiển thị loading lâu hơn
-        if (!hasVisited) {
-          setTimeout(() => {
-            setLoading(false);
-          }, 1000);
-        } else {
-          // Nếu không phải lần đầu, tắt loading ngay khi có data
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (loading) return <FullScreenSpinner />;
-
-
-  const miSlide = [
-    {
-      title: t('home.services.eyelash.service1.title'),
-      description: t('home.services.eyelash.service1.description'),
-      url: "/images/miVolume.jpg"
-    },
-    {
-      title: t('home.services.eyelash.service2.title'),
-      description: t('home.services.eyelash.service2.description'),
-      url: "/images/miClassic.jpg"
-    },
-    {
-      title: t('home.services.eyelash.service2.title'),
-      description: t('home.services.eyelash.service2.description'),
-      url: "/images/miLongTho.jpg"
-    }
-  ];
-
-  const nailSlide = [
-    {
-      title: t('home.services.nail.service1.title'),
-      description: t('home.services.nail.service1.description'),
-      url: "/images/veNail.jpg"
-    },
-    {
-      title: t('home.services.nail.service2.title'),
-      description: t('home.services.nail.service2.description'),
-      url: "/images/dapGel.webp"
-    },
-    {
-      title: t('home.services.nail.service3.title'),
-      description: t('home.services.nail.service3.description'),
-      url: "/images/dapBot.jpg"
-    },
-    {
-      title: t('home.services.nail.service4.title'),
-      description: t('home.services.nail.service4.description'),
-      url: "/images/designNail.png"
-    },
-    {
-      title: t('home.services.nail.service4.title'),
-      description: t('home.services.nail.service5.description'),
-      url: "/images/sonMong.png"
-    },
-  ];
-
-  const massageSlide = [
-    {
-      title: t('home.services.massage.service1.title'),
-      description: t('home.services.massage.service1.description'),
-      url: "/images/home-background.jpeg"
-    },
-    {
-      title: t('home.services.massage.service2.title'),
-      description: t('home.services.massage.service2.description'),
-      url: "/images/testimage.jpg"
-    },
-    {
-      title: t('home.services.massage.service3.title'),
-      description: t('home.services.massage.service3.description'),
-      url: "/images/about-spa-new.jpg"
-    },
-    {
-      title: t('home.services.massage.service4.title'),
-      description: t('home.services.massage.service4.description'),
-      url: "/images/about-hero.jpg"
-    },
-    {
-      title: t('home.services.massage.service5.title'),
-      description: t('home.services.massage.service5.description'),
-      url: "/images/about-mission.jpg"
-    },
-    {
-      title: t('home.services.massage.service6.title'),
-      description: t('home.services.massage.service6.description'),
-      url: "/images/about-spa-new.jpg"
-    }
-  ];
-
-  const tab = [
-    {
-      id: 'nail',
-      name: t('home.tabs.nail'),
-      content: <Carousel slider={nailSlide} />
-    },
-    {
-      id: 'massage',
-      name: t('home.tabs.massage'),
-      content: <Carousel slider={massageSlide} />
-    },
-    {
-      id: 'mi',
-      name: t('home.tabs.eyelash'),
-      content: <Carousel slider={miSlide} />
-    },
-  ];
-
-  const tabs = categories.map((category:any) => {
-    const categoryServices = services.filter((service:any) => service.categoryId === category.id);
-    const slides = categoryServices.map((service:any) => ({
-      translations: service.translations || category.translations,
-      slug: service.slug,
-      url: service.coverImage || category.coverImage || '/default-image.jpg'
-    }));
-    return {
-      id: category.id,
-      slug: category.slug,
-      translations: category.translations,
-      content: <Carousel slider={slides} />
-    }
-  }) || tab;
+// Render Vietnamese homepage at root for SEO, wrapped with the localized layout to include Header/Footer.
+export default async function Root() {
+  const Layout = (await import('@/app/[locale]/layout')).default as any;
+  const Page = (await import('@/app/[locale]/page')).default as any;
+  const params = { locale: 'vi' } as const;
 
   return (
-    <main>
-      {slides && <HeroCarousel slides={slides} />}
-      <IntroSection />
-      {/* Kiểm tra categories tồn tại trước khi truyền vào */}
-      {categories.length > 0 && <FeaturedPricingSection tabs={tabs} />}
-      {categories && <ServicesSection services={categories} />}
-      <TestimonialsSection />
-      <CTASection />
-    </main>
+    <Layout params={params}>
+      {/* Optional client redirect to non-vi if user stored preference exists */}
+      <RootLocaleRedirect />
+      <Page params={params} />
+    </Layout>
   );
+}
+
+export async function generateMetadata() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://massagehome24h.com';
+  const locale = 'vi';
+  let messages: any = {};
+  try {
+    const mod = await import('@/i18n/locales/vi.json');
+    messages = mod.default || mod;
+  } catch {}
+  const get = (obj: any, path: string, fallback = '') =>
+    path.split('.').reduce((acc: any, key: string) => (acc && acc[key] != null ? acc[key] : undefined), obj) ?? fallback;
+
+  const title = get(messages, 'home.meta.title', `${get(messages, 'home.intro.title', 'Chào mừng đến với')} Home24h`);
+  const description = get(messages, 'home.meta.description', get(messages, 'home.intro.paragraph1', ''));
+  const languages = {
+    vi: `${baseUrl}/vi`,
+    en: `${baseUrl}/en`,
+    ko: `${baseUrl}/ko`,
+    zh: `${baseUrl}/zh`,
+  } as const;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${baseUrl}/`,
+      languages,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `${baseUrl}/`,
+      type: 'website',
+      siteName: 'Massage Home24h',
+      images: [`${baseUrl}/images/og-home.jpg`],
+      locale: 'vi_VN',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`${baseUrl}/images/og-home.jpg`],
+    },
+  };
 }

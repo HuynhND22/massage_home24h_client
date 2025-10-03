@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { useTranslation } from '../../i18n/I18nProvider';
 
 export default function AboutPage() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
   const yearsOfExperience = new Date().getFullYear() - 2019;
   return (
     <main>
@@ -289,7 +290,7 @@ export default function AboutPage() {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             {t('about.cta.description')}
           </p>
-          <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
+          <Link href={withLocale('/contact')} className="btn bg-light text-primary hover:bg-dark hover:text-light">
             {t('about.cta.button')}
           </Link>
         </div>

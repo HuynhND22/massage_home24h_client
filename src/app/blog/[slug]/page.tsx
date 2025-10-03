@@ -1,7 +1,10 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '../../../services/blog.service';
+import { useTranslation } from '@/i18n/I18nProvider';
 
 // Hàm này sẽ được thay thế bằng API call thực tế trong môi trường production
 async function getPostBySlug(slug: string): Promise<BlogPost> {
@@ -32,7 +35,7 @@ async function getPostBySlug(slug: string): Promise<BlogPost> {
           <p>Massage giúp cải thiện tuần hoàn máu bằng cách tạo áp lực lên các mô cơ thể. Điều này giúp đưa máu giàu oxy đến các tế bào, tăng cường sức khỏe tổng thể và thúc đẩy quá trình chữa lành.</p>
           
           <h3>Giảm đau và cải thiện tính linh hoạt</h3>
-          <p>Massage thường xuyên có thể giúp giảm đau cơ và khớp bằng cách giảm viêm và thư giãn các cơ căng thẳng. Điều này đặc biệt hữu ích cho những người bị đau mãn tính hoặc các vận động viên muốn cải thiện hiệu suất.</p>
+          <p>Massage thường xuyên có thể giúp giảm đau cơ và khớp bằng cách giảm viêm và thư giãn các cơ căng thẳng. Điều này đặc biệt hữ ích cho những người bị đau mãn tính hoặc các vận động viên muốn cải thiện hiệu suất.</p>
           
           <h3>Nâng cao chất lượng giấc ngủ</h3>
           <p>Nhiều người gặp khó khăn với giấc ngủ đã báo cáo cải thiện đáng kể sau khi bắt đầu massage thường xuyên. Massage giúp thư giãn hệ thần kinh, giảm căng thẳng và chuẩn bị cơ thể cho một giấc ngủ sâu và hồi phục.</p>
@@ -97,18 +100,24 @@ async function getRelatedPosts(): Promise<BlogPost[]> {
   ];
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = await getPostBySlug(params.slug);
-  const relatedPosts = await getRelatedPosts();
-  
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const { locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
+  const [post, setPost] = React.useState<BlogPost | null>(null);
+  const [relatedPosts, setRelatedPosts] = React.useState<BlogPost[]>([]);
+  React.useEffect(() => {
+    getPostBySlug(params.slug).then(setPost);
+    getRelatedPosts().then(setRelatedPosts);
+  }, [params.slug]);
+
   return (
     <main>
       {/* Hero Section */}
       <section className="relative h-[40vh] md:h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={post.featuredImage}
-            alt={post.translations[0].title}
+            src={post?.featuredImage || '/images/blog-hero.jpg'}
+            alt={post?.translations?.[0]?.title || 'Blog'}
             fill
             className="object-cover"
           />
@@ -118,15 +127,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="max-w-3xl mx-auto">
             <div className="mb-4 flex items-center justify-center gap-4 text-sm">
               <span className="bg-primary/80 py-1 px-3 rounded-full">
-                {post.category?.name}
+                {post?.category?.name}
               </span>
-              <span>{new Date(post.createdAt).toLocaleDateString('vi-VN', { 
+              <span>{new Date(post?.createdAt ?? Date.now()).toLocaleDateString('vi-VN', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.translations[0].title}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{post?.translations?.[0]?.title || ''}</h1>
           </div>
         </div>
       </section>
@@ -138,7 +147,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             {/* Main Content */}
             <div className="lg:w-2/3">
               <article className="bg-light p-8 rounded-lg shadow-md">
-                <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.translations[0].content }}></div>
+                {post && (
+                  <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.translations[0].content }}></div>
+                )}
                 
                 {/* Share Buttons */}
                 <div className="mt-10 pt-6 border-t border-border">
@@ -203,7 +214,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                       </div>
                       <div>
                         <h4 className="font-medium hover:text-primary transition-colors">
-                          <Link href={`/blog/${relatedPost.slug}`}>
+                          <Link href={withLocale(`/blog/${relatedPost.slug}`)}>
                             {relatedPost.translations[0].title}
                           </Link>
                         </h4>
@@ -231,7 +242,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Đặt lịch hẹn ngay hôm nay và khám phá các dịch vụ spa đẳng cấp của chúng tôi
           </p>
-          <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
+          <Link href={withLocale('/contact')} className="btn bg-light text-primary hover:bg-dark hover:text-light">
             Đặt lịch ngay
           </Link>
         </div>

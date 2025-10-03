@@ -3,13 +3,11 @@ import React, { useState } from "react";
 
 type Tab = {
   id: string;
-  translations: [
-    {
-      id: string;
-      language: string;
-      name: string;
-    }
-  ];
+  translations: {
+    id: string;
+    language: string;
+    name: string;
+  }[];
   content: React.ReactNode;
 };
 
@@ -19,7 +17,7 @@ interface TabsProps {
 
 export default function Tabs({ tabs }: TabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   
   return (
     <div className="w-full">
@@ -27,8 +25,7 @@ export default function Tabs({ tabs }: TabsProps) {
       <div className="flex justify-center mb-6 px-2">
         <div className="flex flex-wrap justify-center sm:inline-flex p-1 rounded-lg bg-gray-100 w-full max-w-[100%] overflow-x-auto sm:overflow-visible">
           {tabs.map((tab, index) => {
-            const currentLang = typeof window !== 'undefined' ? localStorage.getItem('preferredLanguage') || 'vi' : 'vi';
-            const translation = tab.translations.find((t) => t.language === currentLang) || tab.translations[0];
+            const translation = tab.translations.find((t) => t.language === locale) || tab.translations[0];
             return (
               <button
                 key={tab.id}

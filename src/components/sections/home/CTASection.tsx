@@ -6,7 +6,15 @@ import { motion } from 'framer-motion';
 import { FaPhone } from 'react-icons/fa';
 import { useTranslation } from '@/i18n/I18nProvider';
 
-const CTASection = () => {
+type CTAProps = {
+  titleText?: string;
+  descriptionText?: string;
+  learnMoreText?: string;
+  callNowText?: string;
+  contactHref?: string;
+};
+
+const CTASection = ({ titleText, descriptionText, learnMoreText, callNowText, contactHref = '/contact' }: CTAProps) => {
   const { t } = useTranslation();
   
   return (
@@ -25,9 +33,9 @@ const CTASection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('home.cta.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{titleText ?? t('home.cta.title')}</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            {t('home.cta.description')}
+            {descriptionText ?? t('home.cta.description')}
           </p>
         </motion.div>
         
@@ -39,20 +47,20 @@ const CTASection = () => {
           className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-md mx-auto px-4 sm:px-0"
         >
           <Link 
-            href="/contact" 
+            href={contactHref} 
             className="btn bg-light text-primary hover:bg-accent hover:text-light hover:scale-105 transition-all duration-300 py-4 px-6 font-medium rounded-lg shadow-lg flex items-center justify-center gap-2 group"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>{t('common.buttons.learnMore')}</span>
+            <span>{learnMoreText ?? t('common.buttons.learnMore')}</span>
           </Link>
           <Link 
             href="tel:+842122279488" 
             className="btn bg-transparent border-2 border-light text-light hover:bg-light/20 hover:scale-105 transition-all duration-300 py-4 px-6 font-medium rounded-lg shadow-lg flex items-center justify-center gap-2 group"
           >
             <FaPhone className="text-sm group-hover:rotate-12 transition-transform duration-300" />
-            <span>{t('common.buttons.callNow')}</span>
+            <span>{callNowText ?? t('common.buttons.callNow')}</span>
           </Link>
         </motion.div>
       </div>

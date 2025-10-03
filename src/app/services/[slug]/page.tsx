@@ -13,12 +13,12 @@ import FullScreenSpinner from '@/components/FullScreenSpinner';
 const LoadingState = () => <FullScreenSpinner />;
 
 // Component error
-const ErrorState = ({ error }: { error: string }) => (
+const ErrorState = ({ error, href }: { error: string; href: string }) => (
   <div className="min-h-screen flex items-center justify-center">
     <div className="text-center">
       <h2 className="text-2xl font-bold text-red-600 mb-4">Đã có lỗi xảy ra</h2>
       <p className="text-gray-600">{error}</p>
-      <Link href="/services" className="mt-4 inline-block text-primary hover:underline">
+      <Link href={href} className="mt-4 inline-block text-primary hover:underline">
         Quay lại trang dịch vụ
       </Link>
     </div>
@@ -27,6 +27,7 @@ const ErrorState = ({ error }: { error: string }) => (
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const { t, locale } = useTranslation();
+  const withLocale = (path: string) => `/${locale}${path === '/' ? '' : path}`;
   const [serviceData, setServiceData] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +79,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
 
 
   if (isLoading) return <LoadingState />;
-  if (error) return <ErrorState error={error} />;
+  if (error) return <ErrorState error={error} href={withLocale('/services')} />;
   if (!serviceData || !translatedContent) return notFound();
 
   return (
@@ -144,7 +145,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                   
                   <div className="pt-6">
                     <Link 
-                      href="/contact" 
+                      href={withLocale('/contact')} 
                       className="block w-full bg-primary text-white py-3 px-4 rounded-md text-center font-medium hover:bg-accent transition-colors duration-300"
                     >
                       {t('common.buttons.bookNow')}
@@ -165,7 +166,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             {t('services.page.detail.book_today_description')}
           </p>
-          <Link href="/contact" className="btn bg-light text-primary hover:bg-dark hover:text-light">
+          <Link href={withLocale('/contact')} className="btn bg-light text-primary hover:bg-dark hover:text-light">
             {t('common.buttons.bookNow')}
           </Link>
         </div>
